@@ -1,19 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\CollaboratorEquipment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TicketController;
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PetitionController;
 use App\Http\Controllers\EquipmentController;
-use App\Http\Controllers\AuthorizerController;
 use App\Http\Controllers\EnterpriseController;
 use App\Http\Controllers\CollaboratorController;
-use App\Http\Controllers\CollaboratorEquipmentController;
-use App\Models\Equipment;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +46,7 @@ Route::get('petition/{petition}', [PetitionController::class,'showPetition']); /
 Route::resource('user', UserController::class);
 
 //Rutas para ver los proyectos
-Route::get('project/index',[ProjectController::class,'show']); //Mostrar todos los proyectos activos
+Route::resource('projects', ProjectController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
 
 //Rutas para las empresas
 Route::resource('enterprise', EnterpriseController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion

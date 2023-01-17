@@ -34,7 +34,6 @@ class EquipmentController extends Controller
         $equipment->serie           = $request->serie;
         $equipment->mac_ethernet    = $request->mac_ethernet;
         $equipment->mac_wifi        = $request->mac_wifi;
-        $equipment->propietario     = $request->propietario;
         $equipment->collaborator_id = $request->collaborator_id;
 
         $equipment->save();

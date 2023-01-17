@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
+
 class ProjectController extends Controller
 {
     public function show(){
         $projects = Project::all();
-        return view('projects.home', compact('projects'));
+        return view('projects/index', compact('projects'));
     }
 
     public function register()

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rol;
 use App\Models\User;
-use App\Models\Account;
-use App\Models\Service;
 use App\Models\Petition;
 use App\Models\Equipment;
-use App\Models\Authorizer;
 use App\Models\Enterprise;
 use App\Models\Collaborator;
 use Illuminate\Http\Request;

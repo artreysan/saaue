@@ -462,7 +462,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver todos',
-                    'url'  => 'project/index',
+                    'url'  => 'projects/index',
                     'icon' => 'far fa-eye',
                 ],
             ],

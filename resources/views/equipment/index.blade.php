@@ -11,8 +11,8 @@
     <div class="row">
         <div class="col-md-1 p-4"></div>
         <div class="col-md-9 p-4">
-            <h4><strong>Equipos de computo</strong></h4>
-            <h6>Ciudad de México a <?php echo date('j-m-Y'); ?> </h6>
+            <h5><strong>Equipos de computo</strong></h5>
+            <h5>Ciudad de México a <?php echo date('j-m-Y'); ?> </h5>
         </div>
         <div class="col-md-2 p-3">
             <img class="imagen-header" src="{{ URL::asset('img/download.png') }}" alt="">

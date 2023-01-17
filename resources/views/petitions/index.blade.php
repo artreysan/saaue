@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-1 p-4"></div>
             <div class="col-md-9 p-4">
-                <h3><strong>Todas las solicitudes pendientes:</strong></h3>
+                <h5><strong>Todas las solicitudes pendientes:</strong></h5>
                 <h5>Ciudad de México a <?php echo date('j-m-Y'); ?> </h5>
             </div>
             <div class="col-md-2 p-3">
