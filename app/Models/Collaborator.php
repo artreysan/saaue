@@ -12,9 +12,9 @@ class Collaborator extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nombre',
-        'apellido_paterno',
-        'apellido_materno',
+        'name',
+        'last_name',
+        'last_maternal',
         'email',
         'nodo',
         'internet',

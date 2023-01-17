@@ -66,7 +66,9 @@ return new class extends Migration
                 ->on('users');
 
             $table->unsignedBigInteger('equipment_id')->nullable();
-            $table->foreign('equipment_id')->references('id')->on('equipment');
+            $table->foreign('equipment_id')
+                ->references('id')
+                ->on('equipment');
 
             $table->unsignedBigInteger('collaborator_id');
             $table->foreign('collaborator_id')

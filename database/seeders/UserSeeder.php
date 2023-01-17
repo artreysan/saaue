@@ -22,8 +22,8 @@ class UserSeeder extends Seeder
             'apellido_materno' => 'Hernández',
             'email' => 'milton.quiroz@mail.com',
             'password' => Hash::make('qwe123...'),
-            'rol_id' => '1',
-            'location_id' => '1',
+            'rol_id' => '9',
+            'location_id' => '4',
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);
@@ -34,8 +34,8 @@ class UserSeeder extends Seeder
             'apellido_materno' => 'Santana',
             'email' => 'arturo.reyes@mail.com',
             'password' => Hash::make('qwe123...'),
-            'rol_id' => '1',
-            'location_id' => '1',
+            'rol_id' => '9',
+            'location_id' => '4',
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);
@@ -45,10 +45,10 @@ class UserSeeder extends Seeder
             'name' => 'Ing. Mario César',
             'apellido_paterno' => 'Herrera',
             'apellido_materno' => 'González',
-            'email' => 'mario.cesars@sct.gob.mx',
+            'email' => 'mario.cesar@sct.gob.mx',
             'password' => Hash::make('Mchg2212$$$'),
-            'rol_id' => '1',
-            'location_id' => '1',
+            'rol_id' => '12',
+            'location_id' => '4',
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);
@@ -59,8 +59,8 @@ class UserSeeder extends Seeder
             'apellido_materno' => 'Zaragoza',
             'email' => 'antonio.rulfo@sct.gob.mx',
             'password' => Hash::make('Jarz0117%&$'),
-            'rol_id' => '1',
-            'location_id' => '1',
+            'rol_id' => '13',
+            'location_id' => '4',
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);
@@ -71,8 +71,8 @@ class UserSeeder extends Seeder
             'apellido_materno' => 'Vargas',
             'email' => 'edna.patricia@sct.gob.mx',
             'password' => Hash::make('Epsv0117%&$'),
-            'rol_id' => '1',
-            'location_id' => '1',
+            'rol_id' => '20',
+            'location_id' => '4',
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);
@@ -83,8 +83,8 @@ class UserSeeder extends Seeder
             'apellido_materno' => 'Ramírez',
             'email' => 'iracema.miron@sct.gob.mx',
             'password' => Hash::make('Imr0117%&$'),
-            'rol_id' => '1',
-            'location_id' => '1',
+            'rol_id' => '21',
+            'location_id' => '4',
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);

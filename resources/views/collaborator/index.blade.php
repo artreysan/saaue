@@ -37,8 +37,8 @@
             @foreach ($collaborators as $collaborator)
                 <tbody>
                     <td>{{ $collaborator->id }}</td>
-                    <td>{{ $collaborator->nombre }}</td>
-                    <td>{{ $collaborator->apellido_paterno }} {{ $collaborator->apellido_materno }} </td>
+                    <td>{{ $collaborator->name }}</td>
+                    <td>{{ $collaborator->last_name }} {{ $collaborator->last_maternal }} </td>
                     <td>{{ $collaborator->rol->rol }} </td>
                     <td>{{ $collaborator->enterprise->name }} </td>
                     <td><a href="/collaborator/{{$collaborator->id}}" alt="Perfil" ><button class=" fas fa-address-card"></button></a></td>

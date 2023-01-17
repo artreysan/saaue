@@ -39,8 +39,8 @@
                         </div>
                         <div class="col-md-7">
                             <div>
-                                <h6>{{ $collaborator->nombre }} {{ $collaborator->apellido_paterno }}
-                                    {{ $collaborator->apellido_materno }}</h6>
+                                <h6>{{ $collaborator->name }} {{ $collaborator->last_name }}
+                                    {{ $collaborator->last_maternal }}</h6>
                             </div>
                         </div>
                     </div>

@@ -36,9 +36,9 @@ class CollaboratorController extends Controller
 
         $collaborator = new Collaborator();
 
-        $collaborator->nombre             = $request->nombre;
-        $collaborator->apellido_paterno   = $request->apellido_paterno;
-        $collaborator->apellido_materno   = $request->apellido_materno;
+        $collaborator->name               = $request->name;
+        $collaborator->last_name          = $request->last_name;
+        $collaborator->last_maternal      = $request->last_maternal;
         $collaborator->email              = $request->email;
 
         $collaborator->rol_id             = $request->rol_id;
