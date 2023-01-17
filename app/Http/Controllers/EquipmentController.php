@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\View;
 use App\Http\Controllers\Controller;
 use App\Models\Collaborator;
+use App\Models\Enterprise;
 use Illuminate\Support\Facades\Redirect;
 
 class EquipmentController extends Controller
@@ -19,8 +20,10 @@ class EquipmentController extends Controller
 
     public function create(){
 
+        $collaborators = Collaborator::all();
+        $enterprises = Enterprise::all();
         $equipment = new Equipment();
-        return view('equipment/create');
+        return view('equipment/create', compact('enterprises','collaborators'));
     }
 
 
@@ -34,13 +37,15 @@ class EquipmentController extends Controller
         $equipment->serie           = $request->serie;
         $equipment->mac_ethernet    = $request->mac_ethernet;
         $equipment->mac_wifi        = $request->mac_wifi;
+        $equipment->enterprise_id   = $request->enterprise_id;
         $equipment->collaborator_id = $request->collaborator_id;
 
         $equipment->save();
 
+        $enterprises = Enterprise::all();
         $equipments = Equipment::all();
 
-        return view('equipment/index', compact('equipments'));
+        return view('equipment/index', compact('equipments','enterprises'));
     }
 
     public function update(Request $request, $id)

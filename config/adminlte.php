@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'SAUE',
-    'title_prefix' => 'SAUE',
-    'title_postfix' => 'SAUE',
+    'title' => 'SAAUE',
+    'title_prefix' => 'SAAUE',
+    'title_postfix' => 'SAAUE',
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b></b>SAUE',
+    'logo' => '<b></b>SAAUE',
     'logo_img' => 'vendor/adminlte/dist/img/logoSAUE.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
