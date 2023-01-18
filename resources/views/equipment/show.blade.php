@@ -36,7 +36,7 @@
                                     <h6>{{ 'No está asignado' }}<h6>
                                 @else
                                     <div>
-                                        <h6><strong>Pertenece a:</strong> {{ $equipment->collaborator->nombre }} {{ $equipment->collaborator->apellido_paterno }} {{ $equipment->collaborator->apellido_materno }}</h6>
+                                        <h6><strong>Pertenece a:</strong> {{ $equipment->collaborator->name }} {{ $equipment->collaborator->last_name }} {{ $equipment->collaborator->last_maternal }}</h6>
                                     </div>
                                     <div>
                                         <h6><strong>Numero de serie:</strong> {{ $equipment->serie }} </h6>

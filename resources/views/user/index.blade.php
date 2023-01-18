@@ -39,7 +39,7 @@
                 <tbody>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->apellido_paterno }} {{ $user->apellido_materno }}</td>
+                    <td>{{ $user->last_name }} {{ $user->last_maternal }}</td>
                     <td>{{ $user->role->name}}</td>
                     <td>{{ $user->enterprise->name }}</td>
                     <td><a href="/user/{{$user->id}}" alt="Perfil" ><button class=" 	fas fa-address-card"></button></a></td>

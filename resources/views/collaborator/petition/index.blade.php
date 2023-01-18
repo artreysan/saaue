@@ -37,8 +37,8 @@
                 <tbody>
                     <td class="col-md-1">{{ $petition->fileID }}</td>
                     <td class="col-md-1">{{ $petition->created_at }}</td>
-                    <td class="col-md-">{{ $petition->collaborator->nombre }}
-                        {{ $petition->collaborator->apellido_paterno }} {{ $petition->collaborator->apellido_materno }}</td>
+                    <td class="col-md-">{{ $petition->collaborator->name }}
+                        {{ $petition->collaborator->apellido_paterno }} {{ $petition->collaborator->last_name }}</td>
                     <td class="col-md-3">{{ $petition->collaborator->enterprise->name}}</td>
                     <td>
                         <?php

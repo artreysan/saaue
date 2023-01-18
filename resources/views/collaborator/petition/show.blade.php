@@ -49,8 +49,8 @@
                             </div>
                             <div class="col-md-3">
                                 <input id="collaborator_id" name="collaborator_id" type="hidden"
-                                    value="{{ $collaborator->id }}">{{ $collaborator->nombre }}
-                                {{ $collaborator->apellido_paterno }} {{ $collaborator->apellido_materno }}
+                                    value="{{ $collaborator->id }}">{{ $collaborator->name }}
+                                {{ $collaborator->last_name }} {{ $collaborator->last_name }}
                             </div>
                         </div>
                         <br>
@@ -63,7 +63,7 @@
                             <div class="col-md-3">
                                 <input id="user_id" name="user_id" type="hidden"
                                     value="{{ Auth::user()->id }}">{{ Auth::user()->name }}
-                                {{ Auth::user()->apellido_paterno }} {{ Auth::user()->apellido_materno }}
+                                {{ Auth::user()->last_maternal }} {{ Auth::user()->last_maternal }}
                             </div>
                         </div>
                         <br>

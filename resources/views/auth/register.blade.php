@@ -21,21 +21,21 @@
 
             {{-- Apellido Paterno --}}
             <div>
-                <x-input-label for="apellido_paterno" :value="__('Apellido Paterno')" />
+                <x-input-label for="last_name" :value="__('Apellido Paterno')" />
 
-                <x-text-input id="apellido_paterno" class="block mt-1 w-full" type="text" name="apellido_paterno" :value="old('apellido_paterno')" required autofocus />
+                <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus />
 
-                <x-input-error :messages="$errors->get('apellido_paterno')" class="mt-2" />
+                <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
             </div>
             <br>
 
             {{-- Apellido Materno --}}
             <div>
-                <x-input-label for="apellido_materno" :value="__('Apellido Materno')" />
+                <x-input-label for="last_maternal" :value="__('Apellido Materno')" />
 
-                <x-text-input id="apellido_materno" class="block mt-1 w-full" type="text" name="apellido_materno" :value="old('apellido_materno')" required autofocus />
+                <x-text-input id="last_maternal" class="block mt-1 w-full" type="text" name="last_maternal" :value="old('last_maternal')" required autofocus />
 
-                <x-input-error :messages="$errors->get('apellido_materno')" class="mt-2" />
+                <x-input-error :messages="$errors->get('last_maternal')" class="mt-2" />
             </div>
 
             <!-- Email Address -->

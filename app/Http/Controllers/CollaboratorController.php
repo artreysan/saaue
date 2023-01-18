@@ -90,7 +90,6 @@ class CollaboratorController extends Controller
         $collaborator->account_jira   = $request->account_jira;
         $collaborator->account_da     = $request->account_da;
 
-        $collaborator->equipment_id  = $request->equipment_id;
 
         $collaborator->save();
 

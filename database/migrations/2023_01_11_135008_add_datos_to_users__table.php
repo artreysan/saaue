@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('apellido_paterno');
-            $table->string('apellido_materno')->nullable();
+            $table->string('last_name');
+            $table->string('last_maternal')->nullable();
             $table->unsignedBigInteger('rol_id')->nullable();
             $table->foreign('rol_id')->references('id')->on('rols');
 

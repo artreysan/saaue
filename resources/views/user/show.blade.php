@@ -27,94 +27,72 @@
     <br>
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
-                    <div class="card">
+                <div class="col-md-7">
                         <div class="card-header card-header-primary bg-secondary">
                             <div class="card-title">{{ $user->role->name}}</div>
                         </div>
                         <div class="card-body table-bordered">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5><strong>Nombre completo del Usuario:</strong></h5>
-                                            </p>
+                                <div class="col-md-2">
+                                    <div>
+                                        <h6><strong>Nombre:</strong></h6>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5>{{$user->name}} {{$user->apellido_paterno}} {{$user->apellido_materno}}</h5>
-                                        </p>
+                                <div class="col-md-5">
+                                    <div>
+                                        <h6>{{$user->name}} {{$user->last_name}} {{$user->last_maternal}}</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5><strong>Empresa:</strong></h5>
-                                            </p>
+                                <div class="col-md-2">
+                                    <div>
+                                        <h6><strong>Empresa:</strong></h6>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5>{{$user->enterprise->name}}</h5>
-                                        </p>
+                                <div class="col-md-9">
+                                    <div>
+                                        <h6>{{$user->enterprise->name}}</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5><strong>Puesto:</strong></h5>
-                                            </p>
+                                <div class="col-md-2">
+                                    <div>
+                                        <h6><strong>Puesto:</strong></h6>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5>{{$user->rol->rol}}</h5>
-                                        </p>
+                                <div class="col-md-5">
+                                    <div>
+                                        <h6>{{$user->rol->rol}}</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5><strong>Ubicacion:</strong></h5>
-                                            </p>
+                                <div class="col-md-2">
+                                    <div>
+                                        <h6><strong>Ubicacion:</strong></h6>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5>{{$user->location->ubicacion}}</h5>
-                                        </p>
+                                <div class="col-md-5">
+                                    <div>
+                                        <h6>{{$user->location->ubicacion}}</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5><strong>Email:</strong></h5>
-                                            </p>
+                                <div class="col-md-2">
+                                    <div>
+                                        <h6><strong>Email:</strong></h6>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <h5>{{$user->email}}</h5>
-                                        </p>
+                                <div class="col-md-5">
+                                    <div>
+                                        <h6>{{$user->email}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

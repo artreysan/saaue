@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Milton Arturo',
-            'apellido_paterno' => 'Quiroz',
-            'apellido_materno' => 'Hernández',
+            'last_name' => 'Quiroz',
+            'last_maternal' => 'Hernández',
             'email' => 'milton.quiroz@mail.com',
             'password' => Hash::make('qwe123...'),
             'rol_id' => '9',
@@ -30,8 +30,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Arturo',
-            'apellido_paterno' => 'Reyes',
-            'apellido_materno' => 'Santana',
+            'last_name' => 'Reyes',
+            'last_maternal' => 'Santana',
             'email' => 'arturo.reyes@mail.com',
             'password' => Hash::make('qwe123...'),
             'rol_id' => '9',
@@ -43,8 +43,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Ing. Mario César',
-            'apellido_paterno' => 'Herrera',
-            'apellido_materno' => 'González',
+            'last_name' => 'Herrera',
+            'last_maternal' => 'González',
             'email' => 'mario.cesar@sct.gob.mx',
             'password' => Hash::make('Mchg2212$$$'),
             'rol_id' => '12',
@@ -55,8 +55,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Ing. José Antonio',
-            'apellido_paterno' => 'Rulfo',
-            'apellido_materno' => 'Zaragoza',
+            'last_name' => 'Rulfo',
+            'last_maternal' => 'Zaragoza',
             'email' => 'antonio.rulfo@sct.gob.mx',
             'password' => Hash::make('Jarz0117%&$'),
             'rol_id' => '13',
@@ -67,8 +67,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Mtra. Edna. Patricia',
-            'apellido_paterno' => 'Santiago',
-            'apellido_materno' => 'Vargas',
+            'last_name' => 'Santiago',
+            'last_maternal' => 'Vargas',
             'email' => 'edna.patricia@sct.gob.mx',
             'password' => Hash::make('Epsv0117%&$'),
             'rol_id' => '20',
@@ -79,8 +79,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Ing. Iracema',
-            'apellido_paterno' => 'Mirón',
-            'apellido_materno' => 'Ramírez',
+            'last_name' => 'Mirón',
+            'last_maternal' => 'Ramírez',
             'email' => 'iracema.miron@sct.gob.mx',
             'password' => Hash::make('Imr0117%&$'),
             'rol_id' => '21',
