@@ -33,6 +33,19 @@ class PetitionController extends Controller
         return view('collaborator/petition/create', compact('collaborator','enterprise','equipment'));
     }
 
+    public function generatePDF($petition)
+    {
+        $path = storage_path('pdf/');
+        $user = Collaborator::find($petition->user_id);
+        $collaborator = Collaborator::find($petition->collaborator_id);
+        $enterprise = Enterprise::find($collaborator->enterprise_id);
+        //$location = Location::find($user->location_id);
+        $pdf_name = $petition->fileID . '_sau.pdf';
+        $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator','enterprise'));
+        $pdf->save($path . '/' . $pdf_name);
+        $pdf->setPaper('a4');
+        return $pdf->stream($pdf_name);
+    }
 
 
     public function store (Request $request)
@@ -82,6 +95,7 @@ class PetitionController extends Controller
         $petition->startTime         = time();
         $petition->fileID            = auth()->user()->id.$petition->startTime;
 
+        $this->generatePDF($petition);
 
         $petition->save();
 

@@ -70,7 +70,7 @@ class CollaboratorController extends Controller
     {
         $collaborator  = Collaborator::find($id);
         $petitions     = Petition::where('collaborator_id', $id)->get(['id','fileID', 'created_at','status']);
-        $equipments     = Equipment::where('collaborator_id', $id)->get(['id', 'tipo', 'marca', 'modelo','serie', 'collaborator_id']);
+        $equipments    = Equipment::where('collaborator_id', $id)->get(['id', 'tipo', 'marca', 'modelo','serie', 'collaborator_id']);
 
         return view('collaborator/show', compact('collaborator', 'petitions','equipments'));
     }

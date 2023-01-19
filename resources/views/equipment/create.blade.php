@@ -99,7 +99,7 @@
                         <div class="col-sm-5">
                             <select name="collaborator_id" id="collaborator_id" required>
                                 @foreach ( $collaborators as $collaborator)
-                                    <option value="{{$collaborator->id}}" id="collaborator_id">{{$collaborator->nombre}} {{$collaborator->apellido_paterno}} {{$collaborator->apellido_materno}}</option>
+                                    <option value="{{$collaborator->id}}" id="collaborator_id">{{$collaborator->name}} {{$collaborator->last_name}} {{$collaborator->last_maternal}}</option>
                                 @endforeach
                             </select>
                         </div>

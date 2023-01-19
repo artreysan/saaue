@@ -23,7 +23,7 @@ class EquipmentController extends Controller
         $collaborators = Collaborator::all();
         $enterprises = Enterprise::all();
         $equipment = new Equipment();
-        return view('equipment/create', compact('enterprises','collaborators'));
+        return view('equipment/create', compact('enterprises', 'collaborators'));
     }
 
 
