@@ -217,27 +217,7 @@
             <br>
             <br>
             <div class="p-5">
-                <table class="table bordered background-color shadow" id="equipments">
-                    <thead class="table-secondary">
-                        <th>Id</th>
-                        <th>Tipo</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Serie</th>
-                        <th>Ver</th>
-                    </thead>
-                    @foreach ($equipments as $equipment)
-                        <tbody>
-                            <td>{{ $equipment->id }}</td>
-                            <td>{{ $equipment->tipo }}</td>
-                            <td>{{ $equipment->marca }}</td>
-                            <td>{{ $equipment->modelo }}</td>
-                            <td>{{ $equipment->serie }}</td>
-                            <td><a href="equipment/{{ $equipment->id }}" alt="equipment"><button
-                                        class="fas fa-address-card"></button></a></td>
-                        </tbody>
-                    @endforeach
-                </table>
+                <p>Aqui va a ir una tabla de los equipos asignados al colaborador</p>
             </div>
             <br>
             <br>

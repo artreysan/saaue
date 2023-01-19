@@ -26,15 +26,18 @@
                     </div>
                 </div>
                 <div class="card-body table-bordered shadow">
-                    <div>
-                        <h4><strong>Solicitud:
-                                <?php
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4><strong>Solicitud: </strong></h4>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
                                 switch ($petition->status) {
                                     case 0:
-                                        echo '<div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>';
+                                        echo '<div class="fas fa-circle pendiente"><strong>  Pendiente  </strong></div>';
                                         break;
                                     case 1:
-                                        echo '<div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>';
+                                        echo '<div class=" fas fa-circle en-proceso "><strong>  En proceso  </strong></div>';
                                         break;
                                     case 2:
                                         echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
@@ -43,10 +46,16 @@
                                         echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
                                         break;
                                 }
-                                ?></strong></h4>
+                                ?>
+                        </div>
                     </div>
-                    <div>
-                        <h6><strong>Fecha de solicitud: </strong><p>{{ $petition->created_at }} </p></h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><strong>Fecha de solicitud: </strong></h6>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><p>{{ $petition->created_at }} </p></h6>
+                        </div>
                     </div>
                     <hr>
                     <!--Bloque de nodo en la solicitud, aqui se hace la logica para saber si poner o no el nodo-->
@@ -248,7 +257,7 @@
         </div>
     </div>
     {{-- Agregar informacion al colaborador con update --}}
-    <div class="row container table-bordered">
+    <div class="row card-body container table-bordered shadow">
         <div class="col-md-5 p-5">
             <form action="{{route('collaborator.update', $petition->collaborator->id)}}" method="POST">
                 @csrf
@@ -377,6 +386,7 @@
                      $petition->collaborator->account_gitlab &&
                      $petition->collaborator->account_jira &&
                      $petition->collaborator->account_da == --}}
+                <br>
                 <input class="btn btn-secondary btn-sm" type="submit" value="Guardar">
             </form>
         </div>
@@ -389,7 +399,7 @@
         </div>
     </div>
     {{-- Tickets --}}
-    <div class="row container table-bordered">
+    <div class="row card-body shadow container table-bordered">
             <div class="col-md-5 p-3">
                 <form action="{{ route('petition.update', $petition->id)}}" method="POST">
                     @csrf
