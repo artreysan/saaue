@@ -9,6 +9,8 @@ use App\Models\Enterprise;
 use App\Models\Collaborator;
 use Illuminate\Http\Request;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class PetitionController extends Controller
 {
     public function index(){
@@ -30,6 +32,8 @@ class PetitionController extends Controller
 
         return view('collaborator/petition/create', compact('collaborator','enterprise','equipment'));
     }
+
+
 
     public function store (Request $request)
     {
