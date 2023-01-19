@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row p-5">
-        <div class="col-md-3">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header card-header-primary bg-secondary">
                     <div class="card-title"> {{ $equipment->tipo }} {{ $equipment->modelo }} </div>
@@ -33,7 +33,19 @@
                         <div class="col-md-11">
                             <div>
                                 @if ($equipment->collaborator_id == '')
-                                    <h6>{{ 'No está asignado' }}<h6>
+                                    <h6>{{ 'No está asignado aún' }}<h6>
+                                    <div>
+                                        <h6><strong>Numero de serie:</strong> {{ $equipment->serie }} </h6>
+                                    </div>
+                                    <div>
+                                        <h6><strong>Mac Ethernet:</strong> {{ $equipment->mac_ethernet }} </h6>
+                                    </div>
+                                    <div>
+                                        <h6><strong>Mac Wifi:</strong> {{ $equipment->mac_wifi }} </h6>
+                                    </div>
+                                    <div>
+                                        <h6><strong>Equipo de la institución:</strong> {{ $equipment->enterprise->name }} </h6>
+                                    </div>
                                 @else
                                     <div>
                                         <h6><strong>Pertenece a:</strong> {{ $equipment->collaborator->nombre }} {{ $equipment->collaborator->apellido_paterno }} {{ $equipment->collaborator->apellido_materno }}</h6>

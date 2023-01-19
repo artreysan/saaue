@@ -30,7 +30,7 @@
                 <div class="card-header card-header-primary bg-secondary">
                     <div class="card-title">{{ $collaborator->rol->rol }}</div>
                 </div>
-                <div class="card-body table-bordered background-color ">
+                <div class="card-body table-bordered background-color shadow ">
                     <div class="row">
                         <div class="col-md-5">
                             <div>
@@ -217,12 +217,32 @@
             <br>
             <br>
             <div class="p-5">
-                <p>Agregar una tabla del o de los equipos asignados al colaborador</p>
+                <table class="table bordered background-color shadow" id="equipments">
+                    <thead class="table-secondary">
+                        <th>Id</th>
+                        <th>Tipo</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Serie</th>
+                        <th>Ver</th>
+                    </thead>
+                    @foreach ($equipments as $equipment)
+                        <tbody>
+                            <td>{{ $equipment->id }}</td>
+                            <td>{{ $equipment->tipo }}</td>
+                            <td>{{ $equipment->marca }}</td>
+                            <td>{{ $equipment->modelo }}</td>
+                            <td>{{ $equipment->serie }}</td>
+                            <td><a href="equipment/{{ $equipment->id }}" alt="equipment"><button
+                                        class="fas fa-address-card"></button></a></td>
+                        </tbody>
+                    @endforeach
+                </table>
             </div>
             <br>
             <br>
             <div class="p-5">
-                <table class="table table-striped" id="petitions">
+                <table class="table table-striped shadow" id="petitions">
                     <thead class="table-secondary">
                         <th>Id</th>
                         <th>Folio</th>

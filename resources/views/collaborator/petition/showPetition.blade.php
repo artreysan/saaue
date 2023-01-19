@@ -25,7 +25,7 @@
                         <h6 class="p-1">{{ $petition->fileID }}</h6>
                     </div>
                 </div>
-                <div class="card-body table-bordered">
+                <div class="card-body table-bordered shadow">
                     <div>
                         <h4><strong>Solicitud:
                                 <?php
@@ -244,7 +244,7 @@
 
         @else
             <h6><strong>Equipo de computo:</strong></h6>
-                <table class="table table-bordered">
+                <table class="table table-bordered shadow">
                     <thead class="table-secondary">
                         <th>Tipo</th>
                         <th>Marca</th>
@@ -410,7 +410,6 @@
                      $petition->collaborator->account_gitlab &&
                      $petition->collaborator->account_jira &&
                      $petition->collaborator->account_da == --}}
-
                 <input class="btn btn-secondary btn-sm" type="submit" value="Guardar">
             </form>
         </div>

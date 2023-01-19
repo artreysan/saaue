@@ -29,7 +29,7 @@
     </div>
 <br>
     <div class="container">
-        <table class="table table-striped shadow-lg" id="equipments">
+        <table class="table table-striped shadow" id="equipments">
             <thead class="table-secondary">
                 <th>Id</th>
                 <th class="col-sm-1">Tipo</th>

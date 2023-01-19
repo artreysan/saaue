@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-1 p-4"></div>
         <div class="col-md-8 p-4">
-            <h3><strong>Lista de usuarios administradores del sistema</strong></h3>
+            <h5><strong>Lista de usuarios administradores del sistema</strong></h5>
             <h5>Ciudad de México a <?php echo date('j-m-Y'); ?> </h5>
         </div>
         <div class="col-md-2 p-3">

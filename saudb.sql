@@ -74,7 +74,7 @@ INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Administrador de Proyectos');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Analista de Software');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Arquitecto de Base de Datos');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Arquitecto de Software');
-INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Controller Manager (Persoanl de apoyo)');
+INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Controller Manager (Personal de apoyo)');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Coordinador de la mesa de servicio');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Desarrollador Cliente-Servidor');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Desarrollador Web');
