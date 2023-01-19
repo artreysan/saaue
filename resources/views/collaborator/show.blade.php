@@ -30,7 +30,7 @@
                 <div class="card-header card-header-primary bg-secondary">
                     <div class="card-title">{{ $collaborator->rol->rol }}</div>
                 </div>
-                <div class="card-body table-bordered background-color ">
+                <div class="card-body table-bordered background-color shadow ">
                     <div class="row">
                         <div class="col-md-5">
                             <div>
@@ -217,12 +217,12 @@
             <br>
             <br>
             <div class="p-5">
-                <p>Agregar una tabla del o de los equipos asignados al colaborador</p>
+                <p>Aqui va a ir una tabla de los equipos asignados al colaborador</p>
             </div>
             <br>
             <br>
             <div class="p-5">
-                <table class="table table-striped" id="petitions">
+                <table class="table table-striped shadow" id="petitions">
                     <thead class="table-secondary">
                         <th>Id</th>
                         <th>Folio</th>

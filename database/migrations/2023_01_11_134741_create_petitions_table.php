@@ -17,15 +17,31 @@ return new class extends Migration
             $table->id();
 
             //booleanos para confirmar peticiones si se requiere
+            //este bloque es para responder a la peticion sobre las cuentas solicitadas
+            // el "a" anteriror a al nombre de la variable para la cuenta significa "answering" Ejemplo. a_account_gitlab
             $table->boolean('account_gitlab')->nullable();
+            $table->char('a_account_gitlab')->nullable();
+
             $table->boolean('account_jira')->nullable();
+            $table->char('a_account_jira')->nullable();
+
             $table->boolean('account_glpi')->nullable();
+            $table->char('a_account_glpi')->nullable();
+
             $table->boolean('account_da')->nullable();
+            $table->char('a_account_da')->nullable();
 
             $table->boolean('internet')->nullable();
+            $table->char('a_internet')->nullable();
+
             $table->boolean('vpn')->nullable();
+            $table->char('a_vpn')->nullable();
+
             $table->boolean('ip')->nullable();
+            $table->char('a_ip')->nullable();
+
             $table->boolean('nodo')->nullable();
+            $table->char('a_nodo')->nullable();
 
             $table->boolean('access_project')->nullable();
 
@@ -34,8 +50,11 @@ return new class extends Migration
             // 1 = en proceso
             // 2 = atendida
             // 3 = validada
+
             $table->char('status', 1);
 
+
+            //Este bloque es para almacenar los tickets requeridos para responder a la solicitud
             $table->char('tk_glpi_account_1', 30)->nullable();
             $table->char('tk_gitlab_account_1', 30)->nullable();
             $table->char('tk_jira_account_1', 30)->nullable();
@@ -56,10 +75,13 @@ return new class extends Migration
             $table->char('tk_ip_0', 30)->nullable();
             $table->char('tk_vpn_0', 30)->nullable();
 
+            $table->boolean('access_project')->nullable();
+
             $table->char('project1', 100)->nullable();
             $table->char('project2', 100)->nullable();
             $table->char('project3', 100)->nullable();
 
+            // los siguientes datos son llaves foraneas para detallar los datos de la peticion
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
@@ -75,6 +97,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('collaborators');
 
+            // el fileID es un dato generado por la fecha  y un valor aleatorio para obteer un folio unico de la peticion
             $table->string('fileID')->nullable()->unique();
 
             $table->unsignedInteger('startTime')->nullable();

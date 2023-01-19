@@ -6,7 +6,7 @@
     <div class="bg-gray bg-opacity-10 border-gray">
         <div class="row">
             <div class="col-md-8 p-4">
-                <h4><strong>REGISTRO DE USUARIOS Y ROLES DE LOS MISMOS:</strong></h4>
+                <h5><strong>REGISTRO DE USUARIOS Y ROLES DE LOS MISMOS:</strong></h5>
                 <h5>Ciudad de México a <?php echo date('j-m-Y'); ?> </h5>
             </div>
             <div class="col-md-3">
