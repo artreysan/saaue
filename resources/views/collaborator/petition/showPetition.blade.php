@@ -60,154 +60,189 @@
                     <hr>
                     <!--Bloque de nodo en la solicitud, aqui se hace la logica para saber si poner o no el nodo-->
                     <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h6><strong>Nodo:</strong></h6>
+                        @if ($petition->nodo == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>Nodo:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            @if ($petition->collaborator->nodo == '')
-                                @if ($petition->tk_nodo_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_nodo == '')
+                                    @if ($petition->tk_nodo_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
+                    <br>
                     <!--Se terminal el bloque del nodo-->
-                    <br>
-                    <!--Bloque de Cuenta Glpi en la solicitud, aqui se hace la logica para saber si poner o no  Cuenta Glpi-->
+                    <!--Bloque de glpi en la solicitud, aqui se hace la logica para saber si poner o no glpi-->
                     <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h6><strong>Cuenta Glpi:</strong></h6>
+                        @if ($petition->account_glpi == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>Cuenta Glpi:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->account_glpi == '')
-                                @if ($petition->tk_glpi_account_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_account_glpi == '')
+                                    @if ($petition->tk_account_glpi_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
+                    <!--Se terminal el bloque del GLPI-->
+                    <!--Bloque de gitlab en la solicitud, aqui se hace la logica para saber si poner o no gitlab-->
                     <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h6><strong>Cuenta Gitlab:</strong></h6>
+                        @if ($petition->account_gitlab == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>Cuenta Gitlab:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->account_gitlab == '')
-                                @if ($petition->tk_gitlab_account_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_account_gitlab == '')
+                                    @if ($petition->tk_account_gitlab_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
+                    <!--Se terminal el bloque del Gitlab-->
+                    <!--Bloque de jira en la solicitud, aqui se hace la logica para saber si poner o no jira-->
                     <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h6><strong>Cuenta Jira:</strong></h6>
+                        @if ($petition->account_jira == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>Cuenta Jira:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->account_jira == '')
-                                @if ($petition->tk_jira_account_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_account_account_jira == '')
+                                    @if ($petition->tk_account_jira_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
-                    <br>
+                    <!--Bloque de directorio activo en la solicitud, aqui se hace la logica para saber si poner o no directorio activo-->
                     <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h6><strong>Directorio Activo:</strong></h6>
+                        @if ($petition->account_da == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>Directorio Activo:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->account_da == '')
-                                @if ($petition->tk_da_account_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_account_account_da == '')
+                                    @if ($petition->tk_account_da_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color: #1795b8" >{{ 'Atendida'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
                     <hr>
+                    <!--Se terminal el bloque del directorio activo-->
+                    <!--Bloque de directorio activo en la solicitud, aqui se hace la logica para saber si poner o no directorio activo-->
                     <div class="row">
-                        <div class="col-md-4">
-                            <div>
-                                <h6><strong>Internet</strong></h6>
+                        @if ($petition->internet == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>Internet:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->internet == '')
-                                @if ($petition->tk_internet_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_internet == '')
+                                    @if ($petition->tk_internet_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color:#1795b8" >{{ 'Atendido'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
+                    <!--Se terminal el bloque del internet-->
+                    <!--Bloque de VPN en la solicitud, aqui se hace la logica para saber si poner o no  VPN-->
                     <div class="row">
-                        <div class="col-md-4">
-                            <div>
-                                <h6><strong>VPN:</strong></h6>
+                        @if ($petition->vpn == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>VPN:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->vpn == '')
-                                @if ($petition->tk_vpn_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_vpn == '')
+                                    @if ($petition->tk_vpn_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color: #1795b8" >{{ 'Atendido'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
+                    <!--Se terminal el bloque de la vpn-->
+                    <!--Bloque de VPN en la solicitud, aqui se hace la logica para saber si poner o no  VPN-->
                     <div class="row">
-                        <div class="col-md-4">
-                            <div>
-                                <h6><strong>IP:</strong></h6>
+                        @if ($petition->ip == '1')
+                            <div class="col-md-6">
+                                <div>
+                                    <h6><strong>IP:</strong></h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                             @if ($petition->collaborator->ip == '')
-                                @if ($petition->tk_ip_1 == '')
-                                    <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                            <div class="col-md-6">
+                                @if ($petition->a_ip == '')
+                                    @if ($petition->tk_ip_1 == '')
+                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
+                                    @else
+                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    @endif
                                 @else
-                                    <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
                                 @endif
-                            @else
-                                <h6 style="color: #1795b8" >{{ 'Atendido'}}<h6>
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                        @endif
                     </div>
+                    <!--Se terminal el bloque de la ip-->
                 </div>
             </div>
         </div>
@@ -216,7 +251,7 @@
             <br>
             <br>
             <h4>Status del trámite</h4>
-            <p>Aqui va una grafica en semaforo del status del proceso</p>
+            <p>Aqui va una grafica en semaforo del status del proceso </p>
             <br>
             <br>
             <br>
@@ -404,99 +439,98 @@
                 <form action="{{ route('petition.update', $petition->id)}}" method="POST">
                     @csrf
                     @method('PUT')
-                    <br>
-                    @if ($petition->tk_da_account_1 == '0')
+                    @if ($petition->tk_da_account_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Directorio Activo:</strong></div>
+                            <div class="col-sm-8"><h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_da_account_1" name="tk_da_account_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Directorio Activo:</strong></div>
+                            <div class="col-sm-8"><h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4></div>
                             <input id="tk_da_account_1" name="tk_da_account_1" type="hidden" value="{{ $petition->tk_da_account_1 }}">{{ $petition->tk_da_account_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_gitlab_account_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Gitlab:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Gitlab:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_gitlab_account_1" name="tk_gitlab_account_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Gitlab:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Gitlab:</strong></h4></div>
                             <input id="tk_gitlab_account_1" name="tk_gitlab_account_1" type="hidden" value="{{ $petition->tk_gitlab_account_1 }}">{{ $petition->tk_gitlab_account_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_glpi_account_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Glpi:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Glpi:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_glpi_account_1" name="tk_glpi_account_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Glpi:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Glpi:</strong></h4></div>
                             <input id="tk_glpi_account_1" name="tk_glpi_account_1" type="hidden" value="{{ $petition->tk_glpi_account_1 }}">{{ $petition->tk_glpi_account_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_jira_account_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Jira:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Jira:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_jira_account_1" name="tk_jira_account_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket de alta de Cuenta Jira:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Jira:</strong></h4></div>
                             <input id="tk_jira_account_1" name="tk_jira_account_1" type="hidden" value="{{ $petition->tk_jira_account_1 }}">{{ $petition->tk_jira_account_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_nodo_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket Nodo:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de Nodo:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_nodo_1" name="tk_nodo_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket Nodo:</strong></div>
+                            <div class="col-sm-7"><h4><strong>Tk. Alta de Nodo:</strong></h4></div>
                             <input id="tk_nodo_1" name="tk_nodo_1" type="hidden" value="{{ $petition->tk_nodo_1 }}">{{ $petition->tk_nodo_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_ip_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket IP:</strong></div>
+                            <div class="col-sm-5"><h4><strong>Tk. IP:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_ip_1" name="tk_ip_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket IP:</strong></div>
+                            <div class="col-sm-5"><h4><strong>Tk. IP:</strong></h4></div>
                             <input id="tk_ip_1" name="tk_ip_1" type="hidden" value="{{ $petition->tk_ip_1 }}">{{ $petition->tk_ip_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_internet_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket Internet:</strong></div>
+                            <div class="col-sm-5"><h4><strong>Tk. Internet:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_internet_1" name="tk_internet_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket Internet:</strong></div>
+                            <div class="col-sm-5"><h4><strong>Tk. Internet:</strong></h4></div>
                             <input id="tk_internet_1" name="tk_internet_1" type="hidden" value="{{ $petition->tk_internet_1 }}">{{ $petition->tk_internet_1}}
                         </div>
                     @endif
                     <br>
                     @if ($petition->tk_vpn_1 == '')
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket VPN:</strong></div>
+                            <div class="col-sm-5"><h4><strong>Tk. VPN:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_vpn_1" name="tk_vpn_1"></div>
                         </div>
                     @else
                         <div class="row">
-                            <div class="col-sm-9"><strong>Ticket VPN:</strong></div>
+                            <div class="col-sm-5"><h4><strong>Tk. VPN:</strong></h4></div>
                             <input id="tk_vpn_1" name="tk_vpn_1" type="hidden" value="{{ $petition->tk_vpn_1 }}">{{ $petition->tk_vpn_1}}
                         </div>
                     @endif

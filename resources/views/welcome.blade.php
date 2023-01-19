@@ -17,6 +17,8 @@
     </div>
     <br>
     <br>
+    <br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -27,8 +29,8 @@
                 <br>
                 <br>
                 <div>
-                    <h2>SAUE</h2>
-                    <h5>Sistema de alta de usuarios externos en la UTIC</h5>
+                    <h2>SAAUE</h2>
+                    <h5>Sistema de Administración de Alta de Usuarios Externos.</h5>
                 </div>
                 <br>
                 <a href="/login" class="btn btn-primary btn-md active">Ingresar</a>
@@ -37,6 +39,7 @@
             </div>
         </div>
     </div>
+    <br>
     <br>
     <br>
     <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>

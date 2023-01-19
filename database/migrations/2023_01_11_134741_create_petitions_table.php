@@ -20,30 +20,28 @@ return new class extends Migration
             //este bloque es para responder a la peticion sobre las cuentas solicitadas
             // el "a" anteriror a al nombre de la variable para la cuenta significa "answering" Ejemplo. a_account_gitlab
             $table->boolean('account_gitlab')->nullable();
-            $table->char('a_account_gitlab')->nullable();
+            $table->char('a_account_gitlab', 30)->nullable();
 
             $table->boolean('account_jira')->nullable();
-            $table->char('a_account_jira')->nullable();
+            $table->char('a_account_jira', 30)->nullable();
 
             $table->boolean('account_glpi')->nullable();
-            $table->char('a_account_glpi')->nullable();
+            $table->char('a_account_glpi', 30)->nullable();
 
-            $table->boolean('account_da')->nullable();
-            $table->char('a_account_da')->nullable();
+            $table->boolean('account_da', 30)->nullable();
+            $table->char('a_account_da', 30)->nullable();
 
-            $table->boolean('internet')->nullable();
-            $table->char('a_internet')->nullable();
+            $table->boolean('internet', 30)->nullable();
+            $table->char('a_internet', 30)->nullable();
 
             $table->boolean('vpn')->nullable();
-            $table->char('a_vpn')->nullable();
+            $table->ipAddress('a_vpn', 30)->nullable();
 
             $table->boolean('ip')->nullable();
-            $table->char('a_ip')->nullable();
+            $table->ipAddress('a_ip', 30)->nullable();
 
             $table->boolean('nodo')->nullable();
             $table->char('a_nodo')->nullable();
-
-            $table->boolean('access_project')->nullable();
 
             //Status de la solicitud basada en 4 digitos
             // 0 = pendiente
