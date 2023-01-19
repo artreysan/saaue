@@ -46,11 +46,10 @@
                                 ?></strong></h4>
                     </div>
                     <div>
-                        <div>
-                            <p>{{ $petition->created_at }}</p>
-                        </div>
+                        <h6><strong>Fecha de solicitud: </strong><p>{{ $petition->created_at }} </p></h6>
                     </div>
                     <hr>
+                    <!--Bloque de nodo en la solicitud, aqui se hace la logica para saber si poner o no el nodo-->
                     <div class="row">
                         <div class="col-md-6">
                             <div>
@@ -69,7 +68,9 @@
                             @endif
                         </div>
                     </div>
+                    <!--Se terminal el bloque del nodo-->
                     <br>
+                    <!--Bloque de Cuenta Glpi en la solicitud, aqui se hace la logica para saber si poner o no  Cuenta Glpi-->
                     <div class="row">
                         <div class="col-md-6">
                             <div>
@@ -239,36 +240,11 @@
     <div class="container p-5">
         <p>Recuerda que los trámites de servicios TIC'S pueden tardr hasta 9 días hábiles</p>
     </div>
-    <div class="container">
-        @if ($petition->collaborator->equipment_id == '')
-
-        @else
-            <h6><strong>Equipo de computo:</strong></h6>
-                <table class="table table-bordered shadow">
-                    <thead class="table-secondary">
-                        <th>Tipo</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Serie</th>
-                        <th>Mac Ethernet</th>
-                        <th>Mac Wifi</th>
-                    </thead>
-                    <tbody>
-                        <td>{{ $petition->collaborator->equipment->tipo }}</td>
-                        <td>{{ $petition->collaborator->equipment->marca }}</td>
-                        <td>{{ $petition->collaborator->equipment->modelo }}</td>
-                        <td>{{ $petition->collaborator->equipment->serie }}</td>
-                        <td>{{ $petition->collaborator->equipment->mac_ethernet }}</td>
-                        <td>{{ $petition->collaborator->equipment->mac_wifi }}</td>
-                    </tbody>
-                </table>
-        @endif
-    </div>
     <br>
     {{-- Titulo de agregar al colaborador--}}
     <div class="container card-header bg-secondary">
         <div class="col-md-12 p-1">
-            <h6>Agregar información al colaborador: {{$petition->collaborator->nombre}} {{$petition->collaborator->apellido_paterno}} {{$petition->collaborator->apellido_materno}} apartir de la solicitud</h6>
+            <h6>Agregar información al colaborador: {{$petition->collaborator->name}} {{$petition->collaborator->last_name}} {{$petition->collaborator->last_maternal}} apartir de la solicitud</h6>
         </div>
     </div>
     {{-- Agregar informacion al colaborador con update --}}
@@ -335,15 +311,6 @@
                     </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->equipment_id == '')
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Equipo:</strong></div>
-                        <div class="col-sm-7">
-                           <input id="equipment_id" name="equipment_id" type="hidden" value="{{ $petition->collaborator->equipment->id }}">{{ $petition->collaborator->equipment->serie }} || <strong>{{ $petition->collaborator->equipment->modelo }} </strong>
-                        </div>
-                    </div>
-                @endif
             </div>
             <div class="col-md-5 p-5">
                 @if ($petition->collaborator->account_glpi == '')
@@ -428,7 +395,7 @@
                     @csrf
                     @method('PUT')
                     <br>
-                    @if ($petition->tk_da_account_1 == '')
+                    @if ($petition->tk_da_account_1 == '0')
                         <div class="row">
                             <div class="col-sm-9"><strong>Ticket de alta de Cuenta Directorio Activo:</strong></div>
                             <div class="col-sm-2"><input type="text" id="tk_da_account_1" name="tk_da_account_1"></div>
@@ -545,9 +512,9 @@
                 <div class="row">
                     <div class="col-sm-5"><strong>Colaborador:</strong></div>
                         <input type="hidden" value="{{ $petition->collaborator->id }}">
-                            {{ $petition->collaborator->nombre }}
-                            {{ $petition->collaborator->apellido_paterno }}
-                            {{ $petition->collaborator->apellido_materno }}
+                            {{ $petition->collaborator->name }}
+                            {{ $petition->collaborator->last_name }}
+                            {{ $petition->collaborator->last_maternal }}
                 </div>
                 <br>
                  <div class="row">

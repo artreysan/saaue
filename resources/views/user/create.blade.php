@@ -39,12 +39,12 @@
                     <div class="col-md-2"><strong>Nombre(s):</strong></div>
                     <div class="col-md-4"><input type="text" id="name" name="name" required></div>
                     <div class="col-md-2"><strong>Apellido Paterno:</strong></div>
-                    <div class="col-md-4"><input type="text" id="apellido_paterno" name="apellido_paterno" required></div>
+                    <div class="col-md-4"><input type="text" id="last_name" name="last_name" required></div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-md-2"><strong>Apellido Materno:</strong></div>
-                    <div class="col-md-4"><input type="text" id="apellido_materno" name="apellido_materno"></div>
+                    <div class="col-md-4"><input type="text" id="last_maternal" name="last_maternal"></div>
                     <div class="col-md-2"><strong>Email:</strong></div>
                     <div class="col-md-4"><input type="text" id="email" name="email" required></div>
                 </div>

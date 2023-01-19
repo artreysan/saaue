@@ -40,7 +40,7 @@
                     <td>{{ $petition->fileID }}</td>
                     <td>{{ $petition->collaborator->enterprise->name }}</td>
                     <td>{{ $petition->created_at }}</td>
-                    <td>{{ $petition->collaborator->nombre }} {{ $petition->collaborator->apellido_paterno }}</td>
+                    <td>{{ $petition->collaborator->name }} {{ $petition->collaborator->last_name }}</td>
                     <td>
                         <?php
                         switch ($petition->status) {

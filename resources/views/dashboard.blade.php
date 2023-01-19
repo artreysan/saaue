@@ -7,7 +7,7 @@
     <div class="container">
         <div>
             <table>
-                
+
             </table>
         </div>
         <footer class="footer py-3 bg-green-900">

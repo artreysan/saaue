@@ -57,8 +57,8 @@ class UserController extends Controller
         $user = new User();
 
         $user->name               = $request->name;
-        $user->apellido_paterno   = $request->apellido_paterno;
-        $user->apellido_materno   = $request->apellido_materno;
+        $user->last_name          = $request->last_name;
+        $user->last_maternal      = $request->last_maternal;
         $user->email              = $request->email;
         $user->role_id            = $request->role_id;
         $user->password           = Hash::make($request->password);

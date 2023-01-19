@@ -12,9 +12,9 @@ class Collaborator extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nombre',
-        'apellido_paterno',
-        'apellido_materno',
+        'name',
+        'last_name',
+        'last_maternal',
         'email',
         'nodo',
         'internet',
@@ -26,7 +26,6 @@ class Collaborator extends Model
         'account_da',
         'location_id',
         'rol_id',
-        'equipment_id',
         'enterprise_id',
     ];
 
@@ -46,11 +45,6 @@ class Collaborator extends Model
     public function enterprise()
     {
         return $this->belongsTo(Enterprise::class,'enterprise_id');
-    }
-
-    public function equipments()
-    {
-        return $this->hasMany(Enterprise::class, 'collaboration_id');
     }
 
 }

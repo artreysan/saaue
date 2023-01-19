@@ -32,9 +32,9 @@
                         <div class="row">
                             <div class="col-md-3"><strong>Nombre:</strong></div>
                             <div class="col-md-3">
-                                <input class="border-success" id="nombre" name="nombre" type="text"
+                                <input class="border-success" id="name" name="name" type="text"
                                     placeholder=" Nombre "
-                                    value="{{ old('nombre') }}" required />
+                                    value="{{ old('name') }}" required />
                             </div>
                             <div class="col-md-3"><strong>Contrato:</strong></div>
                             <div class="col-md-3">

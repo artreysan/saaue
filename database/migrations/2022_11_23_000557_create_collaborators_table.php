@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('collaborators', function (Blueprint $table) {
             $table->id();
-            $table->char('nombre', 150);
-            $table->char('apellido_paterno', 150);
-            $table->char('apellido_materno', 150)->nullable();
+            $table->char('name', 150);
+            $table->char('last_name', 150);
+            $table->char('last_maternal', 150)->nullable();
             $table->string('email')->unique();
 
             //informacion de los servicios
