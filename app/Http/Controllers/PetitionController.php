@@ -38,7 +38,8 @@ class PetitionController extends Controller
         $path = storage_path('pdf/');
         $user = Collaborator::find($petition->user_id);
         $collaborator = Collaborator::find($petition->collaborator_id);
-        $enterprise = Enterprise::find($collaborator->enterprise_id);
+        $enterprise = Enterprise::find($user->enterprise_id);
+        $rol = Rol::find($collaborator->role_id);
         //$location = Location::find($user->location_id);
         $pdf_name = $petition->fileID . '_sau.pdf';
         $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator','enterprise'));

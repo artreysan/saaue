@@ -1514,7 +1514,7 @@
                             </td>
                             <td class="c6" colspan="3" rowspan="1">
                                 <p class="c3 c8"><span class="c9">
-                                    {{$user->location_id}}
+                                    {{$enterprise->name}}
                                 </span></p>
                             </td>
                         </tr>
