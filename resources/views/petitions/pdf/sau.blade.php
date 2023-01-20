@@ -1414,7 +1414,7 @@
                             <td class="c49" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                {{$user->name}}
+                                {{$petition->user->name}} {{$petition->user->last_name}} {{$petition->user->last_maternal}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1431,7 +1431,7 @@
                             <td class="c49" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                {{$petition->puesto}}
+                                    {{$petition->user->rol}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1459,9 +1459,9 @@
                             </td>
                             <td class="c45" colspan="3" rowspan="1">
                                 <p class="c3 c8"><span class="c9">
-                                    {{$petition->name}}
-                                    {{ $petition->last_name}}
-                                    {{ $petition->last_maternal}}
+                                    {{ $petition->collaborator->name}}
+                                    {{ $petition->collaborator->last_name}}
+                                    {{ $petition->collaborator->last_maternal}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1474,7 +1474,7 @@
                             </td>
                             <td class="c6" colspan="3" rowspan="1">
                                 <p class="c3 c8"><span class="c9">
-                                {{$enterprise->contract}}
+                                {{$petition->collaborator->enterprise->contract}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1489,7 +1489,7 @@
                             <td class="c45" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                    {{$enterprise->name}}
+                                    {{$petition->collaborator->enterprise->name}}
                                 </span></p>
                             </td>
                             <td class="c16" colspan="1" rowspan="1">
@@ -1514,7 +1514,7 @@
                             </td>
                             <td class="c6" colspan="3" rowspan="1">
                                 <p class="c3 c8"><span class="c9">
-                                    {{$user->location_id}}
+                                    {{$petition->collaborator->location->ubicacion}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1529,7 +1529,7 @@
                             <td class="c6" colspan="3" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                        {{$user->location_id}}
+                                        {{$petition->collaborator->rol->rol}}
                                     </span>
                                 </p>
                             </td>
@@ -1543,7 +1543,7 @@
                             <td class="c6" colspan="3" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-
+                                        {{$petition->fileID}}
                                     </span>
                                 </p>
                             </td>
@@ -1556,30 +1556,30 @@
                             </td>
 <!-- ##############################################################################################  -->
                             <td class="c6" colspan="3" rowspan="1">
-                                @if($petition->vpn=='si')
+                                @if($petition->vpn =='1')
                                     <ul class="c29">
                                         <li class="c17 li-bullet-0">
                                             <span class="c9">VPN</span>
                                         </li>
                                     </ul>
                                 @endif
-                                @if($petition->ip_fija=='si')
+                                @if($petition->ip =='1')
                                     <ul class="c29 ">
                                         <li class="c17 li-bullet-0">
                                             <span class="c0">Ip Fija</span>
                                         </li>
                                     </ul>
                                 @endif
-                                @if($petition->internet =='si')
+                                @if($petition->internet =='1')
                                     <ul class="c29 ">
                                         <li class="c17 li-bullet-0">
                                             <span class="c0">Internet</span>
                                         </li>
                                     </ul>
                                 @endif
-                                @if($petition->gitlab=='no' &&
-                                    $petition->jira=='no' &&
-                                    $petition->glpi=='no'
+                                @if($petition->account_gitlab =='1' &&
+                                    $petition->account_jira=='1' &&
+                                    $petition->account_glpi=='1'
                                     )
                                 @else
                                     <ul class="c29 ">
@@ -1592,13 +1592,13 @@
                                     <ul class="c29 lst-kix_list_7-1 start">
                                         <li class="c12 li-bullet-0">
                                             <span class="c0">
-                                                @if($petition->gitlab == 'si')
+                                                @if($petition->account_gitlab == '1')
                                                     &nbsp;GitLab
                                                 @endif
-                                                @if($petition->jira == 'si')
+                                                @if($petition->account_jira == '1')
                                                     &nbsp;Jira
                                                 @endif
-                                                @if($petition->glpi == 'si')
+                                                @if($petition->account_glpi == '1')
                                                      &nbsp;GLPI
                                                 @endif
                                             </span
@@ -1790,9 +1790,9 @@
                         <span class="c2">________________________________</span>
                     </p>
                     <p class="c1"><span class="c0">
-                        {{$petition->nombre}}
-                        {{ $petition->apellido_paterno}}
-                        {{ $petition->apellido_materno}}
+                        {{ $petition->collaborator->name }}
+                        {{ $petition->collaborator->last_name}}
+                        {{ $petition->collaborator->last_maternal}}
                     </span></p>
                     <p class="c1"><span class="c0">
                         {{$petition->funcion}}
@@ -1810,7 +1810,7 @@
                         >
                     </p>
                     <p class="c1"><span class="c0">
-                        {{$petition->autorizador}}
+                        {{$petition->user->name}} {{$petition->user->last_name}} {{$petition->user->last_maternal}}
                     </span></p>
                     <p class="c1"><span class="c0">
                         {{$petition->puesto}}
