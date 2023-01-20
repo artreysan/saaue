@@ -216,9 +216,9 @@
             </div>
             <br>
             <br>
-            <div class="p-5">
-                <p>Aqui va a ir una tabla de los equipos asignados al colaborador</p>
-            </div>
+            @if (isset($equipments))
+            @else
+            @endif
             <br>
             <br>
             <div class="p-5">

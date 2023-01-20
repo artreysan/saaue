@@ -28,7 +28,6 @@ return new class extends Migration
                 ->on('enterprises');
 
             $table->unsignedBigInteger('collaborator_id')
-                ->unique()
                 ->nullable();
             $table->foreign('collaborator_id')
                 ->references('id')

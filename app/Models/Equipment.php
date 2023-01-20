@@ -24,17 +24,17 @@ class Equipment extends Model
 
     public function collaborator()
     {
-        return $this->belongsTo(Collaborator::class, 'collaborator_id');
+        return $this->belongsTo(Collaborator::class,'collaborator_id');
     }
 
     public function petition()
     {
-        return $this->belongsTo(Petition::class,  'petition_id');
+        return $this->belongsTo(Petition::class,'petition_id');
     }
 
     public function enterprise()
     {
-        return $this->belongsTo(Enterprise::class, 'enterprise_id');
+        return $this->belongsTo(Enterprise::class,'enterprise_id');
     }
 
 
