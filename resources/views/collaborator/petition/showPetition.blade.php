@@ -137,8 +137,8 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                @if ($petition->a_account_account_jira == '')
-                                    @if ($petition->tk_account_jira_1 == '')
+                                @if ($petition->a_account_account_jira == NULL)
+                                    @if ($petition->tk_account_jira_1 == NULL)
                                         <h6 style="color:crimson" >{{'Pendiente'}}<h6>
                                     @else
                                         <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
@@ -159,8 +159,8 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                @if ($petition->a_account_account_da == '')
-                                    @if ($petition->tk_account_da_1 == '')
+                                @if ($petition->a_account_da == NULL)
+                                    @if ($petition->tk_da_account_1 == NULL)
                                         <h6 style="color:crimson" >{{'Pendiente'}}<h6>
                                     @else
                                         <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>

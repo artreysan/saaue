@@ -49,10 +49,6 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (5, 'Mtra. Edna. Patricia', 'edna.patricia@sct.gob.mx', NULL, '$2y$10$aeWeShTycvyWtDKSTrVHJusbBD9X7mivcI07i8x9dandewdcqm56W', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Santiago', 'Vargas', 20, 4, 2, 1),
 (6, 'Ing. Iracema', 'iracema.miron@sct.gob.mx', NULL, '$2y$10$4L5goEa/aL9nGMyrHGS13uNHRMFDfdfml/RsdORCj4TUWYarWEvyS', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Mirón', 'Ramírez', 21, 4, 2, 1);
 
-INSERT INTO `collaborators` (`id`, `name`, `last_name`, `last_maternal`, `email`, `nodo`, `internet`, `ip`, `vpn`, `account_gitlab`, `account_jira`, `account_glpi`, `account_da`, `location_id`, `rol_id`, `enterprise_id`) VALUES
-(1, 'Carlos Rafael', 'Aguilar', 'Chavez', 'carlos.aguilar@tecnoaplicada.mx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1),
-(2, 'Daniela', 'Cisneros', 'Landín', 'daniela.cisneros@tecnoaplicada.mx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 1);
-
 
 
 
