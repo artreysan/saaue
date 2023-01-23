@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
 use App\Models\User;
 use App\Models\Petition;
 use App\Models\Equipment;
 use App\Models\Enterprise;
 use App\Models\Collaborator;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class PetitionController extends Controller
