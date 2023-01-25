@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
 use App\Models\User;
 use App\Models\Petition;
 use App\Models\Equipment;
 use App\Models\Enterprise;
 use App\Models\Collaborator;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class PetitionController extends Controller
@@ -38,7 +39,8 @@ class PetitionController extends Controller
         $path = storage_path('pdf/');
         $user = Collaborator::find($petition->user_id);
         $collaborator = Collaborator::find($petition->collaborator_id);
-        $enterprise = Enterprise::find($collaborator->enterprise_id);
+        $enterprise = Enterprise::find($user->enterprise_id);
+        $rol = Rol::find($collaborator->role_id);
         //$location = Location::find($user->location_id);
         $pdf_name = $petition->fileID . '_sau.pdf';
         $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator','enterprise'));
