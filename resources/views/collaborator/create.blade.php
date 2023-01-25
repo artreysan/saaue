@@ -32,7 +32,7 @@
                 <h4><strong>Información del nuevo colaborador:</strong></h4>
             </div>
         </div>
-    <div class="container table-bordered p-4">
+    <div class="container shadow table-bordered p-4">
         <form action="{{ route('collaborator.store') }}" method="POST">
             @csrf
             {{-- Inicio del contenedor de los datos del colaborador collaborador_id --}}
