@@ -1431,7 +1431,7 @@
                             <td class="c49" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                    {{$petition->user->rol}}
+                                    {{$rolAut->rol}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1556,31 +1556,38 @@
                             </td>
 <!-- ##############################################################################################  -->
                             <td class="c6" colspan="3" rowspan="1">
-                                @if($petition->vpn =='1')
-                                    <ul class="c29">
-                                        <li class="c17 li-bullet-0">
-                                            <span class="c9">VPN</span>
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if($petition->ip =='1')
+                                @if($petition->vpn == 0 && $petition->ip== 0 && $petition->internet== 0 && $petition->nodo== 0)
+                                @else
                                     <ul class="c29 ">
                                         <li class="c17 li-bullet-0">
-                                            <span class="c0">Ip Fija</span>
+                                            <span class="c0">
+                                                Servicios TIC:
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="c29 lst-kix_list_7-1 start">
+                                        <li class="c12 li-bullet-0">
+                                            <span class="c0">
+                                                @if($petition->vpn == 1)
+                                                    &nbsp;VPN
+                                                @endif
+                                                @if($petition->ip == 1)
+                                                    &nbsp;IP
+                                                @endif
+                                                @if($petition->internet == 1)
+                                                     &nbsp;Internet
+                                                @endif
+                                                @if($petition->nodo == 1)
+                                                     &nbsp;Nodo
+                                                @endif
+                                            </span
+                                            >
                                         </li>
                                     </ul>
                                 @endif
-                                @if($petition->internet =='1')
-                                    <ul class="c29 ">
-                                        <li class="c17 li-bullet-0">
-                                            <span class="c0">Internet</span>
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if($petition->account_gitlab =='1' &&
-                                    $petition->account_jira=='1' &&
-                                    $petition->account_glpi=='1'
-                                    )
+
+
+                                @if($petition->account_gitlab == 0 && $petition->account_jira== 0 && $petition->account_glpi== 0 && $petition->account_da== 0)
                                 @else
                                     <ul class="c29 ">
                                         <li class="c17 li-bullet-0">
@@ -1592,14 +1599,17 @@
                                     <ul class="c29 lst-kix_list_7-1 start">
                                         <li class="c12 li-bullet-0">
                                             <span class="c0">
-                                                @if($petition->account_gitlab == '1')
+                                                @if($petition->account_gitlab == 1)
                                                     &nbsp;GitLab
                                                 @endif
-                                                @if($petition->account_jira == '1')
+                                                @if($petition->account_jira == 1)
                                                     &nbsp;Jira
                                                 @endif
-                                                @if($petition->account_glpi == '1')
+                                                @if($petition->account_glpi == 1)
                                                      &nbsp;GLPI
+                                                @endif
+                                                @if($petition->account_da == 1)
+                                                     &nbsp;D.A.
                                                 @endif
                                             </span
                                             >

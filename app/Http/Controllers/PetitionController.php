@@ -40,10 +40,15 @@ class PetitionController extends Controller
         $user = Collaborator::find($petition->user_id);
         $collaborator = Collaborator::find($petition->collaborator_id);
         $enterprise = Enterprise::find($user->enterprise_id);
-        $rol = Rol::find($collaborator->role_id);
-        //$location = Location::find($user->location_id);
+        $rol = Rol::find($collaborator->rol_id);
+        $rolAut = Rol::find($petition->user->rol_id);
         $pdf_name = $petition->fileID . '_sau.pdf';
-        $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator','enterprise'));
+
+        if($petition->equipment_id == null){
+            $equipment = Equipment::find($petition->equipment_id);
+        }
+
+        $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator','enterprise','rol', 'rolAut'));
         $pdf->save($path . '/' . $pdf_name);
         $pdf->setPaper('a4');
         return $pdf->stream($pdf_name);
@@ -111,8 +116,9 @@ class PetitionController extends Controller
     {
         $petition = Petition::find($id);
         $collaborator = Collaborator::find($id);
+        $equipment = Equipment::find($collaborator->id);
 
-        return view('collaborator/petition/show', compact('petition', 'collaborator'));
+        return view('collaborator/petition/show', compact('petition', 'collaborator','equipment'));
     }
 
     public function update (Request $request, $id)

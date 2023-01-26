@@ -63,31 +63,31 @@
                     <br>
                     <br>
                     <div class="table table-bordered">
-                        @if ($collaborator->equipment_id == null)
+                        @if ($equipment == null)
                             <h6>No tiene equipo de computo asignado<h6>
-                                @else
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <h6><strong>Equipo actual:</strong></h6>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <table class="table table-bordered">
-                                                    <thead class="table-dark">
-                                                        <th>Tipo</th>
-                                                        <th>Marca</th>
-                                                        <th>Modelo</th>
-                                                        <th>Serie</th>
-                                                    </thead>
-                                                    <tbody>
-                                                        <td>{{ $collaborator->equipment->tipo }}</td>
-                                                        <td>{{ $collaborator->equipment->marca }}</td>
-                                                        <td>{{ $collaborator->equipment->modelo }}</td>
-                                                        <td>{{ $collaborator->equipment->serie }}</td>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                        @else
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h6><strong>Equipo actual:</strong></h6>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table table-bordered">
+                                            <thead class="table-dark">
+                                                <th>Tipo</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Serie</th>
+                                            </thead>
+                                            <tbody>
+                                                <td>{{ $equipment->tipo }}</td>
+                                                <td>{{ $equipment->marca }}</td>
+                                                <td>{{ $equipment->modelo }}</td>
+                                                <td>{{ $equipment->serie }}</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                         @endif
                     </div>
                 </div>
