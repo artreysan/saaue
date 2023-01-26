@@ -25,8 +25,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5 p-3">
-            <div class="card">
+        <div class="col-md-5">
                 <div class="card-header card-header-primary bg-secondary">
                     <div class="card-title">{{ $collaborator->rol->rol }}</div>
                 </div>
@@ -208,19 +207,40 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 p-3">
+        <div class="col-md-7">
             <br>
             <div class="p-5">
                 <p>Aqui va a ir una foto del colaboraador</p>
             </div>
             <br>
             <br>
-            @if (isset($equipments))
-            @else
-            @endif
-            <br>
-            <br>
+            <div class="p-5">
+                <table class="table table-striped shadow">
+                    <thead class="table-secondary">
+                        <th>Id</th>
+                        <th class="col-sm-1">Tipo</th>
+                        <th class="col-sm-1">Marca</th>
+                        <th class="col-sm-2">Modelo</th>
+                        <th class="col-sm-4">Serie</th>
+                        <th class="col-sm-2">Mac Ethernet</th>
+                        <th class="col-sm-1">Mac wifi</th>
+                        <th class="col-sm-1">Ver</th>
+                    </thead>
+                    @foreach ($equipments as $equipment)
+                        <tbody>
+                            <td>{{ $equipment->id }}</td>
+                            <td>{{ $equipment->tipo }}</td>
+                            <td>{{ $equipment->marca }}</td>
+                            <td>{{ $equipment->modelo }}</td>
+                            <td>{{ $equipment->serie }}</td>
+                            <td>{{ $equipment->mac_ethernet }}</td>
+                            <td>{{ $equipment->mac_wifi }}</td>
+                            <td><a href="equipment/{{ $equipment->id }}" alt="equipment"><button
+                                        class="fas fa-address-card"></button></a></td>
+                        </tbody>
+                    @endforeach
+                </table>
+            </div>
             <div class="p-5">
                 <table class="table table-striped shadow" id="petitions">
                     <thead class="table-secondary">
