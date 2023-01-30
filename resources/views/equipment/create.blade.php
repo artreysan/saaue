@@ -32,7 +32,7 @@
             <h4><strong>Información del nuevo equipo de computo:</strong></h4>
         </div>
     </div>
-    <div class="container table-bordered p-4">
+    <div class="container table-bordered shadow p-4">
         <form action="{{ route('equipment.store') }}" method="POST">
             @csrf
 

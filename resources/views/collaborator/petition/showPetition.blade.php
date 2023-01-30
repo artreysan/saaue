@@ -258,9 +258,12 @@
             <div class="row">
                 <div class="col-sm-5">
                         <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
-                    </div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-5 table-bordered">Aqui va el espacio para escanear y subir el pdf</div>
+                </div>
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-5">
+                        <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}" alt="">
+                </div>
             </div>
             <br>
             <br>
@@ -290,7 +293,7 @@
     {{-- Titulo de agregar al colaborador--}}
     <div class="container card-header bg-secondary">
         <div class="col-md-12 p-1">
-            <h6>Agregar información al colaborador: {{$petition->collaborator->name}} {{$petition->collaborator->last_name}} {{$petition->collaborator->last_maternal}} apartir de la solicitud</h6>
+            <h6>Actualizar información al colaborador {{$petition->collaborator->name}} {{$petition->collaborator->last_name}} {{$petition->collaborator->last_maternal}} apartir de la solicitud</h6>
         </div>
     </div>
     {{-- Agregar informacion al colaborador con update --}}
@@ -299,130 +302,71 @@
             <form action="{{route('collaborator.update', $petition->collaborator->id)}}" method="POST">
                 @csrf
                 @method('PUT')
-                @if ($petition->collaborator->nodo == '')
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Nodo:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="nodo" name="nodo" type="text">
-                        </div>
-                    </div>
+                @if ($petition->nodo == 0 )
                 @else
                     <div class="row">
-                        <div class="col-sm-4"><strong>Nodo:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="nodo" name="nodo" type="hidden" value="{{ $petition->collaborator->nodo }}">{{ $petition->collaborator->nodo }}
-                        </div>
+                        <div class="col-md-4"><strong>Nodo:</strong></div>
+                        <div class="col-md-7"><input id="nodo" name="nodo" type="text"></div>
                     </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->ip == '')
-                    <div class="row">
-                        <div class="col-sm-4"><strong>IP:</strong></div>
-                        <div class="col-sm-7"><input id="ip" name="ip" type="text"></div>
-                    </div>
+                @if ($petition->ip == 0 )
                 @else
                     <div class="row">
-                        <div class="col-sm-4"><strong>IP:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="ip" name="ip" type="hidden" value="{{ $petition->collaborator->ip }}">{{ $petition->collaborator->ip }}
-                        </div>
+                        <div class="col-md-4"><strong>IP:</strong></div>
+                        <div class="col-md-7"><input id="ip" name="ip" type="text"></div>
                     </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->internet == '')
+                @if ($petition->internet == 0 )
+                @else
                     <div class="row">
                         <div class="col-sm-4"><strong>Internet:</strong></div>
                         <div class="col-sm-7">Si <input id="internet" name="internet" type="checkbox" value="1"></div>
                     </div>
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Internet:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="internet" name="internet" type="hidden" value="1"><p>Activo</p>
-                        </div>
-                    </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->vpn == '')
+                @if ($petition->vpn == 0 )
+                @else
                     <div class="row">
                         <div class="col-sm-4"><strong>VPN:</strong></div>
                         <div class="col-sm-7">Si <input id="vpn" name="vpn" type="checkbox" value="1"></div>
-                    </div>
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>VPN:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="vpn" name="vpn" type="hidden" value="1"><p>Activo</p>
-                        </div>
                     </div>
                 @endif
                 <br>
             </div>
             <div class="col-md-5 p-5">
-                @if ($petition->collaborator->account_glpi == '')
+                @if ($petition->account_glpi == 0 )
+                @else
                     <div class="row">
                         <div class="col-sm-5"><strong>Cuenta Glpi:</strong></div>
-                        <div><input id="account_glpi" name="account_glpi" type="text" class="col-sm-7"></div>
-                    </div>
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Cuenta Glpi:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="account_glpi" name="account_glpi" type="hidden" value="{{ $petition->collaborator->account_glpi }}">{{ $petition->collaborator->account_glpi }}
-                        </div>
+                        <div><input id="account_glpi" name="account_glpi" type="text" class="col-sm-10"></div>
                     </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->account_gitlab == '')
+                @if ($petition->account_gitlab == 0 )
+                @else
                     <div class="row">
                         <div class="col-sm-5"><strong>Cuenta Gitlab:</strong></div>
-                        <div><input id="account_gitlab" name="account_gitlab" type="text" class="col-sm-7"></div>
-                    </div>
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Cuenta Gitlab:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="account_gitlab" name="account_gitlab" type="hidden" value="{{ $petition->collaborator->account_gitlab }}">{{ $petition->collaborator->account_gitlab }}
-                        </div>
+                        <div><input id="account_gitlab" name="account_gitlab" type="text" class="col-sm-10"></div>
                     </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->account_jira == '')
+                @if ($petition->account_jira == 0 )
+                @else
                     <div class="row">
                         <div class="col-sm-5"><strong>Cuenta Jira:</strong></div>
-                        <div><input id="account_jira" name="account_jira" type="text" class="col-sm-7"></div>
-                    </div>
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Cuenta Jira:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="account_jira" name="account_jira" type="hidden" value="{{ $petition->collaborator->account_jira }}">{{ $petition->collaborator->account_jira }}
-                        </div>
+                        <div><input id="account_jira" name="account_jira" type="text" class="col-sm-10"></div>
                     </div>
                 @endif
                 <br>
-                @if ($petition->collaborator->account_da == '')
-                    <div class="row">
-                        <div class="col-sm-5"><strong>Directorio Activo:</strong></div>
-                        <div><input id="account_da" name="account_da" type="text" class="col-sm-7"></div>
-                    </div>
+                @if ($petition->account_da == 0 )
                 @else
                     <div class="row">
-                        <div class="col-sm-4"><strong>Directorio Activo:</strong></div>
-                        <div class="col-sm-7">
-                            <input id="account_da" name="account_da" type="hidden" value="{{ $petition->collaborator->account_da }}">{{ $petition->collaborator->account_da }}
-                        </div>
+                        <div class="col-sm-5"><strong>Directorio Activo:</strong></div>
+                        <div><input id="account_da" name="account_da" type="text" class="col-sm-10"></div>
                     </div>
                 @endif
-                  {{-- @if ($petition->collaborator->nodo &&
-                     $petition->collaborator->ip &&
-                     $petition->collaborator->internet &&
-                     $petition->collaborator->vpn &&
-                     $petition->collaborator->equipment_id &&
-                     $petition->collaborator->account_glpi &&
-                     $petition->collaborator->account_gitlab &&
-                     $petition->collaborator->account_jira &&
-                     $petition->collaborator->account_da == --}}
                 <br>
                 <input class="btn btn-secondary btn-sm" type="submit" value="Guardar">
             </form>
@@ -431,125 +375,81 @@
     <br>
     <br>
     <div class="container card-header bg-secondary">
-        <div class="col-md-4 p-1">
-            <h4><strong>Tickets:</strong></h4>
-        </div>
+        <h4><strong>Tickets:</strong></h4>
     </div>
     {{-- Tickets --}}
     <div class="row card-body shadow container table-bordered">
-            <div class="col-md-5 p-3">
+            <div class="col-md-5">
                 <form action="{{ route('petition.update', $petition->id)}}" method="POST">
                     @csrf
                     @method('PUT')
-                    @if ($petition->tk_da_account_1 == '')
+                    @if ($petition->account_da == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-8"><h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_da_account_1" name="tk_da_account_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-8"><h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4></div>
-                            <input id="tk_da_account_1" name="tk_da_account_1" type="hidden" value="{{ $petition->tk_da_account_1 }}">{{ $petition->tk_da_account_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_gitlab_account_1 == '')
+                    @if ($petition->account_gitlab == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-7"><h4><strong>Tk. Alta de C. Gitlab:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_gitlab_account_1" name="tk_gitlab_account_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Gitlab:</strong></h4></div>
-                            <input id="tk_gitlab_account_1" name="tk_gitlab_account_1" type="hidden" value="{{ $petition->tk_gitlab_account_1 }}">{{ $petition->tk_gitlab_account_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_glpi_account_1 == '')
+                    @if ($petition->account_glpi == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-7"><h4><strong>Tk. Alta de C. Glpi:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_glpi_account_1" name="tk_glpi_account_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Glpi:</strong></h4></div>
-                            <input id="tk_glpi_account_1" name="tk_glpi_account_1" type="hidden" value="{{ $petition->tk_glpi_account_1 }}">{{ $petition->tk_glpi_account_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_jira_account_1 == '')
+                    @if ($petition->account_jira == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-7"><h4><strong>Tk. Alta de C. Jira:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_jira_account_1" name="tk_jira_account_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Jira:</strong></h4></div>
-                            <input id="tk_jira_account_1" name="tk_jira_account_1" type="hidden" value="{{ $petition->tk_jira_account_1 }}">{{ $petition->tk_jira_account_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_nodo_1 == '')
+                    @if ($petition->nodo == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-7"><h4><strong>Tk. Alta de Nodo:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_nodo_1" name="tk_nodo_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de Nodo:</strong></h4></div>
-                            <input id="tk_nodo_1" name="tk_nodo_1" type="hidden" value="{{ $petition->tk_nodo_1 }}">{{ $petition->tk_nodo_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_ip_1 == '')
+                    @if ($petition->ip == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-5"><h4><strong>Tk. IP:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_ip_1" name="tk_ip_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-5"><h4><strong>Tk. IP:</strong></h4></div>
-                            <input id="tk_ip_1" name="tk_ip_1" type="hidden" value="{{ $petition->tk_ip_1 }}">{{ $petition->tk_ip_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_internet_1 == '')
+                    @if ($petition->internet == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-5"><h4><strong>Tk. Internet:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_internet_1" name="tk_internet_1"></div>
                         </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-5"><h4><strong>Tk. Internet:</strong></h4></div>
-                            <input id="tk_internet_1" name="tk_internet_1" type="hidden" value="{{ $petition->tk_internet_1 }}">{{ $petition->tk_internet_1}}
-                        </div>
                     @endif
                     <br>
-                    @if ($petition->tk_vpn_1 == '')
+                    @if ($petition->vpn == 0 )
+                    @else
                         <div class="row">
                             <div class="col-sm-5"><h4><strong>Tk. VPN:</strong></h4></div>
                             <div class="col-sm-2"><input type="text" id="tk_vpn_1" name="tk_vpn_1"></div>
-                        </div>
-                    @else
-                        <div class="row">
-                            <div class="col-sm-5"><h4><strong>Tk. VPN:</strong></h4></div>
-                            <input id="tk_vpn_1" name="tk_vpn_1" type="hidden" value="{{ $petition->tk_vpn_1 }}">{{ $petition->tk_vpn_1}}
                         </div>
                     @endif
                     <br>
             </div>
             <div class="col-md-1 p-3"></div>
-            <div class="col-md-5 p-3">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+            <div class="col-md-5">
                 <div class="row">
                     <div class="col-sm-5 pt-20 "><strong>Folio de solicitud:</strong></div>
                         <input name="petition_id" id="petition_id" type="hidden" value="{{ $petition->fileID  }}">{{ $petition->fileID  }}
@@ -569,7 +469,6 @@
             </div>
         </form>
     </div>
-    <br>
     <br>
     <div class="row">
         <div class="col-md-9"></div>
