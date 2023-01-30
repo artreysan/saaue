@@ -63,35 +63,25 @@
                     <br>
                     <br>
                     <div class="table table-bordered">
-                        @if ($equipment == null)
+                        @if (count($equipments) == 0)
                             <h6>No tiene equipo de computo asignado<h6>
                         @else
-                            <input id="equipment_id" name="equipment_id" type="hidden"
-                                value="{{ $equipment->id}}">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h6><strong>Equipo actual:</strong></h6>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <table class="table table-bordered">
-                                            <thead class="table-dark">
-                                                <th>Tipo</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Serie</th>
-                                            </thead>
-                                            <tbody>
-                                                <td>{{ $equipment->tipo }}</td>
-                                                <td>{{ $equipment->marca }}</td>
-                                                <td>{{ $equipment->modelo }}</td>
-                                                <td>{{ $equipment->serie }}</td>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6><strong>Equipo solicitante:</strong></h6>
                                 </div>
 
-                                @endif
+                                <div>
+                                    <select name="equipment_id" id="equipment_id" required>
+                                        @foreach ( $equipments as $e)
+                                            <option value="{{$e->id}}" id="equipment_id">
+                                                    {{$e->serie}} | {{$e->marca}} {{$e->modelo}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <br>
@@ -100,43 +90,47 @@
         </div>
         <div class="row container">
             <div class="col-md-4">
-                <div class="card-header bg-secondary">
-                    <h6>Servicios TIC</h6>
-                </div>
-                <div class="p-3 table-bordered">
-                    @if ($collaborator->nodo == '1')
-                    @else
-                        <div class="row">
-                            <div class="col-sm-3"><strong>Nodo:</strong></div>
-                            <div class="col-sm-2"><input type="radio" name="nodo" value="1" checked> Sí </div>
-                            <div class="col-sm-2"><input type="radio" name="nodo" value="0"> No </div>
-                        </div>
-                    @endif
-                    @if ($collaborator->vpn == '1')
-                    @else
-                        <div class="row">
-                            <div class="col-sm-3"><strong>VPN:</strong></div>
-                            <div class="col-sm-2"><input type="radio" name="vpn" value="1" checked> Sí </div>
-                            <div class="col-sm-2"><input type="radio" name="vpn" value="0"> No </div>
-                        </div>
-                    @endif
-                    @if ($collaborator->ip == '1')
-                    @else
-                        <div class="row">
-                            <div class="col-sm-3"><strong>IP:</strong></div>
-                            <div class="col-sm-2"><input type="radio" name="ip" value="1" checked> Sí </div>
-                            <div class="col-sm-2"><input type="radio" name="ip" value="0"> No</div>
-                        </div>
-                    @endif
-                    @if ($collaborator->internet == '1')
-                    @else
-                        <div class="row">
-                            <div class="col-sm-3"><strong>Internet:</strong></div>
-                            <div class="col-sm-2"><input type="radio" name="internet" value="1" checked> Sí </div>
-                            <div class="col-sm-2"><input type="radio" name="internet" value="0"> No </div>
-                        </div>
-                    @endif
-                </div>
+                @if (count($equipments) == 0)
+                
+                @else
+                    <div class="card-header bg-secondary">
+                        <h6>Servicios TIC</h6>
+                    </div>
+                    <div class="p-3 table-bordered">
+                        @if ($collaborator->nodo == '1')
+                        @else
+                            <div class="row">
+                                <div class="col-sm-3"><strong>Nodo:</strong></div>
+                                <div class="col-sm-2"><input type="radio" name="nodo" value="1" checked> Sí </div>
+                                <div class="col-sm-2"><input type="radio" name="nodo" value="0"> No </div>
+                            </div>
+                        @endif
+                        @if ($collaborator->vpn == '1')
+                        @else
+                            <div class="row">
+                                <div class="col-sm-3"><strong>VPN:</strong></div>
+                                <div class="col-sm-2"><input type="radio" name="vpn" value="1" checked> Sí </div>
+                                <div class="col-sm-2"><input type="radio" name="vpn" value="0"> No </div>
+                            </div>
+                        @endif
+                        @if ($collaborator->ip == '1')
+                        @else
+                            <div class="row">
+                                <div class="col-sm-3"><strong>IP:</strong></div>
+                                <div class="col-sm-2"><input type="radio" name="ip" value="1" checked> Sí </div>
+                                <div class="col-sm-2"><input type="radio" name="ip" value="0"> No</div>
+                            </div>
+                        @endif
+                        @if ($collaborator->internet == '1')
+                        @else
+                            <div class="row">
+                                <div class="col-sm-3"><strong>Internet:</strong></div>
+                                <div class="col-sm-2"><input type="radio" name="internet" value="1" checked> Sí </div>
+                                <div class="col-sm-2"><input type="radio" name="internet" value="0"> No </div>
+                            </div>
+                        @endif
+                    </div>
+                @endif
             </div>
             <div class="col-md-4">
                 <div class="card-header bg-secondary">

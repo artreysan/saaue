@@ -118,9 +118,9 @@ class PetitionController extends Controller
     {
         $petition = Petition::find($id);
         $collaborator = Collaborator::find($id);
-        $equipment = Equipment::find($collaborator->id);
+        $equipments = Equipment::where('collaborator_id','=',$collaborator->id)->get();
 
-        return view('collaborator/petition/show', compact('petition', 'collaborator','equipment'));
+        return view('collaborator/petition/show', compact('petition', 'collaborator','equipments'));
     }
 
     public function update (Request $request, $id)

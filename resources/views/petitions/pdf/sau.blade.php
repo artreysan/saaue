@@ -1729,7 +1729,7 @@
                                 </p>
                             </td>
                             <td class="c13" colspan="1" rowspan="1">
-                                    @if($petition->equipo_sict =='si')
+                                    @if($equipment->enterprise_id ==2)
                                         <span class="c9">
                                             SI ( &nbsp; x &nbsp; ) &nbsp; &nbsp;
                                             &nbsp;NO &nbsp;( &nbsp; &nbsp; )
