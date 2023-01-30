@@ -16,233 +16,180 @@
         </div>
     </div>
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7"></div>
-            <div class="col-md-2"><a href="/collaborator" class="btn btn-secondary">Ver todos</a></button></div>
-            <div class="col-md-2"><a href="/collaborator/petition/{{ $collaborator->id }}"><button type="button"
-                        class="btn btn-danger">Hacer solicitud</button></a></button></div>
-        </div>
-    </div>
     <div class="row">
-        <div class="col-md-5">
-                <div class="card-header card-header-primary bg-secondary">
-                    <div class="card-title">{{ $collaborator->rol->rol }}</div>
+        <div class="col-md-9"></div>
+        <div class="col-md-1"><a href="/collaborator" class="btn btn-secondary">Ver todos</a></button></div>
+        <div class="col-md-1"><a href="/collaborator/petition/{{ $collaborator->id }}"><button type="button"
+                    class="btn btn-danger">Hacer solicitud</button></a></button></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 p-5">
+            <div class="card-header card-header-primary bg-secondary">
+                <div class="card-title">{{ $collaborator->rol->rol }}</div>
+            </div>
+            <div class="card-body table-bordered background-color shadow ">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img width="130px" height="150px" src="{{ URL::asset('img/perfil.png') }}" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <div>
+                            <h6> {{ $collaborator->name }} {{ $collaborator->last_name }} {{ $collaborator->last_maternal }}
+                            </h6>
+                        </div>
+                        <div>
+                            <h6>{{ $collaborator->enterprise->name }}</h6>
+                        </div>
+                        <div>
+                            <h6>{{ $collaborator->rol->rol }}</h6>
+                        </div>
+                        <div>
+                            <h6>{{ $collaborator->location->ubicacion }}</h6>
+                        </div>
+                        <div>
+                            <h6>{{ $collaborator->email }}</h6>
+                        </div>
+                        <br>
+                        <div>
+                            <h6> <strong>Equipos</strong></h6>
+                            @foreach ($equipments as $equipment)
+                                <tbody>
+                                    <h6>{{ $equipment->tipo }} {{ $equipment->marca }} {{ $equipment->modelo }}
+                                            -
+                                            {{ $equipment->serie }} <a style="padding-left:9px "
+                                            href="equipment/{{ $equipment->id }}" alt="equipment"><button
+                                                class="	fas fa-laptop"></button></a></h6>
+                                </tbody>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body table-bordered background-color shadow ">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Nombre:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div>
-                                <h6>{{ $collaborator->name }} {{ $collaborator->last_name }}
-                                    {{ $collaborator->last_maternal }}</h6>
-                            </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <h6><strong>Nodo:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Empresa:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div>
-                                <h6>{{ $collaborator->enterprise->name }}</h6>
-                            </div>
+                    <div class="col-md-7">
+                        @if ($collaborator->nodo == '')
+                            <h6>{{ 'No tiene Nodo' }}<h6>
+                                @else
+                                    <h6>{{ $collaborator->nodo }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>Directorio Activo:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Rol:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div>
-                                <h6>{{ $collaborator->rol->rol }}</h6>
-                            </div>
+                    <div class="col-md-7">
+                        @if ($collaborator->account_da == '')
+                            <h6>{{ 'No tiene cuenta D. Activo' }}<h6>
+                                @else
+                                    <h6>{{ $collaborator->account_da }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>Cuenta Glpi:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Ubicación:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div>
-                                <h6>{{ $collaborator->location->ubicacion }}</h6>
-                            </div>
+                    <div class="col-md-7">
+                        @if ($collaborator->account_glpi == '')
+                            <h6>{{ 'No tiene cuenta Glpi' }}<h6>
+                                @else
+                                    <h6>{{ $collaborator->account_glpi }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>Cuenta Gitlab:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Email:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div>
-                                <h6>{{ $collaborator->email }}</h6>
-                            </div>
+                    <div class="col-md-7">
+                        @if ($collaborator->account_gitlab == '')
+                            <h6>{{ 'No tiene cuenta Gitlab' }}<h6>
+                                @else
+                                    <h6>{{ $collaborator->account_gitlab }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>Cuenta Jira:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Nodo:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->nodo == '')
-                                <h6>{{ 'No tiene Nodo' }}<h6>
-                                    @else
-                                        <h6>{{ $collaborator->nodo }}</h6>
-                            @endif
+                    <div class="col-md-7">
+                        @if ($collaborator->account_jira == '')
+                            <h6>{{ 'No tiene cuenta Jira' }}<h6>
+                                @else
+                                    <h6>{{ $collaborator->account_jira }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>Internet</strong></h6>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Directorio Activo:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->account_da == '')
-                                <h6>{{ 'No tiene cuenta D. Activo' }}<h6>
-                                    @else
-                                        <h6>{{ $collaborator->account_da }}</h6>
-                            @endif
+                    <div class="col-md-7">
+                        @if ($collaborator->internet == '')
+                            <h6>{{ 'No tiene internet' }}<h6>
+                                @else
+                                    <h6>{{ 'Cuenta con internet' }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>VPN:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Cuenta Glpi:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->account_glpi == '')
-                                <h6>{{ 'No tiene cuenta Glpi' }}<h6>
-                                    @else
-                                        <h6>{{ $collaborator->account_glpi }}</h6>
-                            @endif
+                    <div class="col-md-7">
+                        @if ($collaborator->vpn == '')
+                            <h6>{{ 'No tiene vpn' }}<h6>
+                                @else
+                                    <h6>{{ 'Cuenta con una VPN' }}</h6>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <h6><strong>IP:</strong></h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Cuenta Gitlab:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->account_gitlab == '')
-                                <h6>{{ 'No tiene cuenta Gitlab' }}<h6>
-                                    @else
-                                        <h6>{{ $collaborator->account_gitlab }}</h6>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Cuenta Jira:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->account_jira == '')
-                                <h6>{{ 'No tiene cuenta Jira' }}<h6>
-                                    @else
-                                        <h6>{{ $collaborator->account_jira }}</h6>
-                            @endif
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>Internet</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->internet == '')
-                                <h6>{{ 'No tiene internet' }}<h6>
-                                    @else
-                                        <h6>{{ 'Cuenta con internet' }}</h6>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>VPN:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->vpn == '')
-                                <h6>{{ 'No tiene vpn' }}<h6>
-                                    @else
-                                        <h6>{{ 'Cuenta con una VPN' }}</h6>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div>
-                                <h6><strong>IP:</strong></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            @if ($collaborator->ip == '')
-                                <h6>{{ 'No tiene IP' }}<h6>
-                                    @else
-                                        <h6>{{ $collaborator->ip }}</h6>
-                            @endif
-                        </div>
+                    <div class="col-md-7">
+                        @if ($collaborator->ip == '')
+                            <h6>{{ 'No tiene IP' }}<h6>
+                                @else
+                                    <h6>{{ $collaborator->ip }}</h6>
+                        @endif
                     </div>
                 </div>
             </div>
+        </div>
         <div class="col-md-7">
-            <br>
             <div class="p-5">
-                <p>Aqui va a ir una foto del colaboraador</p>
-            </div>
-            <br>
-            <br>
-            <div class="p-5">
-                <table class="table table-striped shadow">
-                    <thead class="table-secondary">
-                        <th>Id</th>
-                        <th class="col-sm-1">Tipo</th>
-                        <th class="col-sm-1">Marca</th>
-                        <th class="col-sm-2">Modelo</th>
-                        <th class="col-sm-4">Serie</th>
-                        <th class="col-sm-2">Mac Ethernet</th>
-                        <th class="col-sm-1">Mac wifi</th>
-                        <th class="col-sm-1">Ver</th>
-                    </thead>
-                    @foreach ($equipments as $equipment)
-                        <tbody>
-                            <td>{{ $equipment->id }}</td>
-                            <td>{{ $equipment->tipo }}</td>
-                            <td>{{ $equipment->marca }}</td>
-                            <td>{{ $equipment->modelo }}</td>
-                            <td>{{ $equipment->serie }}</td>
-                            <td>{{ $equipment->mac_ethernet }}</td>
-                            <td>{{ $equipment->mac_wifi }}</td>
-                            <td><a href="equipment/{{ $equipment->id }}" alt="equipment"><button
-                                        class="fas fa-address-card"></button></a></td>
-                        </tbody>
-                    @endforeach
-                </table>
-            </div>
-            <div class="p-5">
-                <table class="table table-striped shadow" id="petitions">
+                <div class="p-2 container"
+                    style="background-color: #f4f6f9; color: rgb(41, 41, 41); with:300px; higth: 50px">
+                    <h6>Solicitudes de {{ $collaborator->name }} {{ $collaborator->last_name }}
+                        {{ $collaborator->last_maternal }}</h6>
+                </div>
+                <table class="table" id="petitions">
                     <thead class="table-secondary">
                         <th>Id</th>
                         <th>Folio</th>

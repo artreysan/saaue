@@ -256,7 +256,9 @@
             <br>
             <br>
             <div class="row">
-                <div class="col-sm-5 table-bordered">Aqui va el espacio para generar el pdf</div>
+                <div class="col-sm-5">
+                        <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+                    </div>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-5 table-bordered">Aqui va el espacio para escanear y subir el pdf</div>
             </div>

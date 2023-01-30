@@ -36,20 +36,6 @@ INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Subdirector de Sistemas Administr
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Subdirector de Adminsitración de Portales');
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'UI/UX');
 
-INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'web', '2023-01-20 18:13:59', '2023-01-20 18:13:59'),
-(2, 'Editor', 'web', '2023-01-20 18:13:59', '2023-01-20 18:13:59'),
-(3, 'Externo', 'web', '2023-01-20 18:13:59', '2023-01-20 18:13:59');
-
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `last_name`, `last_maternal`, `rol_id`, `location_id`, `enterprise_id`, `role_id`) VALUES
-(1, 'Milton Arturo', 'milton.quiroz@mail.com', NULL, '$2y$10$dDAx.1efF5t0g2T1yVMo3eGQIKWSBJdstS3948JUBfZju2NpEokfC', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Quiroz', 'Hernández', 9, 4, 2, 1),
-(2, 'Arturo', 'arturo.reyes@mail.com', NULL, '$2y$10$Js3e5hT8grzEmhk.GznoK.YtQZgFqGkH4KzfdmM6aDDyH/YhqWKC.', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Reyes', 'Santana', 9, 4, 2, 1),
-(3, 'Ing. Mario César', 'mario.cesar@sct.gob.mx', NULL, '$2y$10$Y3u5vK23.eXFt/3kW0oa1.C0JGqTTRXnhjBuwGWvrhH0mO7ZveyeK', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Herrera', 'González', 12, 4, 2, 1),
-(4, 'Ing. José Antonio', 'antonio.rulfo@sct.gob.mx', NULL, '$2y$10$SnCY8vIsXDsLtB5vY4buCuBi7hFoWDot3andBZcGvT5MH4GCO4/82', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Rulfo', 'Zaragoza', 13, 4, 2, 1),
-(5, 'Mtra. Edna. Patricia', 'edna.patricia@sct.gob.mx', NULL, '$2y$10$aeWeShTycvyWtDKSTrVHJusbBD9X7mivcI07i8x9dandewdcqm56W', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Santiago', 'Vargas', 20, 4, 2, 1),
-(6, 'Ing. Iracema', 'iracema.miron@sct.gob.mx', NULL, '$2y$10$4L5goEa/aL9nGMyrHGS13uNHRMFDfdfml/RsdORCj4TUWYarWEvyS', NULL, '2023-01-20 18:14:02', '2023-01-20 18:14:02', 'Mirón', 'Ramírez', 21, 4, 2, 1);
-
-
 
 
 
