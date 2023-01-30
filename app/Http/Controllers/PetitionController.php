@@ -44,11 +44,13 @@ class PetitionController extends Controller
         $rolAut = Rol::find($petition->user->rol_id);
         $pdf_name = $petition->fileID . '_sau.pdf';
 
-        if($petition->equipment_id == null){
-            $equipment = Equipment::find($petition->equipment_id);
+        if($petition->equipment_id != null){
+            $equipment = Equipment::find( $petition->equipment_id);
+            $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator', 'enterprise', 'rol', 'rolAut','equipment'));
+        }else{
+            $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator', 'enterprise', 'rol', 'rolAut'));
         }
 
-        $pdf = Pdf::loadView('petitions.pdf.sau', compact('petition', 'user', 'collaborator','enterprise','rol', 'rolAut'));
         $pdf->save($path . '/' . $pdf_name);
         $pdf->setPaper('a4');
         return $pdf->stream($pdf_name);

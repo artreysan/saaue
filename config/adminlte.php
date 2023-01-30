@@ -129,9 +129,9 @@ return [
     |
     */
 
-    'usermenu_enabled' => false,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_enabled' => true,
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-secondary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -150,7 +150,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => true,
     'layout_fixed_footer' => true,
     'layout_dark_mode' => null,
@@ -462,7 +462,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ver todos',
-                    'url'  => 'projects/index',
+                    'url'  => 'projects',
                     'icon' => 'far fa-eye',
                 ],
             ],

@@ -66,6 +66,8 @@
                         @if ($equipment == null)
                             <h6>No tiene equipo de computo asignado<h6>
                         @else
+                            <input id="equipment_id" name="equipment_id" type="hidden"
+                                value="{{ $equipment->id}}">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -88,7 +90,8 @@
                                         </table>
                                     </div>
                                 </div>
-                        @endif
+
+                                @endif
                     </div>
                 </div>
                 <br>

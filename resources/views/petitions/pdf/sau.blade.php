@@ -1627,7 +1627,10 @@
         </table>
         <p class="c7 c8"><span class="c9"></span></p>
         <a id="t.70bda04d61abf1d9761a3fc3cfbcecd9fe1ecda8"></a><a id="t.4"></a>
-        <table class="c43">
+        @if ($petition->equipment_id == null)
+
+        @else
+            <table class="c43">
             <tr class="c53">
                 <td class="c55" colspan="1" rowspan="1">
                     <p class="c7">
@@ -1648,7 +1651,7 @@
                             </td>
                             <td class="c13" colspan="1" rowspan="1">
                                 <p class="c3 c8"><span class="c9">
-                                    {{$petition->tipo_equipo}}
+                                    {{$equipment->tipo}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1659,7 +1662,7 @@
                             </td>
                             <td class="c13" colspan="1" rowspan="1">
                                 <p class="c3 c8"><span class="c9">
-                                    {{$petition->marca}}
+                                    {{$equipment->marca}}
                                 </span></p>
                             </td>
                         </tr>
@@ -1672,7 +1675,7 @@
                             <td class="c13" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                    {{$petition->modelo}}
+                                    {{$equipment->modelo}}
                                 </span>
                             </p>
                             </td>
@@ -1684,7 +1687,7 @@
                             <td class="c13" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                        {{$petition->serie}}
+                                        {{$equipment->serie}}
                                     </span>
                                 </p>
                             </td>
@@ -1696,9 +1699,11 @@
                             <td class="c13" colspan="1" rowspan="1">
                                 <p class="c3 c8">
                                     <span class="c9">
-                                    {{$petition->mac}}
-                                </span>
-                            </p>
+                                    <b>Ethernet:&nbsp;&nbsp;</b>{{$equipment->mac_ethernet}}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b>WiFi:&nbsp;&nbsp;</b>{{$equipment->mac_wifi}}
+                                    </span>
+                                </p>
                             </td>
                         </tr>
                         <tr class="c25">
@@ -1762,20 +1767,20 @@
                 </td>
             </tr>
         </table>
+        @endif
+        <br>
+
         <p class="c3 c8"><span class="c9"></span></p>
         <p class="c3"><span class="c9">NOTA IMPORTANTE:</span></p>
         <p class="c3">
             <span class="c9"
                 >El solicitante deber&aacute; ser el director o subdirector del
-                &aacute;rea donde estar&aacute; ubicado el usuario.</span
-            >
-        </p>
-        <p class="c22">
-            <span class="c9"
-                >El solicitante es responsable del uso que el usuario realice de
+                &aacute;rea donde estar&aacute; ubicado el usuario.
+                <br>
+                El solicitante es responsable del uso que el usuario realice de
                 los servicios proporcionados, as&iacute; como, de la
-                informaci&oacute;n obtenida a trav&eacute;s de los mismos.</span
-            >
+                informaci&oacute;n obtenida a trav&eacute;s de los mismos.
+            </span>
         </p>
         <p class="c22">
             <span class="c9"
