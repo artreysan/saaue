@@ -37,9 +37,91 @@ INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'Subdirector de Adminsitración de
 INSERT INTO `rols`(`id`, `rol`) VALUES (NULL, 'UI/UX');
 
 
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIARMX', 'MySQL', 'Qa', 'MySQL_QA', '10.38.241.28', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CASS', 'MySQL', 'Qa', 'MySQL_QA', '10.38.241.28', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'banco_digital', 'MySQL', 'Qa', 'MySQL_QA', '10.38.241.28', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'glpi_sct', 'MySQL', 'Qa', 'GLPI', '10.38.239.36', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'db_gtdtic', 'MySQL', 'Qa', 'Portal de la SCT', '10.38.241.3', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'db_igualdad', 'MySQL', 'Qa', 'Portal de la SCT', '10.38.241.3', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'db_sinformativa', 'MySQL', 'Qa', 'Portal de la SCT', '10.38.241.3', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'vlog_comite', 'MySQL', 'Qa', 'Portal de la SCT', '10.38.241.3', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'sfv_portal', 'MySQL', 'Qa', 'Feria', '10.38.239.39', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'sfv_acceso', 'MySQL', 'Qa', 'Feria', '10.38.239.39', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'sintqa_portal', 'MySQL', 'Qa', 'Intranet', '10.38.241.25', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'pdn_portal', 'MySQL', 'Qa', 'Normatividad', '10.38.240.29', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'repo_portal', 'MySQL', 'Qa', 'Normatividad', '10.38.240.29', '3306');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SUI_LFD', 'PostgreSQL', 'Qa', 'Licencia Federal', '10.38.10.9', '5432');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'TIMBRADO SCT', 'PostgreSQL', 'Qa', '', '10.33.146.20', '5432');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'TIMBRADO AFAC', 'PostgreSQL', 'Qa', '', '10.38.10.20', '5432');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'JIRA', 'PostgreSQL', 'Qa', 'Sistema de registro de mantenimientos', '10.38.239.37', '5432');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'GITLAB', 'PostgreSQL', 'Qa', '', '10.33.146.22', '5432');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SUAJ', 'PostgreSQL', 'Qa', 'Sistema Institucional de Asuntos Jurídicos', '10.38.11.11', '5432');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'RECO', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5440');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'RNSAOP', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5440');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ADMSEG_SVC', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5440');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'REGAUDIT', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5440');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CABMUN', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5444');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'C_RURALES_BACK', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5444');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'C_RURALES_SEPOMEX', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5444');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'VUELA_SEGURO', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5446');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CAT_RENAPO', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5448');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'RSIE', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5448');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'RSIPUMEX', 'PostgreSQL', 'Qa', '', '10.38.10.19', '5448');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SICCA', 'DB2', 'Desarrollo', 'Sistema de Clasificación Archivista', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'INGPBA', 'DB2', 'Desarrollo', 'Sistema de Ingresos Pruebas', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SITFYM', 'DB2', 'Desarrollo', 'Sistema de Ferroviarios Pruebas', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAC', 'DB2', 'Desarrollo', 'Sistema Integral de Aeronáutica Civil Pruebas', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIGTIC', 'DB2', 'Desarrollo', 'Sistema Institucional para la Gestión de Tecnologías de la Información y Comunicaciones Pruebas', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFFA', 'DB2', 'Desarrollo', 'Sistema Institucional de Autotransporte Federal', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'INGREP', 'DB2', 'Desarrollo', 'Sistema de Ingresos DGPOP', '10.33.141.253', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ADMSEG', 'DB2', 'Qa', 'Administración de Seguridad para Aplicaciones', '10.38.10.8', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAF', 'DB2', 'Qa', 'Sistema Institucional de Autotransporte Federal', '10.38.10.8', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ING', 'DB2', 'Qa', 'Sistema de Ingresos DGPOP', '10.38.10.8', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAC', 'DB2', 'Qa', 'Sistema Integral de Aeronáutica Civil Pruebas', '10.38.10.8', '50000');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CONTRATO', 'DB2', 'Desarrollo', 'Sistema para el Registro de Contratistas', '10.33.141.253', '50002');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'UAC', 'DB2', 'Desarrollo', 'Base de QA', '10.33.141.253', '50002');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFINT', 'DB2', 'Desarrollo', 'Sistema Institucional de Autotransporte Federal', '10.33.141.253', '50002');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'MEDPREVD', 'DB2', 'Qa', 'Medicina Preventiva y Licencias', '10.38.10.8', '50002');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'LICENCIA', 'DB2', 'Qa', 'Medicina Preventiva y Licencias', '10.38.10.8', '50002');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFINT', 'DB2', 'Qa', '', '10.38.10.8', '50002');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFREP', 'DB2', 'Desarrollo', 'Réplica diaria de SIAF', '10.33.141.253', '50004');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIGTIC', 'DB2', 'Qa', 'Sistema Institucional para la Gestión de Tecnologías de la Información y Comunicaciones', '10.38.10.8', '50004');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFNW', 'DB2', 'Desarrollo', 'Sistema Institucional de Autotransporte Federal Pruebas SIAF', '10.33.141.253', '50006');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SUAJ', 'DB2', 'Desarrollo', 'Sistema Unidad de Asuntos Jurídicos', '10.33.141.253', '50006');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'AGADOS', 'DB2', 'Desarrollo', 'Replica de AGA', '10.33.141.253', '50006');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ADMSEG', 'DB2', 'Desarrollo', 'Administración de Seguridad para Aplicaciones', '10.33.141.253', '50006');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'MEDELIC2', 'DB2', 'Desarrollo', 'Sistema de Medicina Preventiva y Licencias Pruebas2', '10.33.141.253', '50006');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SUAJ', 'DB2', 'Qa', 'Sistema Unidad de Asuntos Jurídicos', '10.38.10.8', '50006');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIGESPO', 'DB2', 'Desarrollo', 'Sistema de Gestión de Proyectos de Obra Pruebas', '10.33.141.253', '50010');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'BI_SCT', 'DB2', 'Desarrollo', 'Sistema Business Inteligence de la plataforma de Informática', '10.33.141.253', '50010');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIGESYS', 'DB2', 'Desarrollo', 'Base de QA', '10.33.141.253', '50010');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFINP', 'DB2', 'Desarrollo', 'Sistema SIAF', '10.33.141.253', '50010');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFINFA', 'DB2', 'Desarrollo', 'Sistema SIAF', '10.33.141.253', '50010');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIAFINP', 'DB2', 'Qa', 'Sistema Institucional de Autotransporte Federal', '10.38.10.8', '50010');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ADMPBA', 'DB2', 'Desarrollo', 'Base de QA', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'DNC', 'DB2', 'Desarrollo', 'Sistema de Capacitación Pruebas', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'INGDES', 'DB2', 'Desarrollo', 'Sistema de Ingresos Desarrollo', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SIEDGP', 'DB2', 'Desarrollo', 'Base de QA', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ADMSEG2', 'DB2', 'Desarrollo', 'Base de QA', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CIS', 'DB2', 'Desarrollo', 'Sistema Integral de Servicios', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CISREP', 'DB2', 'Desarrollo', '', '10.33.141.253', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'CIS', 'DB2', 'Qa', 'Sistema Integral de Servicios', '10.38.10.8', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'DNC', 'DB2', 'Qa', 'Sistema de Capacitación Pruebas', '10.38.10.8', '50012');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'MEDPREVD', 'DB2', 'Desarrollo', 'Medicina Preventiva y Licencias Pruebas', '10.33.141.253', '50014');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ADVDB', 'DB2', 'Desarrollo', 'Aprovisionamiento de Derecho de Vía', '10.33.141.253', '50016');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'IIE', 'DB2', 'Desarrollo', 'Inventario de instalaciones estratégicas', '10.33.141.253', '50016');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'SITFYM', 'DB2', 'Qa', 'Sistema Institucional de Transporte Ferroviario y Multimodal', '10.38.10.8', '50016');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_Contenido', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_Contenido_6', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_Contenido_2', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_110821', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'PegasusV10', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasusv8', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_Consulta', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_SSIS', 'SQL Server', 'Desarrollo', 'Pegasus QA', '10.38.10.3', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'Pegasus_SSIS', 'SQL Server', 'Desarrollo', 'Pegasus Cubo QA versión 10', '10.38.10.12', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ReportServer', 'SQL Server', 'Desarrollo', 'Pegasus Cubo QA versión 10', '10.38.10.12', '');
+INSERT INTO `databases` (`id`, `db`, `name`, `enviroment`, `software`, `ip`, `port`) VALUES (NULL, 'ReportServerTempDB', 'SQL Server', 'Desarrollo', 'Pegasus Cubo QA versión 10', '10.38.10.12', '');
 
-
-
-
-        
-
+--

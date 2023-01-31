@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Project;
-use App\Http\Controllers\Controller;
+use App\Models\Database;
+use App\Models\Enterprise;
+use App\Models\Collaborator;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
@@ -26,7 +30,14 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+
+        $collaborators = Collaborator::all();
+        $enterprises = Enterprise::all();
+        $databases = Database::all();
+        $users = User::all();
+
+        $project = new Project();
+        return view('projects/create', compact('collaborators', 'enterprises', 'users', 'databases' ));
     }
 
     /**
@@ -37,7 +48,23 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $equipment = new Equipment();
+
+        $equipment->tipo            = $request->tipo;
+        $equipment->marca           = $request->marca;
+        $equipment->modelo          = $request->modelo;
+        $equipment->serie           = $request->serie;
+        $equipment->mac_ethernet    = $request->mac_ethernet;
+        $equipment->mac_wifi        = $request->mac_wifi;
+        $equipment->enterprise_id   = $request->enterprise_id;
+        $equipment->collaborator_id = $request->collaborator_id;
+
+        $equipment->save();
+
+        $enterprises = Enterprise::all();
+        $equipments = Equipment::all();
+
+        return view('equipment/index', compact('equipments', 'enterprises'));
     }
 
     /**

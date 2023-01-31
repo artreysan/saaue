@@ -64,13 +64,11 @@
                     <br>
                     <div class="table table-bordered">
                         @if (count($equipments) == 0)
-                            <h6>No tiene equipo de computo asignado<h6>
                         @else
                             <div class="row">
                                 <div class="col-md-4">
                                     <h6><strong>Equipo solicitante:</strong></h6>
                                 </div>
-
                                 <div>
                                     <select name="equipment_id" id="equipment_id" required>
                                         @foreach ( $equipments as $e)
@@ -84,14 +82,16 @@
                         @endif
                     </div>
                 </div>
-                <br>
             </div>
         </div>
         </div>
         <div class="row container">
             <div class="col-md-4">
+            <br>
                 @if (count($equipments) == 0)
-                
+                 <div class="p-5 table-bordered">
+                    <p>NO HAY EQUIPO ASIGNADO</p>
+                </div>
                 @else
                     <div class="card-header bg-secondary">
                         <h6>Servicios TIC</h6>
@@ -185,21 +185,6 @@
                 <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit" value="Enviar solicitud"></div>
             </div>
     </form>
-    <!--Información principal de la peticion-->
-    {{-- @if ($collaborator->equipment_id == '')
-                    <div class="row">
-                        <div class="col-md-7 container p-3 alert">
-                            <h6>Para realizar una solicitud es necesario tener un equipo de computo asignado, ve a equipos y asigna el colaborador al equipo deseado<h6>
-                        </div>
-                    </div>
-                @else --}}
-    {{-- <div class="container">
-                <div class="row">
-                    <div class="col-md-9"></div>
-                    <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit"
-                            value="Enviar solicitud"></div>
-                </div>
-            </div> --}}
     <br>
     <footer class="footer p-3 bg-green-900">
         <div class="copyright text-center text-sm text-muted text-lg-start">©

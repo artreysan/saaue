@@ -3,7 +3,7 @@
 @section('title', 'UTIC')
 
 @section('content_header')
-    {{-- Barra--}}
+    {{-- Barra --}}
     <div class="container-nav">
         <div class="row">
             <div class="col-md-1 p-4"></div>
@@ -32,21 +32,21 @@
                         </div>
                         <div class="col-md-6">
                             <?php
-                                switch ($petition->status) {
-                                    case 0:
-                                        echo '<div class="fas fa-circle pendiente"><strong>  Pendiente  </strong></div>';
-                                        break;
-                                    case 1:
-                                        echo '<div class=" fas fa-circle en-proceso "><strong>  En proceso  </strong></div>';
-                                        break;
-                                    case 2:
-                                        echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
-                                        break;
-                                    case 3:
-                                        echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
-                                        break;
-                                }
-                                ?>
+                            switch ($petition->status) {
+                                case 0:
+                                    echo '<div class="fas fa-circle pendiente"><strong>  Pendiente  </strong></div>';
+                                    break;
+                                case 1:
+                                    echo '<div class=" fas fa-circle en-proceso "><strong>  En proceso  </strong></div>';
+                                    break;
+                                case 2:
+                                    echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
+                                    break;
+                                case 3:
+                                    echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
+                                    break;
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="row">
@@ -54,7 +54,9 @@
                             <h6><strong>Fecha de solicitud: </strong></h6>
                         </div>
                         <div class="col-md-6">
-                            <h6><p>{{ $petition->created_at }} </p></h6>
+                            <h6>
+                                <p>{{ $petition->created_at }} </p>
+                            </h6>
                         </div>
                     </div>
                     <hr>
@@ -69,12 +71,12 @@
                             <div class="col-md-6">
                                 @if ($petition->a_nodo == '')
                                     @if ($petition->tk_nodo_1 == '')
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -93,12 +95,12 @@
                             <div class="col-md-6">
                                 @if ($petition->a_account_glpi == '')
                                     @if ($petition->tk_account_glpi_1 == '')
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -116,12 +118,12 @@
                             <div class="col-md-6">
                                 @if ($petition->a_account_gitlab == '')
                                     @if ($petition->tk_account_gitlab_1 == '')
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -137,14 +139,14 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                @if ($petition->a_account_account_jira == NULL)
-                                    @if ($petition->tk_account_jira_1 == NULL)
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                @if ($petition->a_account_account_jira == null)
+                                    @if ($petition->tk_account_jira_1 == null)
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -159,14 +161,14 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                @if ($petition->a_account_da == NULL)
-                                    @if ($petition->tk_da_account_1 == NULL)
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                @if ($petition->a_account_da == null)
+                                    @if ($petition->tk_da_account_1 == null)
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -185,12 +187,12 @@
                             <div class="col-md-6">
                                 @if ($petition->a_internet == '')
                                     @if ($petition->tk_internet_1 == '')
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -208,12 +210,12 @@
                             <div class="col-md-6">
                                 @if ($petition->a_vpn == '')
                                     @if ($petition->tk_vpn_1 == '')
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -231,12 +233,12 @@
                             <div class="col-md-6">
                                 @if ($petition->a_ip == '')
                                     @if ($petition->tk_ip_1 == '')
-                                        <h6 style="color:crimson" >{{'Pendiente'}}<h6>
-                                    @else
-                                        <h6 style="color:darkorange" >{{ 'En proceso'}}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
+                                            @else
+                                                <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                     @endif
                                 @else
-                                    <h6 style="color:#1795b8" >{{ 'Atendida'}}<h6>
+                                    <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                 @endif
                             </div>
                         @else
@@ -246,38 +248,39 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 p-2">
-
+        <div class="col-md-1 p-1">
         </div>
-        <div class="col-md-4 p-5 table-bordered shadow">
+        <div class="col-md-5 p-5 table-bordered shadow">
             <br>
             <h4>Status del trámite</h4>
             <p>Aqui va una grafica en semaforo del status del proceso </p>
             <br>
-            <form action="tu_script_de_procesamiento.php" method="post" enctype="multipart/form-data">
-                <div class="row p-2">
-                    <div class="col-sm-5">
-                        <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+            <div class="container">
+                <form action="tu_script_de_procesamiento.php" method="post" enctype="multipart/form-data">
+                    <div class="row p-2">
+                        <div class="col-sm-5">
+                            <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-5">
+                            <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}" alt="">
+                        </div>
                     </div>
-                    <div class="col-sm-2">
+                    <br>
+                    <div class="row p-2">
+                        <div class="col-sm-5">
+                            <input type="file" name="archivo_subido">
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="submit" value="Subir PDF">
+                        </div>
                     </div>
-                    <div class="col-sm-5">
-                        <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}" alt="">
-                    </div>
-                </div>
-                <br>
-                <div class="row p-2">
-                    <div class="col-sm-5">
-                        <input type="file" name="archivo_subido">
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm-5">
-                        <input type="submit" value="Subir PDF">
-                    </div>
-                </div>
-                <br>
-            </form>
+                    <br>
+                </form>
+            </div>
             <br>
             <br>
             <h4><strong>Solicitud:
@@ -303,19 +306,21 @@
         <p>Recuerda que los trámites de servicios TIC'S pueden tardr hasta 9 días hábiles</p>
     </div>
     <br>
-    {{-- Titulo de agregar al colaborador--}}
+    {{-- Titulo de agregar al colaborador --}}
     <div class="container card-header bg-secondary">
         <div class="col-md-12 p-1">
-            <h6>Actualizar información al colaborador {{$petition->collaborator->name}} {{$petition->collaborator->last_name}} {{$petition->collaborator->last_maternal}} apartir de la solicitud</h6>
+            <h6>Actualizar información al colaborador {{ $petition->collaborator->name }}
+                {{ $petition->collaborator->last_name }} {{ $petition->collaborator->last_maternal }} apartir de la
+                solicitud</h6>
         </div>
     </div>
     {{-- Agregar informacion al colaborador con update --}}
     <div class="row card-body container table-bordered shadow">
         <div class="col-md-5 p-5">
-            <form action="{{route('collaborator.update', $petition->collaborator->id)}}" method="POST">
+            <form action="{{ route('collaborator.update', $petition->collaborator->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                @if ($petition->nodo == 0 )
+                @if ($petition->nodo == 0)
                 @else
                     <div class="row">
                         <div class="col-md-4"><strong>Nodo:</strong></div>
@@ -323,7 +328,7 @@
                     </div>
                 @endif
                 <br>
-                @if ($petition->ip == 0 )
+                @if ($petition->ip == 0)
                 @else
                     <div class="row">
                         <div class="col-md-4"><strong>IP:</strong></div>
@@ -331,57 +336,59 @@
                     </div>
                 @endif
                 <br>
-                @if ($petition->internet == 0 )
+                @if ($petition->internet == 0)
                 @else
                     <div class="row">
                         <div class="col-sm-4"><strong>Internet:</strong></div>
-                        <div class="col-sm-7">Si <input id="internet" name="internet" type="checkbox" value="1"></div>
+                        <div class="col-sm-7">Si <input id="internet" name="internet" type="checkbox" value="1">
+                        </div>
                     </div>
                 @endif
                 <br>
-                @if ($petition->vpn == 0 )
+                @if ($petition->vpn == 0)
                 @else
                     <div class="row">
                         <div class="col-sm-4"><strong>VPN:</strong></div>
-                        <div class="col-sm-7">Si <input id="vpn" name="vpn" type="checkbox" value="1"></div>
+                        <div class="col-sm-7">Si <input id="vpn" name="vpn" type="checkbox" value="1">
+                        </div>
                     </div>
                 @endif
                 <br>
-            </div>
-            <div class="col-md-5 p-5">
-                @if ($petition->account_glpi == 0 )
-                @else
-                    <div class="row">
-                        <div class="col-sm-5"><strong>Cuenta Glpi:</strong></div>
-                        <div><input id="account_glpi" name="account_glpi" type="text" class="col-sm-10"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->account_gitlab == 0 )
-                @else
-                    <div class="row">
-                        <div class="col-sm-5"><strong>Cuenta Gitlab:</strong></div>
-                        <div><input id="account_gitlab" name="account_gitlab" type="text" class="col-sm-10"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->account_jira == 0 )
-                @else
-                    <div class="row">
-                        <div class="col-sm-5"><strong>Cuenta Jira:</strong></div>
-                        <div><input id="account_jira" name="account_jira" type="text" class="col-sm-10"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->account_da == 0 )
-                @else
-                    <div class="row">
-                        <div class="col-sm-5"><strong>Directorio Activo:</strong></div>
-                        <div><input id="account_da" name="account_da" type="text" class="col-sm-10"></div>
-                    </div>
-                @endif
-                <br>
-                <input class="btn btn-secondary btn-sm" type="submit" value="Guardar">
+        </div>
+        <div class="col-md-5 p-5">
+            @if ($petition->account_glpi == 0)
+            @else
+                <div class="row">
+                    <div class="col-sm-5"><strong>Cuenta Glpi:</strong></div>
+                    <div><input id="account_glpi" name="account_glpi" type="text" class="col-sm-10"></div>
+                </div>
+            @endif
+            <br>
+            @if ($petition->account_gitlab == 0)
+            @else
+                <div class="row">
+                    <div class="col-sm-5"><strong>Cuenta Gitlab:</strong></div>
+                    <div><input id="account_gitlab" name="account_gitlab" type="text" class="col-sm-10"></div>
+                </div>
+            @endif
+            <br>
+            @if ($petition->account_jira == 0)
+            @else
+                <div class="row">
+                    <div class="col-sm-5"><strong>Cuenta Jira:</strong></div>
+                    <div><input id="account_jira" name="account_jira" type="text" class="col-sm-10"></div>
+                </div>
+            @endif
+            <br>
+            @if ($petition->account_da == 0)
+            @else
+                <div class="row">
+                    <div class="col-sm-5"><strong>Directorio Activo:</strong></div>
+                    <div><input id="account_da" name="account_da" type="text" class="col-sm-10"></div>
+                </div>
+            @endif
+            <br>
+            <input class="btn btn-secondary btn-sm" type="submit" value="Guardar">
             </form>
         </div>
     </div>
@@ -392,94 +399,114 @@
     </div>
     {{-- Tickets --}}
     <div class="row card-body shadow container table-bordered">
-            <div class="col-md-5">
-                <form action="{{ route('petition.update', $petition->id)}}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    @if ($petition->account_da == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-8"><h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_da_account_1" name="tk_da_account_1"></div>
+        <div class="col-md-5">
+            <form action="{{ route('petition.update', $petition->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                @if ($petition->account_da == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4>
                         </div>
-                    @endif
-                    <br>
-                    @if ($petition->account_gitlab == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Gitlab:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_gitlab_account_1" name="tk_gitlab_account_1"></div>
-                        </div>
-                    @endif
-                    <br>
-                    @if ($petition->account_glpi == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Glpi:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_glpi_account_1" name="tk_glpi_account_1"></div>
-                        </div>
-                    @endif
-                    <br>
-                    @if ($petition->account_jira == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de C. Jira:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_jira_account_1" name="tk_jira_account_1"></div>
-                        </div>
-                    @endif
-                    <br>
-                    @if ($petition->nodo == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-7"><h4><strong>Tk. Alta de Nodo:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_nodo_1" name="tk_nodo_1"></div>
-                        </div>
-                    @endif
-                    <br>
-                    @if ($petition->ip == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-5"><h4><strong>Tk. IP:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_ip_1" name="tk_ip_1"></div>
-                        </div>
-                    @endif
-                    <br>
-                    @if ($petition->internet == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-5"><h4><strong>Tk. Internet:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_internet_1" name="tk_internet_1"></div>
-                        </div>
-                    @endif
-                    <br>
-                    @if ($petition->vpn == 0 )
-                    @else
-                        <div class="row">
-                            <div class="col-sm-5"><h4><strong>Tk. VPN:</strong></h4></div>
-                            <div class="col-sm-2"><input type="text" id="tk_vpn_1" name="tk_vpn_1"></div>
-                        </div>
-                    @endif
-                    <br>
-            </div>
-            <div class="col-md-1 p-3"></div>
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="col-sm-5 pt-20 "><strong>Folio de solicitud:</strong></div>
-                        <input name="petition_id" id="petition_id" type="hidden" value="{{ $petition->fileID  }}">{{ $petition->fileID  }}
-                </div>
+                        <div class="col-sm-2"><input type="text" id="tk_da_account_1" name="tk_da_account_1"></div>
+                    </div>
+                @endif
                 <br>
-                <div class="row">
-                    <div class="col-sm-5"><strong>Colaborador:</strong></div>
-                        <input type="hidden" value="{{ $petition->collaborator->id }}">
-                            {{ $petition->collaborator->name }}
-                            {{ $petition->collaborator->last_name }}
-                            {{ $petition->collaborator->last_maternal }}
-                </div>
+                @if ($petition->account_gitlab == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h4><strong>Tk. Alta de C. Gitlab:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_gitlab_account_1" name="tk_gitlab_account_1">
+                        </div>
+                    </div>
+                @endif
                 <br>
-                 <div class="row">
-                        <div class="col-md-2"><input class="btn btn-secondary" type="submit" value="Guardar tickets"></div>
-                </div>
+                @if ($petition->account_glpi == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h4><strong>Tk. Alta de C. Glpi:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_glpi_account_1" name="tk_glpi_account_1">
+                        </div>
+                    </div>
+                @endif
+                <br>
+                @if ($petition->account_jira == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h4><strong>Tk. Alta de C. Jira:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_jira_account_1" name="tk_jira_account_1">
+                        </div>
+                    </div>
+                @endif
+                <br>
+                @if ($petition->nodo == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h4><strong>Tk. Alta de Nodo:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_nodo_1" name="tk_nodo_1"></div>
+                    </div>
+                @endif
+                <br>
+                @if ($petition->ip == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h4><strong>Tk. IP:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_ip_1" name="tk_ip_1"></div>
+                    </div>
+                @endif
+                <br>
+                @if ($petition->internet == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h4><strong>Tk. Internet:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_internet_1" name="tk_internet_1"></div>
+                    </div>
+                @endif
+                <br>
+                @if ($petition->vpn == 0)
+                @else
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h4><strong>Tk. VPN:</strong></h4>
+                        </div>
+                        <div class="col-sm-2"><input type="text" id="tk_vpn_1" name="tk_vpn_1"></div>
+                    </div>
+                @endif
+                <br>
+        </div>
+        <div class="col-md-1 p-3"></div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-sm-5 pt-20 "><strong>Folio de solicitud:</strong></div>
+                <input name="petition_id" id="petition_id" type="hidden"
+                    value="{{ $petition->fileID }}">{{ $petition->fileID }}
             </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-5"><strong>Colaborador:</strong></div>
+                <input type="hidden" value="{{ $petition->collaborator->id }}">
+                {{ $petition->collaborator->name }}
+                {{ $petition->collaborator->last_name }}
+                {{ $petition->collaborator->last_maternal }}
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2"><input class="btn btn-secondary" type="submit" value="Guardar tickets"></div>
+            </div>
+        </div>
         </form>
     </div>
     <br>

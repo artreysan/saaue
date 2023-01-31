@@ -18,10 +18,10 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-md-11"></div>
-            <div class="col-md-1">
-                <a href="/dashboard"><button type="button" class="btn btn-secondary">Inicio</button></a>
+            <div class="col-md-10"></div>
+            <div class="col-md-1"><a href="projects/create"><button type="button" class="btn btn-danger">Registrar</button></a>
             </div>
+            <div class="col-md-1"><a href="/dashboard"><button type="button" class="btn btn-warning">Inicio</button></a></div>
         </div>
     </div>
     <br>
@@ -32,6 +32,7 @@
                 <th>Nombre largo</th>
                 <th>Nombre corto</th>
                 <th class="col-md-4">Coordinador</th>
+                <th class="col-md-4">Acronym</th>
                 <th> Ver</th>
             </thead>
             @foreach ($projects as $project)
@@ -39,7 +40,8 @@
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->nombre_completo }}</td>
                     <td>{{ $project->nombre_corto }}</td>
-                    <td class="col-md-4">{{ $project->coordinador }}</td>
+                    <td class="col-md-4">{{ $project->collaborator->name}} {{ $project->collaborator->last_name}}</td>
+                    <td class="col-md-4">{{ $project->acronym }}</td>
                     <td><a href="projects/{{$project->id}}" alt="project"><button class="fas fa-address-card"></button></a></td>
                 </tbody>
             @endforeach
