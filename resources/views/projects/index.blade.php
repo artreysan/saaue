@@ -32,6 +32,7 @@
                 <th>Nombre largo</th>
                 <th>Nombre corto</th>
                 <th class="col-md-4">Coordinador</th>
+                <th> Ver</th>
             </thead>
             @foreach ($projects as $project)
                 <tbody>
@@ -39,6 +40,7 @@
                     <td>{{ $project->nombre_completo }}</td>
                     <td>{{ $project->nombre_corto }}</td>
                     <td class="col-md-4">{{ $project->coordinador }}</td>
+                    <td><a href="projects/{{$project->id}}" alt="project"><button class="fas fa-address-card"></button></a></td>
                 </tbody>
             @endforeach
         </table>

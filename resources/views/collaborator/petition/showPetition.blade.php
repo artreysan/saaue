@@ -249,38 +249,34 @@
         <div class="col-md-2 p-2">
 
         </div>
-        <div class="col-md-4 p-2">
-            <br>
+        <div class="col-md-4 p-5 table-bordered shadow">
             <br>
             <h4>Status del trámite</h4>
             <p>Aqui va una grafica en semaforo del status del proceso </p>
             <br>
-            <br>
-            <br>
             <form action="tu_script_de_procesamiento.php" method="post" enctype="multipart/form-data">
-
-                <div class="row">
-
+                <div class="row p-2">
                     <div class="col-sm-5">
                         <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
                     </div>
-
                     <div class="col-sm-2">
-                    <br>
-                    <br>
                     </div>
                     <div class="col-sm-5">
                         <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}" alt="">
-
                     </div>
-
                 </div>
                 <br>
+                <div class="row p-2">
+                    <div class="col-sm-5">
+                        <input type="file" name="archivo_subido">
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="submit" value="Subir PDF">
+                    </div>
+                </div>
                 <br>
-                <input type="file" name="archivo_subido">
-                <br>
-                <br><br>
-                <input type="submit" value="Subir archivo">
             </form>
             <br>
             <br>
