@@ -585,8 +585,6 @@ class ComposerStaticInit7c8175c757cbb7203ca3a06ac07f6bb9
         'App\\Http\\Controllers\\EquipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/EquipmentController.php',
         'App\\Http\\Controllers\\PetitionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PetitionController.php',
         'App\\Http\\Controllers\\ProjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjectController.php',
-        'App\\Http\\Controllers\\ProjectGitlabController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjectGitlabController.php',
-        'App\\Http\\Controllers\\ProjectJiraController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjectJiraController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

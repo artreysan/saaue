@@ -52,8 +52,11 @@ class PetitionController extends Controller
         }
 
         $pdf->save($path . '/' . $pdf_name);
-        $pdf->setPaper('a4');
-        return $pdf->stream($pdf_name);
+        $pdfCreated = storage_path('pdf/'.$pdf_name);
+        $pdfContent = file_get_contents($pdfCreated);
+        $pdfBase64 = base64_encode($pdfContent);
+
+        return $pdfBase64;
     }
 
 
@@ -104,14 +107,17 @@ class PetitionController extends Controller
         $petition->startTime         = time();
         $petition->fileID            = auth()->user()->id.$petition->startTime;
 
-        $this->generatePDF($petition);
+        $petition->base64_petition = $this->generatePDF($petition);
+
+        //Decodifique
+        $pdfContent = base64_decode($petition->base64_petition);
+        file_put_contents(storage_path('decoded.pdf'), $pdfContent);
 
         $petition->save();
 
 
         $petitions = Petition::all();
         return view('petitions/index', compact('petitions'));
-
     }
 
     public function show($id)
@@ -162,6 +168,7 @@ class PetitionController extends Controller
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
         $petition->status            = 1;
+
 
         $petition->save();
 

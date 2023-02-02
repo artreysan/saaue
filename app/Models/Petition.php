@@ -44,6 +44,8 @@ class Petition extends Model
         'tk_ip_0',
         'tk_vpn_0',
         'tk_vpn_0',
+        'base64_petition',
+        'base64_signedPetition',
     ];
 
     public function collaborator()

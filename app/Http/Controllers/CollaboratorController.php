@@ -97,8 +97,10 @@ class CollaboratorController extends Controller
 
         $collaborator  = Collaborator::find($id);
         $petitions     = Petition::all();
+        $equipments    = Equipment::where('collaborator_id', $id)->get(['id', 'tipo', 'marca', 'modelo', 'serie', 'mac_ethernet', 'mac_wifi', 'collaborator_id']);
 
-        return view('collaborator/show', compact('collaborator', 'petitions'));
+
+        return view('collaborator/show', compact('collaborator', 'petitions', 'equipments'));
 
     }
 

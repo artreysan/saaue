@@ -22,8 +22,6 @@ return array(
     'App\\Http\\Controllers\\EquipmentController' => $baseDir . '/app/Http/Controllers/EquipmentController.php',
     'App\\Http\\Controllers\\PetitionController' => $baseDir . '/app/Http/Controllers/PetitionController.php',
     'App\\Http\\Controllers\\ProjectController' => $baseDir . '/app/Http/Controllers/ProjectController.php',
-    'App\\Http\\Controllers\\ProjectGitlabController' => $baseDir . '/app/Http/Controllers/ProjectGitlabController.php',
-    'App\\Http\\Controllers\\ProjectJiraController' => $baseDir . '/app/Http/Controllers/ProjectJiraController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

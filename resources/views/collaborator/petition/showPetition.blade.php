@@ -320,173 +320,31 @@
             <form action="{{ route('collaborator.update', $petition->collaborator->id) }}" method="POST">
                 @csrf
                 @method('PUT')
+                <table>
+
+                </table>
+
+                {{-- En lo siguiente se compara si la solicitud es 1 equivalente a hacer una peticion para obtener o actualizar permiso de nodo.
+
+                    -la variale nodo puede ser 0 = no hace peticion y 1 0 si hace peticion.
+                    -La variable a_nodo se refiere a answer, permitiendo dar respuesta a la peticion y no alterar otra variable evitando eliminar informacion original--}}
                 @if ($petition->nodo == 0)
-                @else
                     <div class="row">
-                        <div class="col-md-4"><strong>Nodo:</strong></div>
-                        <div class="col-md-7"><input id="nodo" name="nodo" type="text"></div>
+                        <div class="col-md-6"><input id="nodo" name="nodo" type="text" hidden>{{ $petition->collaborator->nodo }}</div>
                     </div>
-                @endif
-                <br>
-                @if ($petition->ip == 0)
                 @else
                     <div class="row">
-                        <div class="col-md-4"><strong>IP:</strong></div>
-                        <div class="col-md-7"><input id="ip" name="ip" type="text"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->internet == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>Internet:</strong></div>
-                        <div class="col-sm-7">Si <input id="internet" name="internet" type="checkbox" value="1">
-                        </div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->vpn == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-4"><strong>VPN:</strong></div>
-                        <div class="col-sm-7">Si <input id="vpn" name="vpn" type="checkbox" value="1">
-                        </div>
+                        <div class="col-md-3"><strong>Nodo:</strong></div>
+                        <div class="col-md-3"><input id="nodo" name="nodo" type="text"></div>
                     </div>
                 @endif
                 <br>
         </div>
-        <div class="col-md-5 p-5">
-            @if ($petition->account_glpi == 0)
-            @else
-                <div class="row">
-                    <div class="col-sm-5"><strong>Cuenta Glpi:</strong></div>
-                    <div><input id="account_glpi" name="account_glpi" type="text" class="col-sm-10"></div>
-                </div>
-            @endif
-            <br>
-            @if ($petition->account_gitlab == 0)
-            @else
-                <div class="row">
-                    <div class="col-sm-5"><strong>Cuenta Gitlab:</strong></div>
-                    <div><input id="account_gitlab" name="account_gitlab" type="text" class="col-sm-10"></div>
-                </div>
-            @endif
-            <br>
-            @if ($petition->account_jira == 0)
-            @else
-                <div class="row">
-                    <div class="col-sm-5"><strong>Cuenta Jira:</strong></div>
-                    <div><input id="account_jira" name="account_jira" type="text" class="col-sm-10"></div>
-                </div>
-            @endif
-            <br>
-            @if ($petition->account_da == 0)
-            @else
-                <div class="row">
-                    <div class="col-sm-5"><strong>Directorio Activo:</strong></div>
-                    <div><input id="account_da" name="account_da" type="text" class="col-sm-10"></div>
-                </div>
-            @endif
-            <br>
-            <input class="btn btn-secondary btn-sm" type="submit" value="Guardar">
-            </form>
-        </div>
     </div>
     <br>
     <br>
-    <div class="container card-header bg-secondary">
-        <h4><strong>Tickets:</strong></h4>
-    </div>
-    {{-- Tickets --}}
     <div class="row card-body shadow container table-bordered">
-        <div class="col-md-5">
-            <form action="{{ route('petition.update', $petition->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-                @if ($petition->account_da == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h4><strong>Tk. Alta de C. Directorio Activo:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_da_account_1" name="tk_da_account_1"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->account_gitlab == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <h4><strong>Tk. Alta de C. Gitlab:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_gitlab_account_1" name="tk_gitlab_account_1">
-                        </div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->account_glpi == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <h4><strong>Tk. Alta de C. Glpi:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_glpi_account_1" name="tk_glpi_account_1">
-                        </div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->account_jira == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <h4><strong>Tk. Alta de C. Jira:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_jira_account_1" name="tk_jira_account_1">
-                        </div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->nodo == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <h4><strong>Tk. Alta de Nodo:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_nodo_1" name="tk_nodo_1"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->ip == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <h4><strong>Tk. IP:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_ip_1" name="tk_ip_1"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->internet == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <h4><strong>Tk. Internet:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_internet_1" name="tk_internet_1"></div>
-                    </div>
-                @endif
-                <br>
-                @if ($petition->vpn == 0)
-                @else
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <h4><strong>Tk. VPN:</strong></h4>
-                        </div>
-                        <div class="col-sm-2"><input type="text" id="tk_vpn_1" name="tk_vpn_1"></div>
-                    </div>
-                @endif
-                <br>
-        </div>
+        <div class="col-md-5"
         <div class="col-md-1 p-3"></div>
         <div class="col-md-5">
             <div class="row">
