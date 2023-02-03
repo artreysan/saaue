@@ -100,6 +100,7 @@ return new class extends Migration
 
             $table->unsignedInteger('startTime')->nullable();
             $table->timestamps();
+
         });
     }
 

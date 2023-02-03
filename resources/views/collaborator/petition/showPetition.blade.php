@@ -509,80 +509,84 @@
                 </div>
                 <br>
                 <br>
-                <div class="row">
-                    <div class="col-sm-6">
-                        @if ($petition->nodo == 1)
-                            @if ($petition->tk_nodo_1 == '')
-                                <div class="row">
-                                    <div class="col-sm-5"><strong>Agregar Ticket de nodo: </strong></div>
-                                    <input name="nodo" id="nodo" type="hidden" value="{{ $petition->nodo }}">
-                                    <input name="tk_nodo_1" id="tk_nodo_1" value="{{ $petition->tk_nodo_1 }}">
-                                    <input name="a_nodo" id="a_nodo" type="hidden" value="{{ $petition->a_nodo }}">
+                <div class="container">
+                    @if ($petition->nodo == 1)
+                        @if ($petition->tk_nodo_1 == '')
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <strong>Agregar Ticket de nodo: </strong>
                                 </div>
-                            @else
-                                <div class="row">
-                                    <div class="col-sm-6"><strong>Ticket de nodo: </strong></div>
-                                    <input name="nodo" id="nodo" type="hidden" value="{{ $petition->nodo }}">
-                                    <input name="tk_nodo_1" id="tk_nodo_1" value="{{ $petition->tk_nodo_1 }}" hidden> {{ $petition->tk_nodo_1 }}
-                                    <input name="a_nodo" id="a_nodo" type="hidden"
-                                        value="{{ $petition->a_nodo }}">
+                                <div class="col-sm-3">
+                                    <input name="tk_nodo_1" id="tk_nodo_1" type="text">
                                 </div>
-                            @endif
-                        @else
-                        @endif
-                    </div>
-                    <div class="col-sm-6">
-                        @if ($petition->nodo == 1)
-                            @if (isset($petition->tk_nodo_1))
-                                @if ($petition->a_nodo == '')
-                                    <div class="row">
-                                        <div class="col-sm-6"><strong>Agregar Nodo: </strong></div>
-                                        <input name="nodo" id="nodo" type="hidden" value="{{ $petition->nodo }}">
-                                        <input name="tk_nodo_1" id="tk_nodo_1" type="hidden" value="{{ $petition->tk_nodo_1 }}">
-                                        <input name="a_nodo" id="a_nodo" type="text">
-                                    </div>
-                                @else
-                                    <div class="row">
-                                        <div class="col-sm-6"><strong> Nodo: </strong></div>
-                                        <input name="nodo" id="nodo" type="hidden" value="{{ $petition->nodo }}">
-                                        <input name="tk_nodo_1" id="tk_nodo_1" type="hidden" value="{{ $petition->tk_nodo_1 }}">
-                                        <input name="a_nodo" id="a_nodo" value="{{ $petition->a_nodo }}" hidden> {{ $petition->a_nodo }}
-                                    </div>
-                                @endif
-                            @else
-                                <div class="row">
-                                    <div class="col-sm-6"><strong>Nodo: </strong></div>
+                                <div class="col-sm-3">
+                                    <strong>Nodo: </strong>
+                                </div>
+                                <div class="col-sm-3">
                                     <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                 </div>
-                            @endif
+                            </div>
                         @else
+                            @if (isset($petition->a_nodo))
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>Ticket de nodo: </strong>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="hidden"
+                                            value="{{ $petition->tk_nodo_1 }}">{{ $petition->tk_nodo_1 }}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <strong>Nodo: </strong>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="hidden" value="{{ $petition->a_nodo }}">{{ $petition->a_nodo }}
+                                    </div>
+                                </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>Ticket de nodo: </strong>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="hidden"
+                                            value="{{ $petition->tk_nodo_1 }}">{{ $petition->tk_nodo_1 }}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <strong>Agregar Nodo: </strong>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input name="a_nodo_1" id="a_nodo_1" type="text">
+                                    </div>
+                                </div>
+                            @endif
                         @endif
-                    </div>
+                    @else
+                    @endif
                 </div>
+                <br>
                 <br>
         </div>
         <br>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-8"></div>
-        <div class="col-md-1"><a href="/collaborator" class="btn btn-secondary">Regresar</a></button></div>
-        <div class="col-md-1"><input class="btn btn-secondary" type="submit" value="Guardar tickets"></div>
-    </div>
-    </form>
-    <footer class="footer py-3 bg-green-900">
-        <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-                <div class="copyright text-center text-sm text-muted text-lg-start">
-                    ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    Desarrollado en CDMX,<strong> UTIC </strong>
-                    <a href="https://www.creative-tim.com" class="font-weight-bold " target="_blank">
+        <br>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-1"><a href="/collaborator" class="btn btn-secondary">Regresar</a></button></div>
+            <div class="col-md-1"><input class="btn btn-secondary" type="submit" value="Guardar tickets"></div>
+        </div>
+        </form>
+        <footer class="footer py-3 bg-green-900">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-lg-6 mb-lg-0 mb-4">
+                    <div class="copyright text-center text-sm text-muted text-lg-start">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        Desarrollado en CDMX,<strong> UTIC </strong>
+                        <a href="https://www.creative-tim.com" class="font-weight-bold " target="_blank">
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-@stop
+        </footer>
+    @stop

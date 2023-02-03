@@ -102,6 +102,17 @@ class PetitionController extends Controller
         $petition->tk_ip_0                    = $request->tk_ip_0;
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
+        $petition->a_nodo                     = $request->a_nodo;
+        $petition->a_internet                 = $request->a_internet;
+        $petition->a_ip                       = $request->a_ip;
+        $petition->tk_vpn_0                   = $request->tk_vpn_0;
+
+        $petition->a_account_gitlab           = $request->a_account_gitlab;
+        $petition->a_account_glpi             = $request->a_account_glpi;
+        $petition->a_account_jira             = $request->a_account_jira;
+        $petition->a_account_da               = $request->a_account_da;
+
+
         $petition->status            = 0;
 
         $petition->startTime         = time();
