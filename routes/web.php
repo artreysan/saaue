@@ -41,7 +41,7 @@ Route::resource('collaborator/equipment', EquipmentController::class); // Esta r
 //Rutas para las peticiones
 Route::resource('petition', PetitionController::class);
 Route::get('petition/{petition}', [PetitionController::class,'showPetition']); //Muestra el detalle de la peticion seleccionada
-
+Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF']);
 //Rutas para  usuarios
 Route::resource('user', UserController::class);
 

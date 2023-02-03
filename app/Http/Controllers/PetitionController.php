@@ -8,6 +8,8 @@ use App\Models\Petition;
 use App\Models\Equipment;
 use App\Models\Enterprise;
 use App\Models\Collaborator;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -42,7 +44,7 @@ class PetitionController extends Controller
         $enterprise = Enterprise::find($user->enterprise_id);
         $rol = Rol::find($collaborator->rol_id);
         $rolAut = Rol::find($petition->user->rol_id);
-        $pdf_name = $petition->fileID . '_sau.pdf';
+        $pdf_name = $petition->fileID.'.pdf';
 
         if($petition->equipment_id != null){
             $equipment = Equipment::find( $petition->equipment_id);
@@ -120,9 +122,7 @@ class PetitionController extends Controller
 
         $petition->base64_petition = $this->generatePDF($petition);
 
-        //Decodifique
-        $pdfContent = base64_decode($petition->base64_petition);
-        file_put_contents(storage_path('decoded.pdf'), $pdfContent);
+
 
         $petition->save();
 
@@ -197,6 +197,16 @@ class PetitionController extends Controller
         $collaborator = Collaborator::find($id);
 
         return view('collaborator/petition/showPetition', compact('petition', 'collaborator','equipments'));
+    }
+    public function showPDF($id, $FileID)
+    {
+
+        $petition = Petition::find($id);
+        $pdfContent = base64_decode($petition->base64_petition);
+        $pdf_name = $FileID.'.pdf';
+        file_put_contents(storage_path('pdf/'.$pdf_name), $pdfContent);
+
+        return response()->file(storage_path('pdf/' . $FileID . '.pdf'));
     }
 
 

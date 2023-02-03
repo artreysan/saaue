@@ -414,14 +414,16 @@
         </div>
         <div class="col-md-5 p-5 table-bordered shadow">
             <br>
-            <h4>Status del trámite</h4>
+            <h4>Estatus del trámite</h4>
             <p>Aqui va una grafica en semaforo del status del proceso </p>
             <br>
             <div class="container">
                 <form action="tu_script_de_procesamiento.php" method="post" enctype="multipart/form-data">
                     <div class="row p-2">
                         <div class="col-sm-5">
-                            <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+                            <a href="/petition/{{ $petition->id }}/{{$petition->fileID}}" target="_blank">
+                                <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+                            </a>
                         </div>
                         <div class="col-sm-2">
                         </div>
@@ -432,14 +434,14 @@
                     </div>
                     <br>
                     <div class="row p-2">
-                        <div class="col-sm-5">
-                            <input type="file" name="archivo_subido">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="control-label" for="file-01">Cargar archivo:</label>
+                                <input id="file-01" type="file">
+                            </div>
                         </div>
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-5">
-                            <input type="submit" value="Subir PDF">
-                        </div>
+
+
                     </div>
                     <br>
                 </form>
