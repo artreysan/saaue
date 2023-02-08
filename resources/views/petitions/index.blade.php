@@ -25,8 +25,7 @@
     </div>
     <br>
     <div class="container">
-        <table class="table table-striped" id="Black1760$.
-        petitions">
+        <table class="table table-striped" id="petitions">
             <thead class="table-secondary">
                 <th>Folio</th>
                 <th>Empresa</th>
@@ -67,12 +66,6 @@
         <br>
         <br>
         <br>
-        ©
-        <script>
-            document.write(new Date().getFullYear())
-        </script>
-        Desarrollado en CDMX,<strong> UTIC </strong>
-    </div>
 @stop
 
 @section('js')

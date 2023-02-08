@@ -145,7 +145,7 @@ class PetitionController extends Controller
 
         $equipment = Equipment::all();
         $petition = Petition::findOrFail($id);
-
+        // Validate the file
         $petition->nodo              = $request->nodo;
         $petition->vpn               = $request->vpn;
         $petition->ip                = $request->ip;
@@ -168,6 +168,16 @@ class PetitionController extends Controller
         $petition->tk_ip_1                    = $request->tk_ip_1;
         $petition->tk_vpn_1                   = $request->tk_vpn_1;
 
+        $petition->a_nodo                     = $request->a_nodo;
+        $petition->a_internet                 = $request->a_internet;
+        $petition->a_vpn                      = $request->a_vpn;
+        $petition->a_ip                       = $request->a_ip;
+
+        $petition->a_account_glpi             = $request->a_account_glpi;
+        $petition->a_account_gitlab           = $request->a_account_gitlab;
+        $petition->a_account_jira             = $request->a_account_jira;
+        $petition->a_account_da               = $request->a_account_da;
+
         $petition->tk_glpi_account_0          = $request->tk_glpi_account_0;
         $petition->tk_gitlab_account_0        = $request->tk_gitlab_account_0;
         $petition->tk_jira_account_0          = $request->tk_jira_account_0;
@@ -178,7 +188,9 @@ class PetitionController extends Controller
         $petition->tk_ip_0                    = $request->tk_ip_0;
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
-        $petition->status            = 1;
+        $petition->status                     = 1;
+
+
 
 
         $petition->save();
@@ -186,7 +198,7 @@ class PetitionController extends Controller
         $petition = Petition::find($id);
         $collaborator = Collaborator::find($id);
 
-        return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
+        //return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
     }
 
     public function showPetition($id)
@@ -196,8 +208,29 @@ class PetitionController extends Controller
         $petition     = Petition::find($id);
         $collaborator = Collaborator::find($id);
 
-        return view('collaborator/petition/showPetition', compact('petition', 'collaborator','equipments'));
+        return view('collaborator/petition/showPetition', compact('petition', 'collaborator', 'equipments'));
     }
+
+    public function updateFile(Request $request, $id)
+    {
+
+        $equipments   = Equipment::all();
+        $petition     = Petition::find($id);
+        $collaborator = Collaborator::find($id);
+
+        $request->validate([
+            'file' => 'required|file|mimes:pdf|max:2048',
+        ]);
+        // Handle the file upload
+        $file = $request->file('file');
+        $fileName = $petition->fileID . '.pdf';
+        $file->storeAs('public', $fileName);
+
+        
+
+
+    }
+
     public function showPDF($id, $FileID)
     {
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PetitionController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\EnterpriseController;
 use App\Http\Controllers\CollaboratorController;
@@ -28,7 +29,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('dashboard', [DashboardController::class, 'index']); //Muestra el detalle de la peticion seleccionada
+
 require __DIR__.'/auth.php';
+
 
 //Rutas para los equipos
 Route::resource('equipment', EquipmentController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
