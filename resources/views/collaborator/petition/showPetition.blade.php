@@ -59,6 +59,18 @@
                             </h6>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><strong>Revisar solicitud: </strong></h6>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>
+                                <a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}" target="_blank">
+                                    <img width="35px" height="35px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+                                </a>
+                            </h6>
+                        </div>
+                    </div>
                     <hr>
                     <!--Bloque de nodo en la solicitud, aqui se hace la logica para saber si poner o no el nodo-->
                     <div class="row">
@@ -73,6 +85,7 @@
                                     <div>
                                         <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                     </div>
+                                    <br>
                                 </div>
                             @else
                                 @if (isset($petition->tk_nodo_1))
@@ -85,6 +98,7 @@
                                         <div>
                                             <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                         </div>
+                                        <br>
                                     </div>
                                 @else
                                     <div class="col-md-6">
@@ -96,13 +110,13 @@
                                         <div>
                                             <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                         </div>
+                                        <br>
                                     </div>
                                 @endif
                             @endif
                         @else
                         @endif
                     </div>
-                    <br>
                     <!--Se terminal el bloque del nodo-->
                     <!--Bloque de glpi en la solicitud, aqui se hace la logica para saber si poner o no IP-->
                     <div class="row">
@@ -198,11 +212,13 @@
                                     <div>
                                         <h6><strong>Internet:</strong></h6>
                                     </div>
+                                     <br>
                                 </div>
                                 <div class="col-md-6">
                                     <div>
                                         <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
                                     </div>
+                                    <br>
                                 </div>
                             @else
                                 @if (isset($petition->tk_internet_1))
@@ -210,28 +226,31 @@
                                         <div>
                                             <h6><strong>Internet:</strong></h6>
                                         </div>
+                                        <br>
                                     </div>
                                     <div class="col-md-6">
                                         <div>
                                             <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                         </div>
+                                         <br>
                                     </div>
                                 @else
                                     <div class="col-md-6">
                                         <div>
                                             <h6><strong>Internet:</strong></h6>
                                         </div>
+                                        <br>
                                     </div>
                                     <div class="col-md-6">
                                         <div>
                                             <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                         </div>
+                                        <br>
                                     </div>
                                 @endif
                             @endif
                         @else
                         @endif
-                        <hr>
                     </div>
                     <!--Se terminal el bloque del internet-->
                     <!--Bloque de directorio activo en la solicitud, aqui se hace la logica para saber si poner o no directorio activo-->
@@ -246,6 +265,7 @@
                                 <div class="col-md-6">
                                     <div>
                                         <h6 style="color:#1795b8">{{ 'Atendida' }}<h6>
+                                                <br>
                                     </div>
                                 </div>
                             @else
@@ -260,6 +280,7 @@
                                             <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
                                         </div>
                                     </div>
+                                    <br>
                                 @else
                                     <div class="col-md-6">
                                         <div>
@@ -271,13 +292,13 @@
                                             <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                         </div>
                                     </div>
+                                    <br>
                                 @endif
                             @endif
                         @else
                         @endif
                     </div>
                     <!--Se terminal el bloque del directorio activo-->
-                    <br>
                     <!--Bloque de glpi en la solicitud, aqui se hace la logica para saber si poner o no glpi-->
                     <div class="row">
                         @if ($petition->account_glpi == '1')
@@ -421,14 +442,6 @@
                 <form action="tu_script_de_procesamiento.php" method="post" enctype="multipart/form-data">
                     <div class="row p-2">
                         <div class="col-sm-5">
-                            <a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}" target="_blank">
-                                <img width="70px" height="70px" src="{{ URL::asset('img/pdf.png') }}"
-                                    alt="">
-                            </a>
-                        </div>
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-5">
                             <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}"
                                 alt="">
                         </div>
@@ -482,7 +495,7 @@
     </div>
     <div class="row card-body container table-bordered shadow">
         <div class="col-md-12">
-            <form action="{{ route('petition.update', $petition->collaborator->id) }}" method="POST">
+            <form action="{{ route('petition.update', $petition->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -495,7 +508,7 @@
                     <div class="col-sm-3">
                         <h6><strong>Folio de solicitud:</strong></h6>
                     </div>
-                    <input name="petition_id" id="petition_id" type="hidden"
+                    <input name="fileID" id="fileID" type="hidden"
                         value="{{ $petition->fileID }}">{{ $petition->fileID }}
                 </div>
                 <br>
@@ -503,7 +516,7 @@
                     <div class="col-sm-3">
                         <h6><strong>Colaborador:</strong></h6>
                     </div>
-                    <input type="hidden" value="{{ $petition->collaborator->id }}">
+                    <input name="collaboraator_id" type="hidden" value="{{ $petition->collaborator->id }}">
                     {{ $petition->collaborator->name }}
                     {{ $petition->collaborator->last_name }}
                     {{ $petition->collaborator->last_maternal }}
@@ -511,7 +524,7 @@
                 <br>
                 <hr>
                 <br>
-                <div class="container p-3">
+                <div class="container p-2">
                     <h5><strong>Responder solicitud: </strong></h5>
                 </div>
                 <div class="container p-5">
@@ -532,6 +545,8 @@
                                         <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                     </div>
                                     <input name="nodo" id="nodo" value="1" type="hidden">
+                                    <br>
+                                    <br>
                                 </div>
                             @else
                                 @if ($petition->a_nodo == '')
@@ -551,6 +566,8 @@
                                         </div>
                                     </div>
                                     <input name="nodo" id="nodo" value="1" type="hidden">
+                                    <br>
+                                    <br>
                                 @else
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -568,6 +585,8 @@
                                                 value="{{ $petition->a_nodo }}">{{ $petition->a_nodo }}
                                         </div>
                                         <input name="nodo" id="nodo" value="1" type="hidden">
+                                        <br>
+                                        <br>
                                     </div>
                                 @endif
                             @endif
@@ -575,8 +594,6 @@
                             <input name="nodo" id="nodo" value="0" type="hidden">
                         @endif
                     </div>
-                    <br>
-                    <br>
                     <div class="container">
                         @if ($petition->ip == 1)
                             @if ($petition->tk_ip_1 == '')
@@ -595,6 +612,7 @@
                                     </div>
                                     <input name="ip" id="ip" value="1" type="hidden">
                                 </div>
+                                <br>
                             @else
                                 @if ($petition->a_ip == '')
                                     <div class="row">
@@ -611,8 +629,9 @@
                                         <div class="col-sm-3">
                                             <input name="a_ip" id="a_ip" type="text">
                                         </div>
+                                        <input name="ip" id="ip" value="1" type="hidden">
                                     </div>
-                                    <input name="ip" id="ip" value="1" type="hidden">
+                                    <br>
                                 @else
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -631,13 +650,13 @@
                                         </div>
                                         <input name="ip" id="ip" value="1" type="hidden">
                                     </div>
+                                    <br>
                                 @endif
                             @endif
                         @else
                             <input name="ip" id="ip" value="0" type="hidden">
                         @endif
                     </div>
-                    <br>
                     <div class="container">
                         @if ($petition->vpn == 1)
                             @if ($petition->tk_vpn_1 == '')
@@ -656,6 +675,7 @@
                                     </div>
                                     <input name="vpn" id="vpn" value="1" type="hidden">
                                 </div>
+                                <br>
                             @else
                                 @if ($petition->a_vpn == '')
                                     <div class="row">
@@ -672,8 +692,9 @@
                                         <div class="col-sm-3">
                                             <input name="a_vpn" id="a_vpn" type="text">
                                         </div>
+                                        <input name="vpn" id="vpn" value="1" type="hidden">
                                     </div>
-                                    <input name="vpn" id="vpn" value="1" type="hidden">
+                                    <br>
                                 @else
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -692,13 +713,13 @@
                                         </div>
                                         <input name="vpn" id="vpn" value="1" type="hidden">
                                     </div>
+                                    <br>
                                 @endif
                             @endif
                         @else
                             <input name="vpn" id="vpn" value="0" type="hidden">
                         @endif
                     </div>
-                    <br>
                     <div class="container">
                         @if ($petition->internet == 1)
                             @if ($petition->tk_internet_1 == '')
@@ -717,6 +738,7 @@
                                     </div>
                                     <input name="internet" id="internet" value="1" type="hidden">
                                 </div>
+                                <br>
                             @else
                                 @if ($petition->a_internet == '')
                                     <div class="row">
@@ -734,8 +756,11 @@
                                             <input name="a_internet" id="a_internet" value="autorizado" type="checkbox">
                                             Autorizar
                                         </div>
+                                        <input name="internet" id="internet" value="1" type="hidden">
                                     </div>
-                                    <input name="internet" id="internet" value="1" type="hidden">
+                                    <br>
+                                    <hr>
+                                    <br>
                                 @else
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -754,15 +779,15 @@
                                         </div>
                                         <input name="internet" id="internet" value="1" type="hidden">
                                     </div>
+                                    <br>
+                                    <hr>
+                                    <br>
                                 @endif
                             @endif
                         @else
                             <input name="internet" id="internet" value="0" type="hidden">
                         @endif
                     </div>
-                    <br>
-                    <hr>
-                    <br>
                     <div class="container">
                         @if ($petition->account_da == 1)
                             @if ($petition->tk_da_account_1 == '')
@@ -781,6 +806,7 @@
                                     </div>
                                     <input name="account_da" id="account_da" value="1" type="hidden">
                                 </div>
+                                <br>
                             @else
                                 @if ($petition->a_account_da == '')
                                     <div class="row">
@@ -797,8 +823,9 @@
                                         <div class="col-sm-3">
                                             <input name="a_account_da" id="a_account_da" type="text">
                                         </div>
+                                        <input name="account_da" id="account_da" value="1" type="hidden">
                                     </div>
-                                    <input name="account_da" id="account_da" value="1" type="hidden">
+                                    <br>
                                 @else
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -817,6 +844,7 @@
                                         </div>
                                         <input name="account_da" id="account_da" value="1" type="hidden">
                                     </div>
+                                    <br>
                                 @endif
                             @endif
                         @else
@@ -1011,8 +1039,8 @@
                 <br>
                 <br>
                 <div class="row">
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-2"><a href="/collaborator" class="btn btn-secondary">Regresar</a></button></div>
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-2"><a href="/petition" class="btn btn-secondary">Regresar</a></button></div>
                     <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Guardar tickets"></div>
                 </div>
             </form>

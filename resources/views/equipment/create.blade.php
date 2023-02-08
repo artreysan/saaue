@@ -78,14 +78,14 @@
                         <div class="col-md-2"><strong>MAC_WIFI:</strong></div>
                         <div class="col-md-3">
                             <input class="border-success" id="mac_wifi" name="mac_wifi" type="text"
-                                placeholder=" mac_wifi " value="{{ old('mac_wifi') }}" required />
+                                placeholder=" mac_wifi " value="{{ old('mac_wifi') }}"/>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-3"><strong>Propiedad de la institución: </strong></div>
                         <div class="col-sm-5">
-                            <select name="enterprise_id" id="enterprise_id" required>
+                            <select name="enterprise_id" id="enterprise_id">
                                 @foreach ( $enterprises as $enterprise)
                                     <option value="{{$enterprise->id}}" id="enterprise_id">{{$enterprise->name}}</option>
                                 @endforeach
@@ -97,7 +97,8 @@
                     <div class="row">
                         <div class="col-md-3"><strong>Asignar a: </strong></div>
                         <div class="col-sm-5">
-                            <select name="collaborator_id" id="collaborator_id" required>
+                            <select name="collaborator_id" id="collaborator_id">
+                                    <option hidden>  </option>
                                 @foreach ( $collaborators as $collaborator)
                                     <option value="{{$collaborator->id}}" id="collaborator_id">{{$collaborator->name}} {{$collaborator->last_name}} {{$collaborator->last_maternal}}</option>
                                 @endforeach

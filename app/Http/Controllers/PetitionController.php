@@ -144,6 +144,7 @@ class PetitionController extends Controller
     {
 
         $equipment = Equipment::all();
+        $collaborator = Collaborator::find($id);
         $petition = Petition::findOrFail($id);
         // Validate the file
         $petition->nodo              = $request->nodo;
@@ -190,15 +191,12 @@ class PetitionController extends Controller
 
         $petition->status                     = 1;
 
-
-
-
         $petition->save();
 
         $petition = Petition::find($id);
         $collaborator = Collaborator::find($id);
 
-        //return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
+        return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
     }
 
     public function showPetition($id)
@@ -226,7 +224,7 @@ class PetitionController extends Controller
         $fileName = $petition->fileID . '.pdf';
         $file->storeAs('public', $fileName);
 
-        
+
 
 
     }

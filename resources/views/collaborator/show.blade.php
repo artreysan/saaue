@@ -56,8 +56,8 @@
                             @foreach ($equipments as $equipment)
                                 <tbody>
                                     <h6>{{ $equipment->tipo }} {{ $equipment->marca }} {{ $equipment->modelo }}
-                                            -
-                                            {{ $equipment->serie }} <a style="padding-left:9px "
+                                        -
+                                        {{ $equipment->serie }} <a style="padding-left:9px "
                                             href="equipment/{{ $equipment->id }}" alt="equipment"><button
                                                 class="	fas fa-laptop"></button></a></h6>
                                 </tbody>
@@ -226,18 +226,20 @@
                 </table>
             </div>
         </div>
-        <footer class="footer py-3 bg-green-900">
-            <div class="row align-items-center justify-content-lg-between">
-                <div class="copyright text-center text-sm text-muted text-lg-start">
-                    ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    Desarrollado en CDMX,<strong> UTIC </strong>
-                    <a href="https://www.creative-tim.com" class="font-weight-bold " target="_blank">
+        <div class="p-5">
+            <footer class="footer py-3 bg-green-900">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="copyright text-center text-sm text-muted text-lg-start">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        Desarrollado en CDMX,<strong> UTIC </strong>
+                        <a href="https://www.creative-tim.com" class="font-weight-bold " target="_blank">
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
 @stop
 

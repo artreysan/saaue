@@ -32,6 +32,7 @@
                 <th>Fecha</th>
                 <th>Colaborador</th>
                 <th>Status</th>
+                <th>PDF</th>
                 <th>Ver</th>
             </thead>
             @foreach ($petitions as $petition)
@@ -58,6 +59,10 @@
                         }
                         ?>
                     </td>
+                    <td><a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}" target="_blank">
+                                <img width="30px" height="30px" src="{{ URL::asset('img/pdf.png') }}"
+                                    alt="">
+                            </a></td>
                     <td><a href="/petition/{{ $petition->id }}" alt="ver" class="col-md-1 fas fa-eye"></a></td>
                 </tbody>
             @endforeach
