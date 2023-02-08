@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 class PetitionController extends Controller
 {
     public function index(){
@@ -34,6 +35,32 @@ class PetitionController extends Controller
         $petition = new Petition();
 
         return view('collaborator/petition/create', compact('collaborator','enterprise','equipment'));
+    }
+
+    public function updateFile(Request $request, $id)
+    {
+        $equipment = Equipment::all();
+        $collaborator = Collaborator::find($id);
+        $petition = Petition::findOrFail($id);
+        $archivo = $request->file('archivo');
+
+
+
+        if($archivo != null){
+            $request->validate([
+            'archivo' => 'required|file|mimes:pdf|max:4096',
+             ]);
+            $fileName = $petition->fileID."_sign.pdf";
+
+            $archivo->storeAs('', $fileName,'public');
+
+            $pdfCreated = storage_path('app/public/'.$fileName);
+            $pdfContent = file_get_contents($pdfCreated);
+            $pdfBase64 = base64_encode($pdfContent);
+            $petition->base64_signedPetition = $pdfBase64;
+            $petition->save();
+        }
+        return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
     }
 
     public function generatePDF($petition)
@@ -57,6 +84,7 @@ class PetitionController extends Controller
         $pdfCreated = storage_path('pdf/'.$pdf_name);
         $pdfContent = file_get_contents($pdfCreated);
         $pdfBase64 = base64_encode($pdfContent);
+
 
         return $pdfBase64;
     }
@@ -121,7 +149,6 @@ class PetitionController extends Controller
         $petition->fileID            = auth()->user()->id.$petition->startTime;
 
         $petition->base64_petition = $this->generatePDF($petition);
-
 
 
         $petition->save();
@@ -191,12 +218,14 @@ class PetitionController extends Controller
 
         $petition->status                     = 1;
 
+
         $petition->save();
 
         $petition = Petition::find($id);
         $collaborator = Collaborator::find($id);
 
-        return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
+        //return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
+        return back()->with('success', 'Archivo subido con éxito');
     }
 
     public function showPetition($id)
@@ -209,25 +238,7 @@ class PetitionController extends Controller
         return view('collaborator/petition/showPetition', compact('petition', 'collaborator', 'equipments'));
     }
 
-    public function updateFile(Request $request, $id)
-    {
 
-        $equipments   = Equipment::all();
-        $petition     = Petition::find($id);
-        $collaborator = Collaborator::find($id);
-
-        $request->validate([
-            'file' => 'required|file|mimes:pdf|max:2048',
-        ]);
-        // Handle the file upload
-        $file = $request->file('file');
-        $fileName = $petition->fileID . '.pdf';
-        $file->storeAs('public', $fileName);
-
-
-
-
-    }
 
     public function showPDF($id, $FileID)
     {
@@ -239,6 +250,18 @@ class PetitionController extends Controller
 
         return response()->file(storage_path('pdf/' . $FileID . '.pdf'));
     }
+
+    public function showPDFSign($id, $FileID)
+    {
+
+        $petition = Petition::find($id);
+        $pdfContent = base64_decode($petition->base64_signedPetition);
+        $pdf_name = $FileID.'.pdf';
+        file_put_contents(storage_path('pdf/'.$pdf_name), $pdfContent);
+        return response()->file(storage_path('pdf/' . $FileID . '.pdf'));
+    }
+
+
 
 
 }

@@ -46,6 +46,11 @@ Route::resource('collaborator/equipment', EquipmentController::class); // Esta r
 Route::resource('petition', PetitionController::class);
 Route::get('petition/{petition}', [PetitionController::class,'showPetition']); //Muestra el detalle de la peticion seleccionada
 Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF']);
+Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
+
+Route::post('petition/{petition}', [PetitionController::class, 'updateFile'])->name('petition.updateFile');
+
+
 //Rutas para  usuarios
 Route::resource('user', UserController::class);
 

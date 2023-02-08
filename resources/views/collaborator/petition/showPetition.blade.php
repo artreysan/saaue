@@ -3,6 +3,17 @@
 @section('title', 'UTIC')
 
 @section('content_header')
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{-- Barra --}}
     <div class="container-nav">
         <div class="row">
@@ -439,24 +450,30 @@
             <p>Aqui va una grafica en semaforo del status del proceso </p>
             <br>
             <div class="container">
-                <form action="tu_script_de_procesamiento.php" method="post" enctype="multipart/form-data">
+                <form action="{{ route('petition.updateFile', $petition->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
                     <div class="row p-2">
                         <div class="col-sm-5">
-                            <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}"
-                                alt="">
+                                 @if ($petition->base64_signedPetition == '')
+                                    <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}"alt="">
+                                 @else
+                                 <p><strong>Archivo Guardado</strong></p>
+                                    <a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}/sign" target="_blank">
+                                        <img width="70px" height="70px" src="{{ URL::asset('img/scanner.png') }}"alt="">
+                                    </a>
+                                 @endif
                         </div>
                     </div>
                     <br>
                     <div class="row p-2">
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="control-label" for="file-01">Cargar archivo:</label>
-                                <input id="file-01" type="file" name="file">
+                                <input type="file" name="archivo">
                             </div>
                         </div>
                     </div>
-
-
+                    <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Guardar archivo" required></div>
                     <br>
                 </form>
             </div>
