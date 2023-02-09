@@ -524,14 +524,14 @@
                     -La variable a_nodo se refiere a answer, permitiendo dar respuesta a la peticion y no alterar otra variable evitando eliminar informacion original --}}
 
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <h6><strong>Folio de solicitud:</strong></h6>
                     </div>
                     <input name="fileID" id="fileID" type="hidden"
                         value="{{ $petition->fileID }}">{{ $petition->fileID }}
                 </div>
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <h6><strong>Colaborador:</strong></h6>
                     </div>
                     <input name="collaboraator_id" type="hidden" value="{{ $petition->collaborator->id }}">
@@ -540,14 +540,12 @@
                     {{ $petition->collaborator->last_maternal }}
                 </div>
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <h6><strong>Fecha de solicitud: </strong></h6>
                     </div>
-                    <div class="col-md-3">
-                        <h6>
+
                             <p>{{ $petition->created_at }} </p>
-                        </h6>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
@@ -1089,7 +1087,7 @@
                     <div class="col-sm-5"></div>
                     <div class="col-sm-2"><a href="/petition" class="btn btn-secondary">Regresar</a></button></div>
                     <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Guardar"></div>
-                    <div class="col-sm-3">
+                    {{-- <div class="col-sm-3">
                         <?php
                         switch ($petition->status) {
                             case 0:
@@ -1111,7 +1109,7 @@
 
                         }
                         ?>
-                    </div>
+                    </div> --}}
                 </div>
             </form>
             <br>

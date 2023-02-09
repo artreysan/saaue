@@ -2,10 +2,6 @@
 
 @section('title', 'Dashboard')
 
-@section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-@endsection
-
 @section('content_header')
 <div class="container-nav">
     <div class="row">
@@ -29,7 +25,7 @@
     </div>
 <br>
     <div class="container">
-        <table class="table table-striped shadow" id="equipments">
+        <table class="table table-striped shadow">
             <thead class="table-secondary">
                 <th>Id</th>
                 <th class="col-sm-1">Tipo</th>
@@ -53,31 +49,6 @@
                 </tbody>
             @endforeach
         </table>
-    @section('js')
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            $('#equipments').DataTable({
-                "language": {
-                    "search": "Buscar proyecto",
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "info": "Mostrando página _PAGE_ de _PAGES_ ",
-                    "paginate": {
-
-                        "previous": "Anterior",
-                        "next": "Siguiente",
-                        "first": "Primero",
-                        "last": "Última"
-                    }
-                }
-            });
-        });
-        </script>
-    @endsection
-        <br>
-        <br>
         <br>
         <br>
         ©

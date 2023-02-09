@@ -779,7 +779,7 @@
                 border-top-style: solid;
                 border-left-style: solid;
                 border-bottom-width: 1pt;
-                width: 345pt;
+                width: 311pt;
                 border-top-color: #000000;
                 border-bottom-style: solid;
             }
@@ -881,7 +881,7 @@
                 border-top-style: solid;
                 border-left-style: solid;
                 border-bottom-width: 1pt;
-                width: 237.3pt;
+                width: 207.1pt;
                 border-top-color: #000000;
                 border-bottom-style: solid;
             }
@@ -966,7 +966,7 @@
                 border-top-style: solid;
                 border-left-style: solid;
                 border-bottom-width: 1pt;
-                width: 237pt;
+                width: 216pt;
                 border-top-color: #000000;
                 border-bottom-style: solid;
             }
@@ -1306,8 +1306,7 @@
         </style>
     </head>
     <body class="c40 doc-content">
-        <div style="width: 650px">
-            <p class="c14 c8"><span class="c36"></span></p>
+        <p class="c14 c8"><span class="c36"></span></p>
         <a id="t.de48d3ce9f01ea98394a6ac0f015d4f9eb018bea"></a><a id="t.0"></a>
         <table class="c58">
             <tr class="c24">
@@ -1321,7 +1320,7 @@
                                 border: 0px solid #000000;
                                 transform: rotate(0rad) translateZ(0px);
                                 -webkit-transform: rotate(0rad) translateZ(0px);
-                                width: 640px;
+                                width: 380.75px;
                                 height: 72.87px;
                             "
                             ><img
@@ -1339,7 +1338,6 @@
                                 title=""
                         /></span>
                     </p>
-                    <p class="c3 c8"><span class="c0"></span></p>
                     <p class="c3 c8"><span class="c0"></span></p>
                     <p class="c3 c8"><span class="c0"></span></p>
                     <p class="c3 c8"><span class="c0"></span></p>
@@ -1375,9 +1373,12 @@
                     </p>
                 </td>
             </tr>
-
+            <tr class="c24">
+                <td class="c54" colspan="1" rowspan="1">
+                    <p class="c3 c8"><span class="c47"></span></p>
+                </td>
+            </tr>
         </table>
-        <br>
         <p class="c8 c48"><span class="c2"></span></p>
         <p class="c46">
             <span class="c2"
@@ -1388,8 +1389,6 @@
         <p class="c46">
             <span class="c2">Ciudad de M&eacute;xico, a {{ date('Y-m-d H:i:s') }}.</span>
         </p>
-        </div>
-        <br>
         <a id="t.127b3b836ca3e64bb6537c4207409f10ba4bd0c7"></a><a id="t.1"></a>
         <table class="c5">
             <tr class="c21">
@@ -1440,8 +1439,8 @@
                     <p class="c3 c8"><span class="c9"></span></p>
                 </td>
             </tr>
-            <tr class="c21">
-                <td class="c18" colspan="1" rowspan="1">
+            <tr class="c24">
+                <td class="c42" colspan="1" rowspan="1">
                     <p class="c7 c8"><span class="c2"></span></p>
                     <p class="c7">
                         <span class="c2"
@@ -1483,7 +1482,6 @@
                             <td class="c20" colspan="1" rowspan="1">
                                 <p class="c3">
                                     <span class="c2">EMPRESA:</span>
-                                    <br>
                                     <br>
                                     <br>
                                 </p>
@@ -1632,227 +1630,210 @@
         @if ($petition->equipment_id == null)
 
         @else
-            <table class="c5">
-                <tr class="c21">
-                    <td class="c18" colspan="1" rowspan="1">
-                        <p class="c7">
-                            <span class="c2"
-                                >INFORMACI&Oacute;N DEL EQUIPO A ASIGNAR Y/O
-                                REGISTRAR</span
-                            ><span class="c9">:</span>
-                        </p>
-                        <span
-                            style="
-                                overflow: hidden;
-                                display: inline-block;
-                                margin: 0px 0px;
-                                border: 0px solid #000000;
-                                transform: rotate(0rad) translateZ(0px);
-                                -webkit-transform: rotate(0rad) translateZ(0px);
-                                width: 645px;
-                            "
-                            >
-                        <p class="c7 c8"><span class="c9"></span></p>
-                        <a id="t.5a4f960aad80c4b47614d6fab4da681e0f548aca"></a
-                        ><a id="t.5"></a>
-                        <table class="c39">
+            <table class="c43">
+            <tr class="c53">
+                <td class="c55" colspan="1" rowspan="1">
+                    <p class="c7">
+                        <span class="c2"
+                            >INFORMACI&Oacute;N DEL EQUIPO A ASIGNAR Y/O
+                            REGISTRAR</span
+                        ><span class="c9">:</span>
+                    </p>
+                    <p class="c7 c8"><span class="c9"></span></p>
+                    <a id="t.5a4f960aad80c4b47614d6fab4da681e0f548aca"></a
+                    ><a id="t.5"></a>
+                    <table class="c39">
+                        <tr class="c50">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3">
+                                    <span class="c2">TIPO DE EQUIPO:</span>
+                                </p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                <p class="c3 c8"><span class="c9">
+                                    {{$equipment->tipo}}
+                                </span></p>
+                            </td>
+                        </tr>
 
-                            <tr class="c50">
-
-                                <td class="c28" colspan="1" rowspan="1">
-
-                                    <p class="c3">
-                                        <span class="c2">TIPO DE EQUIPO:</span>
-                                    </p>
-                                </td>
-                                <td class="c13" colspan="1" rowspan="1">
-                                    <p class="c3 c8"><span class="c9">
-                                        {{$equipment->tipo}}
-                                    </span></p>
-
-                                </td>
-                            </tr>
-
-                            <tr class="c37">
-                                <td class="c28" colspan="1" rowspan="1">
-                                    <p class="c3"><span class="c2">MARCA:</span></p>
-                                </td>
-                                <td class="c13" colspan="1" rowspan="1">
-                                    <p class="c3 c8"><span class="c9">
-                                        {{$equipment->marca}}
-                                    </span></p>
-                                </td>
-                            </tr>
-                            <tr class="c11">
-                                <td class="c28" colspan="1" rowspan="1">
-                                    <p class="c3">
-                                        <span class="c2">MODELO:</span>
-                                    </p>
-                                </td>
-                                <td class="c13" colspan="1" rowspan="1">
-                                    <p class="c3 c8">
-                                        <span class="c9">
-                                        {{$equipment->modelo}}
+                        <tr class="c37">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3"><span class="c2">MARCA:</span></p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                <p class="c3 c8"><span class="c9">
+                                    {{$equipment->marca}}
+                                </span></p>
+                            </td>
+                        </tr>
+                        <tr class="c11">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3">
+                                    <span class="c2">MODELO:</span>
+                                </p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                <p class="c3 c8">
+                                    <span class="c9">
+                                    {{$equipment->modelo}}
+                                </span>
+                            </p>
+                            </td>
+                        </tr>
+                        <tr class="c30">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3"><span class="c2">SERIE:</span></p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                <p class="c3 c8">
+                                    <span class="c9">
+                                        {{$equipment->serie}}
                                     </span>
                                 </p>
-                                </td>
-                            </tr>
-                            <tr class="c30">
-                                <td class="c28" colspan="1" rowspan="1">
-                                    <p class="c3"><span class="c2">SERIE:</span></p>
-                                </td>
-                                <td class="c13" colspan="1" rowspan="1">
-                                    <p class="c3 c8">
+                            </td>
+                        </tr>
+                        <tr class="c4">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3"><span class="c2">MAC:</span></p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                <p class="c3 c8">
+                                    <span class="c9">
+                                    <b>Ethernet:&nbsp;&nbsp;</b>{{$equipment->mac_ethernet}}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b>WiFi:&nbsp;&nbsp;</b>{{$equipment->mac_wifi}}
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr class="c25">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3">
+                                    <span class="c2">IP Antigua:</span>
+                                </p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                <p class="c3 c8">
+                                    <span class="c9">
+                                        {{$petition->ip_antigua}}
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr class="c32">
+                            <td class="c28" colspan="1" rowspan="1">
+                                <p class="c3">
+                                    <span class="c2"
+                                        >PROPIEDAD DE SCT: </span
+                                    >
+                                </p>
+                            </td>
+                            <td class="c13" colspan="1" rowspan="1">
+                                    @if($equipment->enterprise_id ==2)
                                         <span class="c9">
-                                            {{$equipment->serie}}
+                                            SI ( &nbsp; x &nbsp; ) &nbsp; &nbsp;
+                                            &nbsp;NO &nbsp;( &nbsp; &nbsp; )
                                         </span>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr class="c4">
-                                <td class="c28" colspan="1" rowspan="1">
-                                    <p class="c3"><span class="c2">MAC:</span></p>
-                                </td>
-                                <td class="c13" colspan="1" rowspan="1">
-                                    <p class="c3 c8">
+                                    @else
                                         <span class="c9">
-                                        <b>Ethernet:&nbsp;&nbsp;</b>{{$equipment->mac_ethernet}}
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <b>WiFi:&nbsp;&nbsp;</b>{{$equipment->mac_wifi}}
+                                            SI ( &nbsp; &nbsp; ) &nbsp; &nbsp;
+                                            &nbsp;NO &nbsp;( &nbsp; x &nbsp; )
                                         </span>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr class="c25">
-                                <td class="c28" colspan="1" rowspan="1">
-                                    <p class="c3">
-                                        <span class="c2">IP Antigua:</span>
-                                    </p>
-                                </td>
-                                <td class="c13" colspan="1" rowspan="1">
-                                    <p class="c3 c8">
-                                        <span class="c9">
-                                            {{$petition->ip_antigua}}
-                                        </span>
-                                    </p>
-                                </td>
-                            </tr>
+                                    @endif
+                            </td>
+                        </tr>
+
+                        @if($petition->equipo_sict=='no')
                             <tr class="c32">
                                 <td class="c28" colspan="1" rowspan="1">
                                     <p class="c3">
                                         <span class="c2"
-                                            >PROPIEDAD DE SCT: </span
+                                            >NOMBRE PROPIETARIO: &nbsp; &nbsp; &nbsp;
+                                            &nbsp; &nbsp; &nbsp; &nbsp;</span
                                         >
                                     </p>
                                 </td>
                                 <td class="c13" colspan="1" rowspan="1">
-                                        @if($equipment->enterprise_id ==2)
-                                            <span class="c9">
-                                                SI ( &nbsp; x &nbsp; ) &nbsp; &nbsp;
-                                                &nbsp;NO &nbsp;( &nbsp; &nbsp; )
-                                            </span>
-                                        @else
-                                            <span class="c9">
-                                                SI ( &nbsp; &nbsp; ) &nbsp; &nbsp;
-                                                &nbsp;NO &nbsp;( &nbsp; x &nbsp; )
-                                            </span>
-                                        @endif
+                                    <p class="c3 c8">
+                                        <span class="c9">
+                                            {{$petition->equipo_propio}}
+                                        </span>
+                                    </p>
                                 </td>
                             </tr>
-
-                            @if($petition->equipo_sict=='no')
-                                <tr class="c32">
-                                    <td class="c28" colspan="1" rowspan="1">
-                                        <p class="c3">
-                                            <span class="c2"
-                                                >NOMBRE PROPIETARIO: &nbsp; &nbsp; &nbsp;
-                                                &nbsp; &nbsp; &nbsp; &nbsp;</span
-                                            >
-                                        </p>
-                                    </td>
-                                    <td class="c13" colspan="1" rowspan="1">
-                                        <p class="c3 c8">
-                                            <span class="c9">
-                                                {{$petition->equipo_propio}}
-                                            </span>
-                                        </p>
-                                    </td>
-                                </tr>
-                            @endif
-                        </table>
-                        <p class="c3 c8"><span class="c9"></span></p>
-                    </td>
-                </tr>
-            </table>
+                        @endif
+                    </table>
+                    <p class="c3 c8"><span class="c9"></span></p>
+                </td>
+            </tr>
+        </table>
         @endif
         <br>
-        <div style="width: 640px;">
-            <p class="c3 c8"><span class="c9"></span></p>
-            <p class="c3"><span class="c9">NOTA IMPORTANTE:</span></p>
-            <p class="c3">
-                <span class="c9"
-                    >El solicitante deber&aacute; ser el director o subdirector del
-                    &aacute;rea donde estar&aacute; ubicado el usuario.
-                    <br>
-                    El solicitante es responsable del uso que el usuario realice de
-                    los servicios proporcionados, as&iacute; como, de la
-                    informaci&oacute;n obtenida a trav&eacute;s de los mismos.
-                </span>
-            </p>
-            <p class="c22">
-                <span class="c9"
-                    >El solicitante tiene la obligaci&oacute;n de tramitar la baja
-                    de los servicios, as&iacute; como, del usuario, cuando
-                    &eacute;ste deje de realizar actividades en esta
-                    dependencia.</span
-                >
-            </p>
-            <p class="c22 c8"><span class="c9"></span></p>
-            <p class="c22 c8"><span class="c9"></span></p>
-            <a id="t.af640828407f4c33aca7512f3e62684d70ef3933"></a><a id="t.6"></a>
 
-            <table class="c58">
-                <tr class="c25">
-                    <td class="c27" colspan="1" rowspan="1">
-                        <p class="c1 c8"><span class="c0"></span></p>
-                        <p class="c1 c8"><span class="c0"></span></p>
-                        <p class="c1"><span class="c0">Usuario</span></p>
-                        <p class="c1 c8"><span class="c0"></span></p>
-                        <p class="c1 c8"><span class="c0"></span></p>
-                        <p class="c1">
-                            <span class="c2">________________________________</span>
-                        </p>
-                        <p class="c1"><span class="c0">
-                            {{ $petition->collaborator->name }}
-                            {{ $petition->collaborator->last_name}}
-                            {{ $petition->collaborator->last_maternal}}
-                        </span></p>
-                        <p class="c1"><span class="c0">
-                            {{$petition->funcion}}
-                        </span></p>
-                    </td>
-                    <td class="c27" colspan="1" rowspan="1">
-                        <p class="c1 c8"><span class="c2"></span></p>
-                        <p class="c1 c8"><span class="c2"></span></p>
-                        <p class="c1"><span class="c9">Jefe Directo</span></p>
-                        <p class="c1 c8"><span class="c2"></span></p>
-                        <p class="c1 c8"><span class="c2"></span></p>
-                        <p class="c1">
-                            <span class="c2"
-                                >_____________________________________</span
-                            >
-                        </p>
-                        <p class="c1"><span class="c0">
-                            {{$petition->user->name}} {{$petition->user->last_name}} {{$petition->user->last_maternal}}
-                        </span></p>
-                        <p class="c1"><span class="c0">
-                            {{$petition->puesto}}
+        <p class="c3 c8"><span class="c9"></span></p>
+        <p class="c3"><span class="c9">NOTA IMPORTANTE:</span></p>
+        <p class="c3">
+            <span class="c9"
+                >El solicitante deber&aacute; ser el director o subdirector del
+                &aacute;rea donde estar&aacute; ubicado el usuario.
+                <br>
+                El solicitante es responsable del uso que el usuario realice de
+                los servicios proporcionados, as&iacute; como, de la
+                informaci&oacute;n obtenida a trav&eacute;s de los mismos.
+            </span>
+        </p>
+        <p class="c22">
+            <span class="c9"
+                >El solicitante tiene la obligaci&oacute;n de tramitar la baja
+                de los servicios, as&iacute; como, del usuario, cuando
+                &eacute;ste deje de realizar actividades en esta
+                dependencia.</span
+            >
+        </p>
+        <p class="c22 c8"><span class="c9"></span></p>
+        <p class="c22 c8"><span class="c9"></span></p>
+        <a id="t.af640828407f4c33aca7512f3e62684d70ef3933"></a><a id="t.6"></a>
+        <table class="c34">
+            <tr class="c41">
+                <td class="c27" colspan="1" rowspan="1">
+                    <p class="c1 c8"><span class="c0"></span></p>
+                    <p class="c1 c8"><span class="c0"></span></p>
+                    <p class="c1"><span class="c0">Usuario</span></p>
+                    <p class="c1 c8"><span class="c0"></span></p>
+                    <p class="c1 c8"><span class="c0"></span></p>
+                    <p class="c1">
+                        <span class="c2">________________________________</span>
+                    </p>
+                    <p class="c1"><span class="c0">
+                        {{ $petition->collaborator->name }}
+                        {{ $petition->collaborator->last_name}}
+                        {{ $petition->collaborator->last_maternal}}
+                    </span></p>
+                    <p class="c1"><span class="c0">
+                        {{$petition->funcion}}
+                    </span></p>
+                </td>
+                <td class="c27" colspan="1" rowspan="1">
+                    <p class="c1 c8"><span class="c2"></span></p>
+                    <p class="c1 c8"><span class="c2"></span></p>
+                    <p class="c1"><span class="c9">Jefe Directo</span></p>
+                    <p class="c1 c8"><span class="c2"></span></p>
+                    <p class="c1 c8"><span class="c2"></span></p>
+                    <p class="c1">
+                        <span class="c2"
+                            >_____________________________________</span
+                        >
+                    </p>
+                    <p class="c1"><span class="c0">
+                        {{$petition->user->name}} {{$petition->user->last_name}} {{$petition->user->last_maternal}}
+                    </span></p>
+                    <p class="c1"><span class="c0">
+                        {{$petition->puesto}}
 
-                        </span></p>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                    </span></p>
+                </td>
+            </tr>
+        </table>
         <p class="c22 c8"><span class="c9"></span></p>
         <p class="c22 c8"><span class="c9"></span></p>
     </body>

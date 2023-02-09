@@ -25,7 +25,7 @@
     </div>
     <br>
     <div class="container">
-        <table class="table table-striped" id="petitions">
+        <table class="table table-striped">
             <thead class="table-secondary">
                 <th>Folio</th>
                 <th>Empresa</th>
@@ -73,25 +73,3 @@
         <br>
 @stop
 
-@section('js')
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#petitions').DataTable({
-                "language": {
-                    "search": "Buscar petición",
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "info": "Mostrando página _PAGE_ de _PAGES_ ",
-                    "paginate": {
-                        "previous": "Anterior",
-                        "next": "Siguiente",
-                        "first": "Primero",
-                        "last": "Última"
-                    }
-                }
-            });
-        });
-    </script>
-@endsection

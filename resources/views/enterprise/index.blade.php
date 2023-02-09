@@ -28,7 +28,7 @@
     </div>
     <br>
     <div class="container">
-        <table class="table table-striped" id="enterprises">
+        <table class="table table-striped">
             <thead class="table-secondary">
                 <th>Id</th>
                 <th>Nombre</th>
@@ -54,30 +54,3 @@
     </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-@endsection
-
-@section('js')
-    <script>
-        $(document).ready(function() {
-            $('#enterprises').DataTable({
-                "language": {
-                    "search": "Buscar empresa",
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "info": "Mostrando página _PAGE_ de _PAGES_ ",
-                    "paginate": {
-                        "previous": "Anterior",
-                        "next": "Siguiente",
-                        "first": "Primero",
-                        "last": "Última"
-                    }
-                }
-            });
-        });
-    </script>
-     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-
-@endsection
