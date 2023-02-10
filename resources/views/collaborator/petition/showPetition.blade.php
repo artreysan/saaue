@@ -463,11 +463,9 @@
                                     src="{{ URL::asset('img/scanner - no.png') }}"alt="">
                                 <br>
                                 <br>
-                                <input type="file" name="archivo">
-                                <br>
-                                <br>
                                 <input class="btn btn-secondary" type="submit" value="Guardar archivo" required>
                                 <br>
+
                             @else
                             <br>
                                 <p><strong>Solicitud Original</strong></p>
@@ -475,6 +473,12 @@
                                     <img width="70px" height="70px"
                                         src="{{ URL::asset('img/scanner.png') }}"alt="">
                                 </a>
+                                <br>
+                                <br>
+                                <input type="file" name="archivo">
+                                <br>
+                                <br>
+                                <input class="btn btn-secondary" type="submit" value="Actualizar archivo" required>
                                 <br>
                             @endif
                         </form>
