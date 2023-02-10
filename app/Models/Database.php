@@ -13,9 +13,14 @@ class Database extends Model
 
     protected $fillable = [
         'name',
+        'short_name',
+        'dbms',
+        'so',
+        'criticality',
+        'level_id',
         'enviroment',
-        'software',
         'ip',
         'port',
+
     ];
 }

@@ -465,6 +465,11 @@ return [
                     'url'  => 'projects',
                     'icon' => 'far fa-eye',
                 ],
+                [
+                    'text' => 'Bases de datos',
+                    'url'  => 'databases',
+                    'icon' => 'fas fa-database',
+                ],
             ],
         ],
         [

@@ -457,24 +457,26 @@
                             @csrf
 
                             @if ($petition->base64_signedPetition == '')
+                                <br>
+                                <p><strong>No hay documento almacenado</strong></p>
                                 <img width="70px" height="70px"
                                     src="{{ URL::asset('img/scanner - no.png') }}"alt="">
                                 <br>
+                                <br>
+                                <input type="file" name="archivo">
+                                <br>
+                                <br>
+                                <input class="btn btn-secondary" type="submit" value="Guardar archivo" required>
+                                <br>
                             @else
-                                <p><strong>Archivo Guardado</strong></p>
+                            <br>
+                                <p><strong>Solicitud Original</strong></p>
                                 <a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}/sign" target="_blank">
                                     <img width="70px" height="70px"
-                                        src="{{ URL::asset('img/scanner - ok.png') }}"alt="">
+                                        src="{{ URL::asset('img/scanner.png') }}"alt="">
                                 </a>
                                 <br>
                             @endif
-                            <br>
-                            <br>
-                            <input type="file" name="archivo">
-                            <br>
-                            <br>
-                            <input class="btn btn-secondary" type="submit" value="Guardar archivo" required>
-                            <br>
                         </form>
                     </div>
                 </div>
@@ -544,7 +546,7 @@
                         <h6><strong>Fecha de solicitud: </strong></h6>
                     </div>
 
-                            <p>{{ $petition->created_at }} </p>
+                    <p>{{ $petition->created_at }} </p>
 
                 </div>
                 <div class="row">
@@ -1094,13 +1096,10 @@
                                 echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
                                 break;
                             case 1:
-                                if ($petition->nodo == 1 && (isset($petition->a_nodo)) &&
-                                    $petition->ip   == 1 && (isset($petition->a_ip)) &&
-                                    $petition->vpn == 1 && (isset($petition->vpn)) ){
+                                if ($petition->nodo == 1 && isset($petition->a_nodo) && $petition->ip == 1 && isset($petition->a_ip) && $petition->vpn == 1 && isset($petition->vpn)) {
                                     # code...
                                 }
                                 break;
-
                         }
                         ?>
                     </div> --}}
