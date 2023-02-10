@@ -458,13 +458,13 @@
 
                             @if ($petition->base64_signedPetition == '')
                                 <img width="70px" height="70px"
-                                    src="{{ URL::asset('img/scanner.png') }}"alt="">
+                                    src="{{ URL::asset('img/scanner - no.png') }}"alt="">
                                 <br>
                             @else
                                 <p><strong>Archivo Guardado</strong></p>
                                 <a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}/sign" target="_blank">
                                     <img width="70px" height="70px"
-                                        src="{{ URL::asset('img/scanner.png') }}"alt="">
+                                        src="{{ URL::asset('img/scanner - ok.png') }}"alt="">
                                 </a>
                                 <br>
                             @endif
@@ -1096,13 +1096,7 @@
                             case 1:
                                 if ($petition->nodo == 1 && (isset($petition->a_nodo)) &&
                                     $petition->ip   == 1 && (isset($petition->a_ip)) &&
-                                    $petition->vpn == 1 && (isset($petition->a_nodo)) &&
-                                    $petition->nodo == 1 && (isset($petition->a_nodo)) &&
-                                    $petition->nodo == 1 && (isset($petition->a_nodo)) &&
-                                    $petition->nodo == 1 && (isset($petition->a_nodo)) &&
-                                    $petition->nodo == 1 && (isset($petition->a_nodo)) &&
-
-                                    ){
+                                    $petition->vpn == 1 && (isset($petition->vpn)) ){
                                     # code...
                                 }
                                 break;
