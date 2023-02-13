@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\PetitionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
@@ -56,6 +57,9 @@ Route::resource('user', UserController::class);
 
 //Rutas para ver los proyectos
 Route::resource('projects', ProjectController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
+
+//Rutas para ver las bases de datos
+Route::resource('databases', DatabaseController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
 
 //Rutas para las empresas
 Route::resource('enterprise', EnterpriseController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion

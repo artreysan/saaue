@@ -15,7 +15,8 @@ class DatabaseController extends Controller
      */
     public function index()
     {
-        //
+        $databases =   Database::all();
+        return view('databases/index', compact('databases'));
     }
 
     /**
