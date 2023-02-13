@@ -16,13 +16,17 @@ class CollaboratorController extends Controller
 
     public function index(){
 
-        $collaborators = Collaborator::all();
+        if(auth()->user()->role_id == 1){
+            $collaborators = Collaborator::all();
+        }
+        else{
+            $collaborators     = Collaborator::where('id_user', auth()->user()->id)->get();
+        }
 
         return view('collaborator/index', compact('collaborators'));
     }
 
     public function create(){
-
 
         $enterprises   = Enterprise::all();
         $locations     = Location::all();
@@ -54,6 +58,7 @@ class CollaboratorController extends Controller
         $collaborator->account_glpi       = $request->account_glpi;
         $collaborator->account_jira       = $request->account_jira;
         $collaborator->account_da         = $request->account_da;
+        $collaborator->id_user            = $request->id_user;
 
         $collaborator->save();
 

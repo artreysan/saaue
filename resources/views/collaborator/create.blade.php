@@ -61,16 +61,26 @@
                 <div class="row">
                     <div class="col-md-2"><strong>Email:</strong></div>
                     <div class="col-md-3"><input type="text" id="email" name="email" required></div>
-                    <div class="col-md-1"><strong>Empresa:</strong></div>
-                    <div class="col-md-2">
-                        <select name="enterprise_id" id="enterprise_id">
-                            @foreach ($enterprises as $enterprise)
-                                <option value="{{ $enterprise->id }}" id="enterprise_id">{{ $enterprise->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+
+                        @if (auth()->user()->role_id == 1)
+                        <div class="col-md-1"><strong>Empresa:</strong></div>
+                        <div class="col-md-2">
+                            <select name="enterprise_id" id="enterprise_id">
+                                @foreach ($enterprises as $enterprise)
+                                    <option value="{{ $enterprise->id }}" id="enterprise_id">{{ $enterprise->name }}</option>
+                                @endforeach
+                            </select>
+                            </div>
+
+                        @else
+                            <div class="col-md-2">
+                                <input type="hidden" name="enterprise_id" id="enterprise_id" value="{{auth()->user()->enterprise_id}}">
+                            </div>
+                        @endif
+
+
                 </div>
-                <br>
+                    <br>
                 <div class="row">
                     <div class="col-md-2"><strong>Ubicación en la SICT:</strong></div>
                     <select name="location_id" id="location_id">
@@ -78,6 +88,9 @@
                             <option value="{{ $location->id }}">{{ $location->ubicacion }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="row">
+                    <input type="hidden" name="id_user" id="id_user" value="{{auth()->user()->id}}">
                 </div>
                 <br>
                 {{-- <div class="row">

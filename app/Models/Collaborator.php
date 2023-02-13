@@ -27,6 +27,7 @@ class Collaborator extends Model
         'location_id',
         'rol_id',
         'enterprise_id',
+        'id_user',
     ];
 
 

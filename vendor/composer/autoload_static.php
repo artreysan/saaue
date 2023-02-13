@@ -580,6 +580,7 @@ class ComposerStaticInit7c8175c757cbb7203ca3a06ac07f6bb9
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\CollaboratorController' => __DIR__ . '/../..' . '/app/Http/Controllers/CollaboratorController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\DatabaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatabaseController.php',
         'App\\Http\\Controllers\\EnterpriseController' => __DIR__ . '/../..' . '/app/Http/Controllers/EnterpriseController.php',
         'App\\Http\\Controllers\\EquipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/EquipmentController.php',
