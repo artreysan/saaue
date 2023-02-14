@@ -109,4 +109,14 @@ class CollaboratorController extends Controller
 
     }
 
+    //Prueba AJAX
+    public function handleAjaxRequest(Request $request)
+    {
+        // Procesamiento de datos en el servidor
+        $data = $request->all();
+
+        return response()->json($data);
+}
+    //Prueba AJAX
+
 }

@@ -63,3 +63,16 @@ Route::resource('databases', DatabaseController::class); // Esta ruta sustituye 
 
 //Rutas para las empresas
 Route::resource('enterprise', EnterpriseController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
+
+
+
+
+
+//Prueba AJAX
+Route::post('route/name', [PetitionController::class, 'handleAjaxRequest'] )->name('route.name');
+//Prueba AJAX
+
+
+
+
+
