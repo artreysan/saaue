@@ -1,4 +1,5 @@
 @extends('adminlte::page')
+@include('sweetalert::alert')
 
 @section('title', 'UTIC')
 
@@ -57,6 +58,7 @@
                                     echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
                                     break;
                             }
+
                             ?>
                         </div>
                     </div>

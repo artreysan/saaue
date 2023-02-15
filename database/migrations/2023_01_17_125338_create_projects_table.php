@@ -16,21 +16,21 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->char('full_name', 150);
-            $table->char('short_name', 150);
-            $table->char('acronym', 45);
-            $table->char('unit', 150);
+            $table->char('short_name', 150)->nullable();
+            $table->char('acronym', 45)->nullable();
+            $table->char('unit', 150)->nullable();
 
-            $table->unsignedBigInteger('level_id');
+            $table->unsignedBigInteger('level_id')->nullable();
             $table->foreign('level_id')
             ->references('id')
                 ->on('levels');
 
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
 
-            $table->unsignedBigInteger('collaborator_id');
+            $table->unsignedBigInteger('collaborator_id')->nullable();
             $table->foreign('collaborator_id')
                 ->references('id')
                 ->on('collaborators');

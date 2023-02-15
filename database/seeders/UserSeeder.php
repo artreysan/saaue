@@ -16,29 +16,29 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Milton Arturo',
-            'last_name' => 'Quiroz',
-            'last_maternal' => 'Hernández',
-            'email' => 'milton.quiroz@mail.com',
-            'password' => Hash::make('qwe123...'),
-            'rol_id' => '9',
-            'location_id' => '4',
-            'enterprise_id' => '2',
-            'role_id' => '1'
-        ]);
+        // User::create([
+        //     'name' => 'Milton Arturo',
+        //     'last_name' => 'Quiroz',
+        //     'last_maternal' => 'Hernández',
+        //     'email' => 'milton.quiroz@mail.com',
+        //     'password' => Hash::make('qwe123...'),
+        //     'rol_id' => '9',
+        //     'location_id' => '4',
+        //     'enterprise_id' => '2',
+        //     'role_id' => '1'
+        // ]);
 
-        User::create([
-            'name' => 'Arturo',
-            'last_name' => 'Reyes',
-            'last_maternal' => 'Santana',
-            'email' => 'arturo.reyes@mail.com',
-            'password' => Hash::make('qwe123...'),
-            'rol_id' => '9',
-            'location_id' => '4',
-            'enterprise_id' => '2',
-            'role_id' => '1'
-        ]);
+        // User::create([
+        //     'name' => 'Arturo',
+        //     'last_name' => 'Reyes',
+        //     'last_maternal' => 'Santana',
+        //     'email' => 'arturo.reyes@mail.com',
+        //     'password' => Hash::make('qwe123...'),
+        //     'rol_id' => '9',
+        //     'location_id' => '4',
+        //     'enterprise_id' => '2',
+        //     'role_id' => '1'
+        // ]);
 
 
         User::create([
@@ -83,6 +83,30 @@ class UserSeeder extends Seeder
             'last_maternal' => 'Ramírez',
             'email' => 'iracema.miron@sct.gob.mx',
             'password' => Hash::make('Imr0117%&$'),
+            'rol_id' => '21',
+            'location_id' => '4',
+            'enterprise_id' => '2',
+            'role_id' => '1'
+        ]);
+
+        User::create([
+            'name' => 'Ing. David',
+            'last_name' => 'De León ',
+            'last_maternal' => 'Muñoz',
+            'email' => 'david.deleon@sct.gob.mx',
+            'password' => Hash::make('Ddlmz0215%&$'),
+            'rol_id' => '21',
+            'location_id' => '4',
+            'enterprise_id' => '2',
+            'role_id' => '1'
+        ]);
+
+        User::create([
+            'name' => 'Ing. Betzalel',
+            'last_name' => 'Betanzos',
+            'last_maternal' => 'Laiseca',
+            'email' => 'betzalel.betanzos@sct.gob.mx',
+            'password' => Hash::make('Bbla0117%&$'),
             'rol_id' => '21',
             'location_id' => '4',
             'enterprise_id' => '2',

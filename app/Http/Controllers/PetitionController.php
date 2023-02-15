@@ -10,6 +10,12 @@ use App\Models\Enterprise;
 use App\Models\Collaborator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PetitionAcceptedMailable;
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Envelope;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -60,6 +66,7 @@ class PetitionController extends Controller
             $petition->base64_signedPetition = $pdfBase64;
             $petition->save();
         }
+
         return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
     }
 
@@ -224,9 +231,46 @@ class PetitionController extends Controller
         $petition = Petition::find($id);
         $collaborator = Collaborator::find($id);
 
-        //return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
         return back()->with('success', 'Archivo subido con éxito');
     }
+
+    public function verifyStatus($petition){
+
+        $count = $petition->account_glpi +
+                $petition->account_gitlab +
+                $petition->account_jira +
+                $petition->account_da +
+                $petition->nodo +
+                $petition->internet +
+                $petition->vpn +
+                $petition->ip;
+
+        ($petition->account_glpi == 1 && $petition->a_account_glpi!=null) ? $count-- : 0;
+        ($petition->account_gitlab == 1 && $petition->a_account_gitlab!=null) ? $count-- : 0;
+        ($petition->account_jira == 1 && $petition->a_account_jira!=null) ? $count-- : 0;
+        ($petition->account_da == 1 && $petition->a_account_da!=null) ? $count-- : 0;
+
+        ($petition->nodo == 1 && $petition->a_nodo!=null) ? $count-- : 0;
+        ($petition->internet == 1 && $petition->a_internet!=null) ? $count-- : 0;
+        ($petition->vpn == 1 && $petition->a_vpn!=null) ? $count-- : 0;
+        ($petition->ip == 1 && $petition->a_ip!=null) ? $count-- : 0;
+
+        if($count == 0){
+            $petition->status = 2;
+            return true;
+        }
+        return false;
+
+    }
+
+    public function sendMail($petition,$collaborator){
+        //Mail::to()->send($correo->attach(storage_path('pdf/'.$solicitud->fileID.'_sau.pdf')));
+        return new Envelope(
+            from: new Address('jeffrey@example.com', 'Jeffrey Way'),
+            subject: 'Order Shipped',
+        );
+    }
+
 
     public function showPetition($id)
     {
@@ -234,6 +278,10 @@ class PetitionController extends Controller
         $equipments   = Equipment::all();
         $petition     = Petition::find($id);
         $collaborator = Collaborator::find($id);
+        if($this->verifyStatus($petition)){
+            $this->sendMail($petition,$collaborator);
+        }
+
 
         return view('collaborator/petition/showPetition', compact('petition', 'collaborator', 'equipments'));
     }

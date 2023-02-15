@@ -180,10 +180,11 @@
                 </div>
             </div>
         </div>
+        <br>
         <!-- Pruba AJAX -->
         <div class="row container">
             <div class="col-md-4">
-                <input type="checkbox" id="database"> Base de datos
+                <input type="checkbox" id="database"> Acceso a la base de datos
 
                 <select id="selectForm" style="display:none">
                     <option value="1">Opción 1</option>
