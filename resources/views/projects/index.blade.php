@@ -28,20 +28,20 @@
     <div class="container">
         <table class="table table-striped">
             <thead class="table-secondary">
-                <th>Id</th>
-                <th>Nombre largo</th>
-                <th>Nombre corto</th>
-                <th class="col-md-4">Coordinador</th>
-                <th class="col-md-4">Acronym</th>
-                <th> Ver</th>
+                <th class="col-md-1">Id</th>
+                <th class="col-md-6">Nombre largo</th>
+                <th class="col-md-1">Nombre corto</th>
+                <th class="col-md-2">Coordinador</th>
+                <th class="col-md-1">Acronym</th>
+                <th class="col-md-1">Ver</th>
             </thead>
             @foreach ($projects as $project)
                 <tbody>
                     <td>{{ $project->id }}</td>
-                    <td>{{ $project->nombre_completo }}</td>
-                    <td>{{ $project->nombre_corto }}</td>
-                    <td class="col-md-4">{{ $project->collaborator->name}} {{ $project->collaborator->last_name}}</td>
-                    <td class="col-md-4">{{ $project->acronym }}</td>
+                    <td>{{ $project->full_name }}</td>
+                    <td>{{ $project->short_name }}</td>
+                    <td>{{ $project->user_id }}</td>
+                    <td>{{ $project->acronym }}</td>
                     <td><a href="projects/{{$project->id}}" alt="project"><button class="fas fa-address-card"></button></a></td>
                 </tbody>
             @endforeach

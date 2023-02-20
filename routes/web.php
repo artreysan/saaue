@@ -53,7 +53,7 @@ Route::post('petition/{petition}', [PetitionController::class, 'updateFile'])->n
 
 
 //Rutas para  usuarios
-Route::resource('user', UserController::class);
+Route::resource('user', UserController::class)->middleware('admin');
 
 //Rutas para ver los proyectos
 Route::resource('projects', ProjectController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion

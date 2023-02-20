@@ -19,8 +19,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $users    = User::all();
         $projects = Project::all();
-        return view('projects/index', compact('projects'));
+        return view('projects/index', compact('projects','users'));
     }
 
     /**
@@ -48,23 +49,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $equipment = new Equipment();
 
-        $equipment->tipo            = $request->tipo;
-        $equipment->marca           = $request->marca;
-        $equipment->modelo          = $request->modelo;
-        $equipment->serie           = $request->serie;
-        $equipment->mac_ethernet    = $request->mac_ethernet;
-        $equipment->mac_wifi        = $request->mac_wifi;
-        $equipment->enterprise_id   = $request->enterprise_id;
-        $equipment->collaborator_id = $request->collaborator_id;
-
-        $equipment->save();
-
-        $enterprises = Enterprise::all();
-        $equipments = Equipment::all();
-
-        return view('equipment/index', compact('equipments', 'enterprises'));
     }
 
     /**
