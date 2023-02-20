@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-2"><strong>Puesto:</strong></div>
-                    <select class="col-md-3" name="role_id" id="role_id">
+                    <select class="col-md-3" name="rol_id" id="rol_id">
                         @foreach ($rols as $rol)
                             <option value="{{ $rol->id }}"> {{ $rol->rol }}</option>
                         @endforeach
