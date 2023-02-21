@@ -34,7 +34,7 @@ class PetitionAcceptedMailable extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Petition Accepted Mailable',
+            subject: 'Petición Finalizada',
         );
     }
 

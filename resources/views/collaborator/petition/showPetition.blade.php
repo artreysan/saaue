@@ -1094,6 +1094,13 @@
                 <div class="row">
                     <div class="col-sm-5"></div>
                     <div class="col-sm-2"><a href="/petition" class="btn btn-secondary">Regresar</a></button></div>
+                    @if ($petition->status == 2)
+                        <div class="col-sm-2">
+                            <a href="/petition/{{ $petition->id }}/{{ $collaborator->id }}/sendEmail" class="btn btn-secondary">
+                                Enviar Correo
+                            </a>
+                        </div>
+                    @endif
                     <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Guardar"></div>
                     {{-- <div class="col-sm-3">
                         <?php

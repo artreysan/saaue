@@ -253,24 +253,25 @@ class PetitionController extends Controller
 
         if($count == 0){
             $petition->status = 2;
-            return true;
         }
-        return false;
-
     }
 
-    public function sendMail($petition,$collaborator){
+    public function sendEmail($petition_id,$collaborator_id){
         //Mail::to()->send($correo->attach(storage_path('pdf/'.$solicitud->fileID.'_sau.pdf')));
 
+        $collaborator = Collaborator::find($collaborator_id);
+        $petition     = Petition::find($petition_id);
+        $equipments   = Equipment::all();
+
+
         $maildata = [
-            'title' => 'Laravel Mail Sending Example with Markdown',
-            'url' => 'https://www.positronx.io'
+            'title' => 'Solicitud de Servicios SICT',
         ];
 
         Mail::to(auth()->user()->email)->send(new PetitionAcceptedMailable($maildata));
         Mail::to($collaborator->email)->send(new PetitionAcceptedMailable($maildata));
 
-
+        return back()->withInput()->with('mensaje', 'Ocurrió un error al procesar el formulario');
 
     }
 
@@ -281,9 +282,7 @@ class PetitionController extends Controller
         $equipments   = Equipment::all();
         $petition     = Petition::find($id);
         $collaborator = Collaborator::find($id);
-        if($this->verifyStatus($petition)){
-            //$this->sendMail($petition,$collaborator);
-        }
+        $this->verifyStatus($petition);
 
 
         return view('collaborator/petition/showPetition', compact('petition', 'collaborator', 'equipments'));
