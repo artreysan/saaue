@@ -1124,7 +1124,6 @@
                         document.write(new Date().getFullYear())
                     </script>
                     Desarrollado en CDMX,<strong> UTIC </strong>
-                    <a href="https://www.creative-tim.com" class="font-weight-bold " target="_blank">
                 </div>
             </div>
         </div>

@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, useForm } from '@inertiajs/inertia-react';
+import { Head, useForm } from '@inertiajs/react';
 
 export default function ResetPassword({ token, email }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -27,7 +27,7 @@ export default function ResetPassword({ token, email }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('password.update'));
+        post(route('password.store'));
     };
 
     return (
@@ -39,6 +39,7 @@ export default function ResetPassword({ token, email }) {
                     <InputLabel forInput="email" value="Email" />
 
                     <TextInput
+                        id="email"
                         type="email"
                         name="email"
                         value={data.email}
@@ -54,6 +55,7 @@ export default function ResetPassword({ token, email }) {
                     <InputLabel forInput="password" value="Password" />
 
                     <TextInput
+                        id="password"
                         type="password"
                         name="password"
                         value={data.password}
