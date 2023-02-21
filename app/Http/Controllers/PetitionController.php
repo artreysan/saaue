@@ -117,8 +117,6 @@ class PetitionController extends Controller
 
         $petition->account_da        = $request->account_jira;
 
-        $petition->access_project    = $request->access_project;
-
         $petition->tk_glpi_account_1          = $request->tk_glpi_account_1;
         $petition->tk_gitlab_account_1        = $request->tk_gitlab_account_1;
         $petition->tk_jira_account_1          = $request->tk_jira_account_1;
@@ -190,8 +188,6 @@ class PetitionController extends Controller
         $petition->account_glpi      = $request->account_glpi;
         $petition->account_jira      = $request->account_jira;
         $petition->account_da        = $request->account_da;
-
-        $petition->access_project    = $request->access_project;
 
         $petition->tk_glpi_account_1          = $request->tk_glpi_account_1;
         $petition->tk_gitlab_account_1        = $request->tk_gitlab_account_1;

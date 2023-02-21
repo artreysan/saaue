@@ -73,7 +73,11 @@
                         </div>
                         <div class="col-md-5">
                             <div>
-                                <h6> {{ $project->user->name }} {{ $project->user->last_name }} </h6>
+                                @if (empty( $project->user))
+                                    <p>Incompleto</p>
+                                @else
+                                    {{ $project->user->name }} {{ $project->user->last_name }}
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -82,11 +86,12 @@
         </div>
     </div>
     <br>
-    <div class="col-md-7">
+    <div class="container">
+        <div class="col-md-7">
             <div class="p-5">
                 <div class="p-2 container"
                     style="background-color: #f4f6f9; color: rgb(41, 41, 41); with:300px; higth: 50px">
-                    <h6>Bases de datos de {{ $project->full_name }}</h6>
+                    <h6>Bases de datos de {{ $project->short_name }}</h6>
                 </div>
                 <table class="table" id="petitions">
                     <thead class="table-secondary">
@@ -107,11 +112,13 @@
                             <td>{{ $database->enviroment }}</td>
                             <td>{{ $database->ip }}</td>
                             <td>{{ $database->port }}</td>
-                            <td><a href="/database/{{ $database->id }}" alt="ver" class="col-md-1 fas fa-eye"></a></td>
+                            <td><a href="/database/{{ $database->id }}" alt="ver" class="col-md-1 fas fa-eye"></a>
+                            </td>
                     @endforeach
                 </table>
             </div>
         </div>
+    </div>
     {{-- <div>
         <h6> <strong>Equipos</strong></h6>
         @foreach ($equipments as $equipment)
