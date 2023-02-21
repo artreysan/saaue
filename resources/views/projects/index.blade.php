@@ -40,9 +40,15 @@
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->full_name }}</td>
                     <td>{{ $project->short_name }}</td>
-                    <td>{{ $project->user_id }}</td>
+                    <td>
+                        @if (empty($project->user))
+                            <p>Sin asignar</p>
+                        @else
+                            {{ $project->user->name }}{{ $project->user->last_name }}
+                        @endif
+                    </td>
                     <td>{{ $project->acronym }}</td>
-                    <td><a href="projects/{{$project->id}}" alt="project"><button class="fas fa-address-card"></button></a></td>
+                    <td><a href="projects/{{$project->id}}" alt="project"><button class="fas fa-folder-open"></button></a></td>
                 </tbody>
             @endforeach
         </table>

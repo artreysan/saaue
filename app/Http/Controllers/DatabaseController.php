@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Database;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DatabaseController extends Controller
 {
@@ -15,8 +16,9 @@ class DatabaseController extends Controller
      */
     public function index()
     {
+        $projects = Project::all();
         $databases =   Database::all();
-        return view('databases/index', compact('databases'));
+        return view('databases/index', compact('databases', 'projects'));
     }
 
     /**

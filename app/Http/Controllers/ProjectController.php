@@ -58,9 +58,13 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        //
+        // $databases = Database::where('database_id', $id)->get(['id','name', 'short_name','dbms','so','criticality','enviroment','ip','port']);
+        $user = User::find($id);
+        $project = Project::find($id);
+        $databases    = Database::where('project_id', $id)->get(['id', 'name', 'dbms', 'so','criticality', 'enviroment','ip','port','project_id']);
+        return view('projects/show', compact('project','user','databases'));
     }
 
     /**

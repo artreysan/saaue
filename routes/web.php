@@ -66,8 +66,6 @@ Route::resource('enterprise', EnterpriseController::class); // Esta ruta sustitu
 
 
 
-
-
 //Prueba AJAX
 Route::post('route/name', [PetitionController::class, 'handleAjaxRequest'] )->name('route.name');
 //Prueba AJAX

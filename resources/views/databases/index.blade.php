@@ -45,7 +45,13 @@
                 <tbody>
                     <td>{{ $database->id }}</td>
                     <td>{{ $database->name }}</td>
-                    <td>{{ $database->short_name }}</td>
+                    <td>
+                        @if (empty($database->project->short_name))
+                            <p>Incompleto</p>
+                        @else
+                            {{ $database->project->short_name }}
+                        @endif
+                    </td>
                     <td>{{ $database->dbms }}</td>
                     <td>{{ $database->so }}</td>
                     <td>{{ $database->criticality }}</td>

@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('databases', function (Blueprint $table) {
             $table->id();
             $table->char('name', 150);
-            $table->char('short_name', 30)->nullable();
             $table->char('dbms', 200);
             $table->char('so', 20)->nullable();
             $table->char('criticality', 20);
@@ -30,6 +29,13 @@ return new class extends Migration
             $table->char('enviroment', 20);
             $table->ipAddress('ip', 20);
             $table->char('port', 10)->nullable();
+
+            $table->unsignedBigInteger('project_id')->nullable();
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects');
+
+
         });
     }
 

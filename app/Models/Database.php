@@ -13,7 +13,6 @@ class Database extends Model
 
     protected $fillable = [
         'name',
-        'short_name',
         'dbms',
         'so',
         'criticality',
@@ -21,6 +20,13 @@ class Database extends Model
         'enviroment',
         'ip',
         'port',
+        'project_id',
 
     ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class,'project_id');
+    }
+
 }

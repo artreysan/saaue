@@ -40,7 +40,7 @@ class UserController extends Controller
         $roles         = Role::all();
         $rols          = Rol::all();
 
-        
+
         return view('user/create', compact('enterprises','locations','roles','rols'));
     }
     /**

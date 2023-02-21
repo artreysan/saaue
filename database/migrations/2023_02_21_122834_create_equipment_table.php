@@ -32,6 +32,12 @@ return new class extends Migration
             $table->foreign('collaborator_id')
                 ->references('id')
                 ->on('collaborators');
+
+            $table->unsignedBigInteger('project_id')->nullable();
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects');
+
         });
     }
 

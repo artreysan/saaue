@@ -30,21 +30,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('users');
 
-            $table->unsignedBigInteger('collaborator_id')->nullable();
-            $table->foreign('collaborator_id')
-                ->references('id')
-                ->on('collaborators');
-
-            $table->unsignedBigInteger('equipment_id')->nullable();
-            $table->foreign('equipment_id')
-                ->references('id')
-                ->on('equipment');
-
-            $table->unsignedBigInteger('database_id')->nullable();
-            $table->foreign('database_id')
-            ->references('id')
-                ->on('databases');
-
             $table->timestamps();
         });
     }

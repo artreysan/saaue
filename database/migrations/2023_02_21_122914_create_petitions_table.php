@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('petitions', function (Blueprint $table) {
             $table->id();
-
             //booleanos para confirmar peticiones si se requiere
             //este bloque es para responder a la peticion sobre las cuentas solicitadas
             // el "a" anteriror a al nombre de la variable para la cuenta significa "answering" Ejemplo. a_account_gitlab
@@ -51,7 +50,6 @@ return new class extends Migration
 
             $table->char('status', 1);
 
-
             //Este bloque es para almacenar los tickets requeridos para responder a la solicitud
             $table->char('tk_glpi_account_1', 30)->nullable();
             $table->char('tk_gitlab_account_1', 30)->nullable();
@@ -72,12 +70,6 @@ return new class extends Migration
             $table->char('tk_internet_0', 30)->nullable();
             $table->char('tk_ip_0', 30)->nullable();
             $table->char('tk_vpn_0', 30)->nullable();
-
-            $table->boolean('access_project')->nullable();
-
-            $table->char('project1', 100)->nullable();
-            $table->char('project2', 100)->nullable();
-            $table->char('project3', 100)->nullable();
 
             // los siguientes datos son llaves foraneas para detallar los datos de la peticion
             $table->unsignedBigInteger('user_id');
@@ -110,8 +102,8 @@ return new class extends Migration
      * @return void
      */
 
-    public function down()
+     public function down()
     {
-        Schema::dropIfExists('petitions');
+         Schema::dropIfExists('petitions');
     }
 };
