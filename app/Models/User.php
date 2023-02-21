@@ -32,6 +32,7 @@ class User extends Authenticatable
         'last_maternal',
         'email',
         'password',
+        'rol_id',
         'role_id',
         'enterprise_id',
         'location_id',

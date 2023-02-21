@@ -265,10 +265,17 @@ class PetitionController extends Controller
 
     public function sendMail($petition,$collaborator){
         //Mail::to()->send($correo->attach(storage_path('pdf/'.$solicitud->fileID.'_sau.pdf')));
-        return new Envelope(
-            from: new Address('jeffrey@example.com', 'Jeffrey Way'),
-            subject: 'Order Shipped',
-        );
+
+        $maildata = [
+            'title' => 'Laravel Mail Sending Example with Markdown',
+            'url' => 'https://www.positronx.io'
+        ];
+
+        Mail::to(auth()->user()->email)->send(new PetitionAcceptedMailable($maildata));
+        Mail::to($collaborator->email)->send(new PetitionAcceptedMailable($maildata));
+
+
+
     }
 
 
@@ -279,7 +286,7 @@ class PetitionController extends Controller
         $petition     = Petition::find($id);
         $collaborator = Collaborator::find($id);
         if($this->verifyStatus($petition)){
-            $this->sendMail($petition,$collaborator);
+            //$this->sendMail($petition,$collaborator);
         }
 
 

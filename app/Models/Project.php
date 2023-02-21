@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
 {
@@ -29,12 +30,12 @@ class Project extends Model
 
     public function user()
     {
-        return $this->hasMany(User::class,  'user_id');
+        return $this->belongsTo(User::class,  'user_id');
     }
 
     public function collaborator()
     {
-        return $this->hasMany(Collaborator::class,  'collaborator_id');
+        return $this->belongsTo(Collaborator::class,  'collaborator_id');
     }
 
     public function equipment()
