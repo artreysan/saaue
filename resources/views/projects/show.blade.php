@@ -24,7 +24,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <div class="card-header card-header-primary bg-secondary">
                     <div class="card-title">{{ $project->full_name }}</div>
                 </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-md-5">
                             <div>
-                                <h6> {{ $project->short_name }} </h6>
+                                <h6> <strong>{{ $project->short_name }}</strong></h6>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-md-9">
                             <div>
-                                <h6> {{ $project->unit }} </h6>
+                                <h6><strong>{{ $project->unit }}</strong></h6>
                             </div>
                         </div>
                     </div>
@@ -73,11 +73,31 @@
                         </div>
                         <div class="col-md-5">
                             <div>
-                                @if (empty( $project->user))
+                                @if (empty($project->user))
                                     <p>Incompleto</p>
                                 @else
-                                    {{ $project->user->name }} {{ $project->user->last_name }}
+                                    <h6> {{ $project->user->name }} {{ $project->user->last_name }} </h6>
                                 @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div>
+                                <h6><strong> Bases de datos:</strong></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                @foreach ($databasesid as $databaseid)
+                                    <tbody>
+                                        <h6><strong> {{ $databaseid->name }} </strong> - {{ $databaseid->dbms }} - {{ $databaseid->enviroment }}
+                                            -
+                                            {{ $databaseid->ip }} - {{ $databaseid->port }} <a style="padding-left:9px "
+                                                href="databases/{{ $databaseid->id }}" alt="database"><button
+                                                    class="fas fa-database"></button></a></h6>
+                                    </tbody>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -86,39 +106,44 @@
         </div>
     </div>
     <br>
-    <div class="container">
-        <div class="col-md-7">
-            <div class="p-5">
-                <div class="p-2 container"
-                    style="background-color: #f4f6f9; color: rgb(41, 41, 41); with:300px; higth: 50px">
-                    <h6>Bases de datos de {{ $project->short_name }}</h6>
-                </div>
-                <table class="table" id="petitions">
-                    <thead class="table-secondary">
-                        <th>Nombre</th>
-                        <th>DBMS</th>
-                        <th>S.O</th>
-                        <th>Criticidad</th>
-                        <th>Ambiente</th>
-                        <th>I.P</th>
-                        <th>Port</th>
-                    </thead>
-                    @foreach ($databases as $database)
-                        <tbody>
-                            <td>{{ $database->name }}</td>
-                            <td>{{ $database->dbms }}</td>
-                            <td>{{ $database->so }}</td>
-                            <td>{{ $database->criticality }}</td>
-                            <td>{{ $database->enviroment }}</td>
-                            <td>{{ $database->ip }}</td>
-                            <td>{{ $database->port }}</td>
-                            <td><a href="/database/{{ $database->id }}" alt="ver" class="col-md-1 fas fa-eye"></a>
-                            </td>
-                    @endforeach
-                </table>
-            </div>
+    {{-- Prueba Ajax --}}
+    <div class="row container">
+        <div class="col-md-4">
+            <input type="checkbox" id="database"> Acceso a la base de datos
+
+            <select id="selectForm" style="display:none">
+                @foreach ($databases as $database)
+                    <option value="{{ $database->id }}" id="database">{{ $database->name }}</option>
+                @endforeach
+            </select>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('#database').change(function() {
+                if (this.checked) {
+                    $('#selectForm').show();
+                } else {
+                    $('#selectForm').hide();
+                }
+            });
+
+            $('#selectForm').change(function() {
+                $.ajax({
+                    url: '{{ route('route.name') }}',
+                    type: 'POST',
+                    data: {
+                        option: $('#selectForm').val()
+                    },
+                    success: function(data) {
+                        // Acción que se ejecuta en caso de éxito
+                        console.log(data);
+                    }
+                });
+            });
+        </script>
     </div>
+    {{-- Prueba Ajax --}}
+
     {{-- <div>
         <h6> <strong>Equipos</strong></h6>
         @foreach ($equipments as $equipment)

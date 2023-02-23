@@ -60,11 +60,11 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        // $databases = Database::where('database_id', $id)->get(['id','name', 'short_name','dbms','so','criticality','enviroment','ip','port']);
         $user = User::find($id);
         $project = Project::find($id);
-        $databases    = Database::where('project_id', $id)->get(['id', 'name', 'dbms', 'so','criticality', 'enviroment','ip','port','project_id']);
-        return view('projects/show', compact('project','user','databases'));
+        $databases = Database::all();
+        $databasesid = Database::where('project_id', $id)->get(['id', 'name', 'dbms', 'so','criticality', 'enviroment','ip','port','project_id']);
+        return view('projects/show', compact('project','user','databases','databasesid'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+
     }
 
     /**
