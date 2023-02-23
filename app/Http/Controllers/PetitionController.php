@@ -25,7 +25,12 @@ class PetitionController extends Controller
 {
     public function index(){
 
-        $petitions = Petition::all();
+        if(auth()->user()->role_id == 3){
+            $petitions = Petition::where('user_id','=', auth()->user()->id)->get();
+        }
+        else{
+            $petitions = Petition::all();
+        }
         return view('petitions/index', compact('petitions'));
     }
 

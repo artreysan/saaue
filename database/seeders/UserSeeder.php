@@ -112,6 +112,42 @@ class UserSeeder extends Seeder
             'enterprise_id' => '2',
             'role_id' => '1'
         ]);
+        // Datos de prueba
+        User::create([
+            'name' => 'Usuario Administrador',
+            'last_name' => 'Administrador ',
+            'last_maternal' => 'del Sistema',
+            'email' => 'admin@sct.gob.mx',
+            'password' => Hash::make('admin'),
+            'rol_id' => '12',
+            'location_id' => '4',
+            'enterprise_id' => '2',
+            'role_id' => '1'
+        ]);
+
+        User::create([
+            'name' => 'Usuario Editor',
+            'last_name' => 'Editor de ',
+            'last_maternal' => 'Tickets',
+            'email' => 'editor@sct.gob.mx',
+            'password' => Hash::make('editor'),
+            'rol_id' => '12',
+            'location_id' => '4',
+            'enterprise_id' => '2',
+            'role_id' => '2'
+        ]);
+        User::create([
+            'name' => 'Usuario Externo',
+            'last_name' => 'Gestor de',
+            'last_maternal' => 'Colaboradores',
+            'email' => 'externo@sct.gob.mx',
+            'password' => Hash::make('externo'),
+            'rol_id' => '12',
+            'location_id' => '4',
+            'enterprise_id' => '2',
+            'role_id' => '3'
+        ]);
+        //!Datos de prueba
 
     }
 }
