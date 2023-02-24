@@ -14,13 +14,21 @@ class EquipmentController extends Controller
 {
 
     public function index(){
-        $equipments = Equipment::all();
+        if(auth()->user()->role_id== 1) {
+            $equipments = Equipment::all();
+        } else{
+            $collaborators = Collaborator::where('id_user','=',auth()->user()->id)->get();
+            foreach($collaborators as $col){
+                $equipments = Equipment::where('collaborator_id','=',$col->id)->get();
+            }
+
+        }
         return view('equipment/index', compact('equipments'));
     }
 
     public function create(){
 
-        $collaborators = Collaborator::all();
+        auth()->user()->role_id == 3 ?  $collaborators = Collaborator::where('id_user','=',auth()->user()->id)->get() : $collaborators = Collaborator::all() ;
         $enterprises = Enterprise::all();
         $equipment = new Equipment();
         return view('equipment/create', compact('enterprises', 'collaborators'));

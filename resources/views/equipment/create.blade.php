@@ -79,6 +79,9 @@
                         <div class="col-md-3">
                             <input class="border-success" id="mac_wifi" name="mac_wifi" type="text"
                                 placeholder=" mac_wifi " value="{{ old('mac_wifi') }}"/>
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                         </div>
                     </div>
                     <br>
@@ -98,7 +101,6 @@
                         <div class="col-md-3"><strong>Asignar a: </strong></div>
                         <div class="col-sm-5">
                             <select name="collaborator_id" id="collaborator_id">
-                                    <option hidden>  </option>
                                 @foreach ( $collaborators as $collaborator)
                                     <option value="{{$collaborator->id}}" id="collaborator_id">{{$collaborator->name}} {{$collaborator->last_name}} {{$collaborator->last_maternal}}</option>
                                 @endforeach

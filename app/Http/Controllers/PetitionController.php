@@ -36,7 +36,6 @@ class PetitionController extends Controller
 
     public function create($id)
     {
-
         $collaborator = Collaborator::find($id);
 
         $user          = User::all();
