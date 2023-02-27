@@ -331,4 +331,8 @@ INSERT INTO `equipment` (`id`, `tipo`, `marca`, `modelo`, `serie`, `mac_ethernet
 INSERT INTO `equipment` (`id`, `tipo`, `marca`, `modelo`, `serie`, `mac_ethernet`, `mac_wifi`, `enterprise_id`, `collaborator_id`, `project_id`) VALUES(48, 'Laptop', 'HP', '17-BY4097NR', 'TJ220971V2', '30-24-A9-A5-13-36', 'D8-F8-83-05-E1-83', 1, 49, NULL);
 INSERT INTO `equipment` (`id`, `tipo`, `marca`, `modelo`, `serie`, `mac_ethernet`, `mac_wifi`, `enterprise_id`, `collaborator_id`, `project_id`) VALUES(49, 'All In One', 'Dell', 'Optiplex 9010', '4RHY8V1 ', '5CF9:DDDD:29D4 ', '54SA:0930:3301 ', 1, 51, NULL);
 INSERT INTO `equipment` (`id`, `tipo`, `marca`, `modelo`, `serie`, `mac_ethernet`, `mac_wifi`, `enterprise_id`, `collaborator_id`, `project_id`) VALUES(50, 'Laptop', 'Dell', 'Vostro 3400', '24W08K3 ', 'B445:067B:2D81', 'A893:4A62:39C3 ', 1, 52, NULL);
+<<<<<<< HEAD
 INSERT INTO `equipment` (`id`, `tipo`, `marca`, `modelo`, `serie`, `mac_ethernet`, `mac_wifi`, `enterprise_id`, `collaborator_id`, `project_id`) VALUES(51, 'All In One', 'Dell', 'Optiplex 9010', '4S3S8V1 ', '5CF9:DDDC:E8DB', '', 1, 53, NULL);
+=======
+INSERT INTO `equipment` (`id`, `tipo`, `marca`, `modelo`, `serie`, `mac_ethernet`, `mac_wifi`, `enterprise_id`, `collaborator_id`, `project_id`) VALUES(51, 'All In One', 'Dell', 'Optiplex 9010', '4S3S8V1 ', '5CF9:DDDC:E8DB', NULL, 1, 53, NULL);
+>>>>>>> 757ff17690e0dd18f1983c0804053a8f8cc99c17

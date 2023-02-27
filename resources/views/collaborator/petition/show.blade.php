@@ -39,24 +39,36 @@
                 </div>
                 <div class="card-body table-bordered">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <h6><strong>Servicios requeridos a:</strong></h6>
                         </div>
                         <div class="col-md-4">
                             <input id="collaborator_id" name="collaborator_id" type="hidden"
                                 value="{{ $collaborator->id }}">
                             {{ $collaborator->name }} {{ $collaborator->last_name }} {{ $collaborator->last_name }}
-                            <strong>{{ $collaborator->rol->rol }}</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-4">
+                            <h6>{{ $collaborator->rol->rol }}</h6>
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <h6><strong>Solicitante:</strong></h6>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-9">
                             <input id="user_id" name="user_id" type="hidden" value="{{ Auth::user()->id }}">
                             {{ Auth::user()->name }} {{ Auth::user()->last_maternal }} {{ Auth::user()->last_maternal }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-9">
                             <strong>{{ Auth::user()->role->name }}</strong>
                         </div>
                     </div>
@@ -66,14 +78,14 @@
                         @if (count($equipments) == 0)
                         @else
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <h6><strong>Equipo solicitante:</strong></h6>
                                 </div>
                                 <div>
                                     <select name="equipment_id" id="equipment_id" required>
-                                        @foreach ( $equipments as $e)
-                                            <option value="{{$e->id}}" id="equipment_id">
-                                                    {{$e->serie}} | {{$e->marca}} {{$e->modelo}}
+                                        @foreach ($equipments as $e)
+                                            <option value="{{ $e->id }}" id="equipment_id">
+                                                {{ $e->serie }} | {{ $e->marca }} {{ $e->modelo }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -84,14 +96,13 @@
                 </div>
             </div>
         </div>
-        </div>
         <div class="row container">
-            <div class="col-md-4">
-            <br>
+            <div class="col-md-5">
+                <br>
                 @if (count($equipments) == 0)
-                 <div class="p-5 table-bordered">
-                    <p>NO HAY EQUIPO ASIGNADO</p>
-                </div>
+                    <div class="p-5 table-bordered">
+                        <p>NO HAY EQUIPO ASIGNADO</p>
+                    </div>
                 @else
                     <div class="card-header bg-secondary">
                         <h6>Servicios TIC</h6>
@@ -125,7 +136,8 @@
                         @else
                             <div class="row">
                                 <div class="col-sm-3"><strong>Internet:</strong></div>
-                                <div class="col-sm-2"><input type="radio" name="internet" value="1" checked> Sí </div>
+                                <div class="col-sm-2"><input type="radio" name="internet" value="1" checked> Sí
+                                </div>
                                 <div class="col-sm-2"><input type="radio" name="internet" value="0"> No </div>
                             </div>
                         @endif
@@ -181,10 +193,18 @@
             </div>
         </div>
         <br>
+<<<<<<< HEAD
          <div class="row container">
                 <div class="col-md-6"></div>
                 <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit" value="Enviar solicitud"></div>
             </div>
+=======
+        <div class="row container">
+            <div class="col-md-6"></div>
+            <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit"
+                    value="Enviar solicitud"></div>
+        </div>
+>>>>>>> 757ff17690e0dd18f1983c0804053a8f8cc99c17
     </form>
     <br>
     <footer class="footer p-3 bg-green-900">
