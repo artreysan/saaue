@@ -181,47 +181,6 @@
             </div>
         </div>
         <br>
-        <!-- Pruba AJAX -->
-        <div class="row container">
-            <div class="col-md-4">
-                <input type="checkbox" id="database"> Acceso a la base de datos
-
-                <select id="selectForm" style="display:none">
-                    <option value="1">Opción 1</option>
-                    <option value="2">Opción 2</option>
-                    <option value="3">Opción 3</option>
-                </select>
-            </div>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-                $('#database').change(function () {
-                    if (this.checked) {
-                        $('#selectForm').show();
-                    } else {
-                        $('#selectForm').hide();
-                    }
-                });
-
-
-                $('#selectForm').change(function () {
-                    $.ajax({
-                        url: '{{ route('route.name') }}',
-                        type: 'POST',
-                        data: {
-                            option: $('#selectForm').val()
-                        },
-                        success: function (data) {
-                            // Acción que se ejecuta en caso de éxito
-                            console.log(data);
-                        }
-                    });
-                });
-            </script>
-
-
-        </div>
-        <!-- Pruba AJAX -->
-        <br>
          <div class="row container">
                 <div class="col-md-6"></div>
                 <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit" value="Enviar solicitud"></div>

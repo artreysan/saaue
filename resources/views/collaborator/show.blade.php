@@ -212,7 +212,7 @@
                                         echo '<div class="fas fa-circle en-proceso"></div>';
                                         break;
                                     case 2:
-                                        echo '<div class="fas fa-circle atendida"></div>';
+                                        echo '<div class="fass fa-circle atendida"></div>';
                                         break;
                                     case 3:
                                         echo '<div class="fas fa-circle validada"></div>';
