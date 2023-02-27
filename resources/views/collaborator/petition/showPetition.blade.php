@@ -462,7 +462,7 @@
                                 <br>
                                 <p><strong>No hay documento almacenado</strong></p>
                                 <img width="70px" height="70px"
-                                    src="{{ URL::asset('img/scanner - no.png') }}"alt="">
+                                    src="{{ URL::asset('img/scanner - no.png') }}"alt=""><input type="file" name="archivo">
                                 <br>
                                 <br>
                                 <input class="btn btn-secondary" type="submit" value="Guardar archivo" required>
