@@ -193,18 +193,10 @@
             </div>
         </div>
         <br>
-<<<<<<< HEAD
          <div class="row container">
                 <div class="col-md-6"></div>
                 <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit" value="Enviar solicitud"></div>
             </div>
-=======
-        <div class="row container">
-            <div class="col-md-6"></div>
-            <div class="col-md-2"><input class="btn btn-secondary btn-lg active" type="submit"
-                    value="Enviar solicitud"></div>
-        </div>
->>>>>>> 757ff17690e0dd18f1983c0804053a8f8cc99c17
     </form>
     <br>
     <footer class="footer p-3 bg-green-900">
