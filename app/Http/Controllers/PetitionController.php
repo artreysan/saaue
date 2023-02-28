@@ -234,6 +234,66 @@ class PetitionController extends Controller
         return back()->with('success', 'Archivo subido con éxito');
     }
 
+     public function validatePetition (Request $request, $id)
+    {
+
+        $equipment = Equipment::all();
+        $collaborator = Collaborator::find($id);
+        $petition = Petition::findOrFail($id);
+
+        // Validate the file
+        $petition->nodo              = $request->nodo;
+        $petition->vpn               = $request->vpn;
+        $petition->ip                = $request->ip;
+        $petition->internet          = $request->internet;
+
+        $petition->account_gitlab    = $request->account_gitlab;
+        $petition->account_glpi      = $request->account_glpi;
+        $petition->account_jira      = $request->account_jira;
+        $petition->account_da        = $request->account_da;
+
+        $petition->tk_glpi_account_1          = $request->tk_glpi_account_1;
+        $petition->tk_gitlab_account_1        = $request->tk_gitlab_account_1;
+        $petition->tk_jira_account_1          = $request->tk_jira_account_1;
+        $petition->tk_da_account_1            = $request->tk_da_account_1;
+
+        $petition->tk_nodo_1                  = $request->tk_nodo_1;
+        $petition->tk_internet_1              = $request->tk_internet_1;
+        $petition->tk_ip_1                    = $request->tk_ip_1;
+        $petition->tk_vpn_1                   = $request->tk_vpn_1;
+
+        $petition->a_nodo                     = $request->a_nodo;
+        $petition->a_internet                 = $request->a_internet;
+        $petition->a_vpn                      = $request->a_vpn;
+        $petition->a_ip                       = $request->a_ip;
+
+        $petition->a_account_glpi             = $request->a_account_glpi;
+        $petition->a_account_gitlab           = $request->a_account_gitlab;
+        $petition->a_account_jira             = $request->a_account_jira;
+        $petition->a_account_da               = $request->a_account_da;
+
+        $petition->tk_glpi_account_0          = $request->tk_glpi_account_0;
+        $petition->tk_gitlab_account_0        = $request->tk_gitlab_account_0;
+        $petition->tk_jira_account_0          = $request->tk_jira_account_0;
+        $petition->tk_da_account_0            = $request->tk_da_account_0;
+
+        $petition->tk_nodo_0                  = $request->tk_nodo_0;
+        $petition->tk_internet_0              = $request->tk_internet_0;
+        $petition->tk_ip_0                    = $request->tk_ip_0;
+        $petition->tk_vpn_0                   = $request->tk_vpn_0;
+
+        $petition->status                     = 3;
+
+
+        $petition->save();
+
+        $petition = Petition::find($id);
+        $collaborator = Collaborator::find($id);
+
+        return back()->with('success', 'Archivo subido con éxito');
+
+    }
+
     public function verifyStatus($petition){
 
         $count = $petition->account_glpi +

@@ -50,8 +50,8 @@ Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF'
 Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']); //Muestra el det
 Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
 
+Route::put('petition/{petition}', [PetitionController::class,'validatePetition']);
 Route::post('petition/{petition}', [PetitionController::class, 'updateFile'])->name('petition.updateFile');
-
 
 //Rutas para  usuarios
 Route::resource('user', UserController::class)->middleware('admin');
