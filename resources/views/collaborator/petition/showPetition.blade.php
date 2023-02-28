@@ -1,3 +1,8 @@
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semaforo.css') }}">
+@endsection
+
 @extends('adminlte::page')
 @include('sweetalert::alert')
 
@@ -43,24 +48,24 @@
                             <h4><strong>Solicitud: </strong></h4>
                         </div>
                         <div class="col-md-6">
-                            <?php
-                            switch ($petition->status) {
-                                case 0:
-                                    echo '<div class="fas fa-circle pendiente"><strong>  Pendiente  </strong></div>';
-                                    break;
-                                case 1:
-                                    echo '<div class=" fas fa-circle en-proceso "><strong>  En proceso  </strong></div>';
-                                    break;
-                                case 2:
-                                    echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
-                                    break;
-                                case 3:
-                                    echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
-                                    break;
-                            }
-
-                            ?>
+                             @switch($petition->status)
+                                @case(0)
+                                    <div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>
+                                    @break
+                                @case(1)
+                                    <div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>
+                                    @break
+                                @case(2)
+                                    <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
+                                    @break
+                                @case(3)
+                                    <div class="fas fa-circle validada"><strong> Validada </strong></div>
+                                    @break
+                                @default
+                                    <p> ERROR</p>
+                            @endswitch
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -491,22 +496,23 @@
                 <br>
                 <br>
                 <h4><strong>Solicitud:
-                        <?php
-                        switch ($petition->status) {
-                            case 0:
-                                echo '<div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>';
-                                break;
-                            case 1:
-                                echo '<div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>';
-                                break;
-                            case 2:
-                                echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
-                                break;
-                            case 3:
-                                echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
-                                break;
-                        }
-                        ?></strong></h4>
+                         @switch($petition->status)
+                            @case(0)
+                                <div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>
+                                @break
+                            @case(1)
+                                <div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>
+                                @break
+                            @case(2)
+                                <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
+                                @break
+                            @case(4)
+                                <div class="fas fa-circle validada"><strong> Validada </strong></div>
+                                @break
+                            @default
+                                <p> ERROR</p>
+                        @endswitch
+                        </strong></h4>
             </div>
         </div>
     </div>
@@ -555,22 +561,23 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <h4><strong>Solicitud:
-                                <?php
-                                switch ($petition->status) {
-                                    case 0:
-                                        echo '<div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>';
-                                        break;
-                                    case 1:
-                                        echo '<div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>';
-                                        break;
-                                    case 2:
-                                        echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
-                                        break;
-                                    case 3:
-                                        echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
-                                        break;
-                                }
-                                ?></strong> </h4>
+                             @switch($petition->status)
+                                @case(0)
+                                    <div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>
+                                    @break
+                                @case(1)
+                                    <div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>
+                                    @break
+                                @case(2)
+                                    <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
+                                    @break
+                                @case(4)
+                                    <div class="fas fa-circle validada"><strong> Validada </strong></div>
+                                    @break
+                                @default
+                                    <p> ERROR</p>
+                            @endswitch
+                        </strong> </h4>
                     </div>
                 </div>
                 <br>
@@ -1140,22 +1147,23 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <h4><strong>Solicitud:
-                                        <?php
-                                        switch ($petition->status) {
-                                            case 0:
-                                                echo '<div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>';
-                                                break;
-                                            case 1:
-                                                echo '<div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>';
-                                                break;
-                                            case 2:
-                                                echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
-                                                break;
-                                            case 3:
-                                                echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
-                                                break;
-                                        }
-                                        ?></strong> </h4>
+                                        @switch($petition->status)
+                                                @case(0)
+                                                    <div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>
+                                                    @break
+                                                @case(1)
+                                                    <div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>
+                                                    @break
+                                                @case(2)
+                                                    <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
+                                                    @break
+                                                @case(4)
+                                                    <div class="fas fa-circle validada"><strong> Validada </strong></div>
+                                                    @break
+                                                @default
+                                                    <p> ERROR</p>
+                                            @endswitch
+                                        </strong> </h4>
                             </div>
                         </div>
                         <br>
@@ -1409,23 +1417,26 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h4><strong>Solicitud:
-                                        <?php
-                                        switch ($petition->status) {
-                                            case 0:
-                                                echo '<div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>';
-                                                break;
-                                            case 1:
-                                                echo '<div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>';
-                                                break;
-                                            case 2:
-                                                echo '<div class="fas fa-circle atendida"><strong> Atendida </strong></div>';
-                                                break;
-                                            case 3:
-                                                echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
-                                                break;
-                                        }
-                                        ?></strong> </h4>
+                                <h4>
+                                    <strong>Solicitud:
+                                            @switch($petition->status)
+                                                @case(0)
+                                                    <div class="fas fa-circle pendiente"><strong> Pendiente </strong></div>
+                                                    @break
+                                                @case(1)
+                                                    <div class="fas fa-circle en-proceso"><strong> En proceso </strong></div>
+                                                    @break
+                                                @case(2)
+                                                    <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
+                                                    @break
+                                                @case(4)
+                                                    <div class="fas fa-circle validada"><strong> Validada </strong></div>
+                                                    @break
+                                                @default
+                                                    <p> ERROR</p>
+                                            @endswitch
+                                    </strong>
+                                </h4>
                             </div>
                         </div>
                         <br>

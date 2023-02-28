@@ -203,22 +203,22 @@
                             <td>{{ $petition->fileID }}</td>
                             <td>{{ $petition->created_at }}</td>
                             <td>
-                                <?php
-                                switch ($petition->status) {
-                                    case 0:
-                                        echo '<div class="fas fa-circle pendiente"></div>';
-                                        break;
-                                    case 1:
-                                        echo '<div class="fas fa-circle en-proceso"></div>';
-                                        break;
-                                    case 2:
-                                        echo '<div class="fass fa-circle atendida"></div>';
-                                        break;
-                                    case 3:
-                                        echo '<div class="fas fa-circle validada"></div>';
-                                        break;
-                                }
-                                ?>
+                                @switch($petition->status)
+                                    @case(0)
+                                        <div class="fas fa-circle pendiente"></div>
+                                        @break
+                                    @case(1)
+                                        <div class="fas fa-circle en-proceso"></div>
+                                        @break
+                                    @case(2)
+                                        <div class="fas fa-circle atendida"></div>
+                                        @break
+                                    @case(4)
+                                        <div class="fas fa-circle validada"></div>
+                                        @break
+                                    @default
+                                        <p> ERROR</p>
+                                @endswitch
                             </td>
                             <td><a href="/petition/{{ $petition->id }}" alt="ver" class="col-md-1 fas fa-eye"></a>
                             </td>

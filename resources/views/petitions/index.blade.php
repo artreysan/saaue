@@ -4,6 +4,7 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semaforo.css') }}">
 @endsection
 
 @section('content_header')
@@ -41,23 +42,23 @@
                     <td>{{ $petition->collaborator->enterprise->name }}</td>
                     <td>{{ $petition->created_at }}</td>
                     <td>{{ $petition->collaborator->name }} {{ $petition->collaborator->last_name }}</td>
-                    <td>
-                        <?php
-                        switch ($petition->status) {
-                            case 0:
-                                echo '<div class="fas fa-circle pendiente"></div>';
-                                break;
-                            case 1:
-                                echo '<div class="fas fa-circle en-proceso"></div>';
-                                break;
-                            case 2:
-                                echo '<div class="fas fa-circle atendida"></div>';
-                                break;
-                            case 3:
-                                echo '<div class="fas fa-circle validada"></div>';
-                                break;
-                        }
-                        ?>
+                    <td class="circulo">
+                       @switch($petition->status)
+                            @case(0)
+                                <div class="fas fa-circle pendiente"></div>
+                                @break
+                            @case(1)
+                                <div class="fas fa-circle en-proceso"></div>
+                                @break
+                            @case(2)
+                                <div class="fas fa-circle atendida"></div>
+                                @break
+                            @case(4)
+                                <div class="fas fa-circle validada"></div>
+                                @break
+                            @default
+                                <p> ERROR</p>
+                        @endswitch
                     </td>
                     <td><a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}" target="_blank">
                                 <img width="30px" height="30px" src="{{ URL::asset('img/pdf.png') }}"
