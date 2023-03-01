@@ -857,7 +857,7 @@
                                         <strong>Cuenta de Directorio Activo: </strong>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                     </div>
                                 </div>
                                 <br>

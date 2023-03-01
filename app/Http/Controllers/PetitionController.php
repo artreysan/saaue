@@ -23,13 +23,6 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class PetitionController extends Controller
 {
-    //Constantes
-    const PENDIENTE = 0;
-    const EN_PROCESO = 1;
-    const ATENDIDA = 2;
-    const VALIDADA = 3;
-
-
     public function index(){
 
         if(auth()->user()->role_id == 3){
@@ -58,7 +51,7 @@ class PetitionController extends Controller
     {
         $equipment = Equipment::all();
         $collaborator = Collaborator::find($id);
-        $petition = Petition::find($id);
+        $petition = Petition::findOrFail($id);
         $archivo = $request->file('archivo');
 
 
@@ -78,7 +71,7 @@ class PetitionController extends Controller
             $petition->save();
         }
 
-        return back()->with('success', 'Archivo subido con éxito');
+        return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
     }
 
     public function generatePDF($petition)
@@ -171,7 +164,13 @@ class PetitionController extends Controller
 
 
         $petitions = Petition::all();
-        return view('petitions/index', compact('petitions'));
+        if(auth()->user()->role_id == 1){
+            $collaborators = Collaborator::all();
+        }
+        else{
+            $collaborators     = Collaborator::where('id_user', auth()->user()->id)->get();
+        }
+         return view('collaborator/index', compact('collaborators'));
     }
 
     public function show($id)
@@ -230,7 +229,7 @@ class PetitionController extends Controller
         $petition->tk_ip_0                    = $request->tk_ip_0;
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
-        $this->validatePetition($id);
+        $petition->status                     = 1;
 
 
         $petition->save();
@@ -289,7 +288,7 @@ class PetitionController extends Controller
         $petition->tk_ip_0                    = $request->tk_ip_0;
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
-        $this->verifyStatus($petition);
+        $petition->status                     = 3;
 
 
         $petition->save();
@@ -323,10 +322,7 @@ class PetitionController extends Controller
         ($petition->ip == 1 && $petition->a_ip!=null) ? $count-- : 0;
 
         if($count == 0){
-            $petition->status = self::ATENDIDA;
-        }
-        else{
-            $petition->status = self::EN_PROCESO;
+            $petition->status = 2;
         }
     }
 

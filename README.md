@@ -20,3 +20,10 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
+---
+
+# Documetacion
+```bash
+cd docs-saaue
+npx docusaurus start
+```
