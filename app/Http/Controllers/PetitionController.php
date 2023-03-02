@@ -242,7 +242,7 @@ class PetitionController extends Controller
     }
 
 
-     public function validatePetition (Request $request, $id)
+     public function validatePetition(Request $request, $id)
     {
 
         $equipment = Equipment::all();
