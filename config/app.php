@@ -3,7 +3,12 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-
+    'constants' => [
+        'PENDIENTE' => 0,
+        'EN_PROCESO' => 1,
+        'ATENDIDO' => 2,
+        'VALIDADO' => 3,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -15,7 +20,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'SAAUE'),
 
     /*
     |--------------------------------------------------------------------------

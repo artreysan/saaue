@@ -53,11 +53,10 @@
                             @case(2)
                                 <div class="fas fa-circle atendida"></div>
                                 @break
-                            @case(4)
+                            @case(3)
                                 <div class="fas fa-circle validada"></div>
                                 @break
                             @default
-                                <p> ERROR</p>
                         @endswitch
                     </td>
                     <td><a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}" target="_blank">

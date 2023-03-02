@@ -42,20 +42,19 @@
                     <td class="col-md-3">{{ $petition->collaborator->enterprise->name}}</td>
                     <td>
                         @switch($petition->status)
-                            @case(1)
+                            @case(0)
                                 <div class="fas fa-circle pendiente"></div>
                                 @break
-                            @case(2)
+                            @case(1)
                                 <div class="fas fa-circle en-prceso "></div>
                                 @break
-                            @case(3)
+                            @case(2)
                                 <div class="fas fa-circle atendida"></div>
                                 @break
-                            @case(4)
+                            @case(3)
                                 <div class="fas fa-circle validada"></div>
                                 @break
                             @default
-                                <p>Valor por defecto</p>
                         @endswitch
                     </td>
                     <td><a href="" alt="Perfil" class="col-md-1 far fa-file-pdf" ></a></td>

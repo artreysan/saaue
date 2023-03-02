@@ -62,7 +62,6 @@
                                     <div class="fas fa-circle validada"><strong> Validada </strong></div>
                                     @break
                                 @default
-                                    <p> ERROR</p>
                             @endswitch
                         </div>
 
@@ -506,11 +505,10 @@
                             @case(2)
                                 <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
                                 @break
-                            @case(4)
+                            @case(3)
                                 <div class="fas fa-circle validada"><strong> Validada </strong></div>
                                 @break
                             @default
-                                <p> ERROR</p>
                         @endswitch
                         </strong></h4>
             </div>
@@ -571,11 +569,10 @@
                                 @case(2)
                                     <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
                                     @break
-                                @case(4)
+                                @case(3)
                                     <div class="fas fa-circle validada"><strong> Validada </strong></div>
                                     @break
                                 @default
-                                    <p> ERROR</p>
                             @endswitch
                         </strong> </h4>
                     </div>
@@ -1092,11 +1089,13 @@
                 <br>
                 <div class="row">
                     <div class="col-sm-7"></div>
-                    @if ($petition->status == 2)
+                    @if ($petition->status >= 2)
                         <div class="col-sm-2">
                             <a href="/petition/{{ $petition->id }}/{{ $collaborator->id }}/sendEmail" class="btn btn-secondary"> Enviar Correo </a>
                         </div>
-                        <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Validar"></div>
+                        @if ($petition->status == 2)
+                            <div class="col-sm-2"><a href="/petition/{{ $petition->id }}/{{ $collaborator->id }}/validation"" class="btn btn-secondary">Validar</a></div>
+                        @endif
                     @endif
                 </div>
             </form>
@@ -1105,7 +1104,7 @@
     <br>
     <br>
 
-    @if (auth()->user()->role_id == 3 && $petition->status == 2)
+    @if (auth()->user()->role_id == 3  && $petition->status == 2)
         <div id='viewExterno'>
             <div class="container card-header bg-secondary">
                 <div class="col-md-12 p-1">
@@ -1429,11 +1428,10 @@
                                                 @case(2)
                                                     <div class="fas fa-circle atendida"><strong> Atendida </strong></div>
                                                     @break
-                                                @case(4)
+                                                @case(3)
                                                     <div class="fas fa-circle validada"><strong> Validada </strong></div>
                                                     @break
                                                 @default
-                                                    <p> ERROR</p>
                                             @endswitch
                                     </strong>
                                 </h4>

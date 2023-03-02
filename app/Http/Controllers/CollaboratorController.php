@@ -16,7 +16,7 @@ class CollaboratorController extends Controller
 
     public function index(){
 
-        if(auth()->user()->role_id == 1){
+        if(auth()->user()->role_id == 1 || 2){
             $collaborators = Collaborator::all();
         }
         else{
