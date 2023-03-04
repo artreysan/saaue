@@ -141,4 +141,6 @@ Y en la ruta que deseamos aplicar este middleware debemos agragarle esta extensi
 Route::get(/*ruta y controlador*/)->middleware('myMiddleware');
 ```
 
+Este apartdo es importante para poder comprender el flujo de la aplicación.
+Para conocer mas a detalle la aplicación se recorrera cada ruta para poder entender el flujo. [Indice de rutas](./02_01_indice.md)
 
