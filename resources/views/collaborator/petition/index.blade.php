@@ -41,22 +41,21 @@
                         {{ $petition->collaborator->apellido_paterno }} {{ $petition->collaborator->last_name }}</td>
                     <td class="col-md-3">{{ $petition->collaborator->enterprise->name}}</td>
                     <td>
-                        <?php
-                        switch ($petition->status) {
-                            case 0:
-                                echo '<div class="far fa-circle pendiente"></div>';
-                                break;
-                            case 1:
-                                echo '<div class="far fa-circle en-proceso"></div>';
-                                break;
-                            case 2:
-                                echo '<div class="far fa-circle atendida"></div>';
-                                break;
-                            case 3:
-                                echo '<div class="far fa-circle validada"></div>';
-                                break;
-                        }
-                        ?>
+                        @switch($petition->status)
+                            @case(0)
+                                <div class="fas fa-circle pendiente"></div>
+                                @break
+                            @case(1)
+                                <div class="fas fa-circle en-prceso "></div>
+                                @break
+                            @case(2)
+                                <div class="fas fa-circle atendida"></div>
+                                @break
+                            @case(3)
+                                <div class="fas fa-circle validada"></div>
+                                @break
+                            @default
+                        @endswitch
                     </td>
                     <td><a href="" alt="Perfil" class="col-md-1 far fa-file-pdf" ></a></td>
                     <td><a href="" alt="Perfil" class="col-md-1 fas fa-folder" ></a></td>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semaforo.css') }}">
 </head>
 
 <body>

@@ -16,11 +16,11 @@ class CollaboratorController extends Controller
 
     public function index(){
 
-        if(auth()->user()->role_id == 1){
-            $collaborators = Collaborator::all();
+        if(auth()->user()->role_id == 3 ){
+            $collaborators     = Collaborator::where('id_user', auth()->user()->id)->get();
         }
         else{
-            $collaborators     = Collaborator::where('id_user', auth()->user()->id)->get();
+            $collaborators = Collaborator::all();
         }
 
         return view('collaborator/index', compact('collaborators'));

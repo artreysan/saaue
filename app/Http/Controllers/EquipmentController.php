@@ -14,14 +14,15 @@ class EquipmentController extends Controller
 {
 
     public function index(){
-        if(auth()->user()->role_id== 1) {
+        if(auth()->user()->role_id != 3) {
             $equipments = Equipment::all();
         } else{
             $collaborators = Collaborator::where('id_user','=',auth()->user()->id)->get();
+            $equipments = [];
             foreach($collaborators as $col){
-                $equipments = Equipment::where('collaborator_id','=',$col->id)->get();
+                $equipment = Equipment::where('collaborator_id','=',$col->id)->get();
+                $equipments = array_merge($equipments, $equipment->toArray());
             }
-
         }
         return view('equipment/index', compact('equipments'));
     }

@@ -1,0 +1,26 @@
+.circulo{
+    text-align: center;
+}
+
+.semaforo {
+  display: inline-block;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.pendiente0 {
+  background-color: red;
+}
+
+.enproceso1 {
+  background-color: orange;
+}
+
+.atendido2 {
+  background-color: rgb(0, 170, 255);
+}
+
+.validado3 {
+  background-color: green;
+}

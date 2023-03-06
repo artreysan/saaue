@@ -152,7 +152,8 @@ class PetitionController extends Controller
         $petition->a_account_da               = $request->a_account_da;
 
 
-        $petition->status            = 0;
+        //$petition->status            = 0;
+        $petition->status = config('app.constants.PENDIENTE');
 
         $petition->startTime         = time();
         $petition->fileID            = auth()->user()->id.$petition->startTime;
@@ -164,7 +165,13 @@ class PetitionController extends Controller
 
 
         $petitions = Petition::all();
-        return view('petitions/index', compact('petitions'));
+        if(auth()->user()->role_id == 1){
+            $collaborators = Collaborator::all();
+        }
+        else{
+            $collaborators     = Collaborator::where('id_user', auth()->user()->id)->get();
+        }
+         return view('collaborator/index', compact('collaborators'));
     }
 
     public function show($id)
@@ -223,8 +230,8 @@ class PetitionController extends Controller
         $petition->tk_ip_0                    = $request->tk_ip_0;
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
-        $petition->status                     = 1;
-
+        //$petition->status                     = 1;
+        $petition->status = config('app.constants.EN_PROCESO');
 
         $petition->save();
 
@@ -234,7 +241,8 @@ class PetitionController extends Controller
         return back()->with('success', 'Archivo subido con éxito');
     }
 
-     public function validatePetition (Request $request, $id)
+
+     public function validatePetition(Request $request, $id)
     {
 
         $equipment = Equipment::all();
@@ -282,7 +290,8 @@ class PetitionController extends Controller
         $petition->tk_ip_0                    = $request->tk_ip_0;
         $petition->tk_vpn_0                   = $request->tk_vpn_0;
 
-        $petition->status                     = 3;
+        //$petition->status                     = 3;
+        $this->verifyStatus($petition);
 
 
         $petition->save();
@@ -295,6 +304,9 @@ class PetitionController extends Controller
     }
 
     public function verifyStatus($petition){
+        if($petition->status == config('app.constants.VALIDADO')){
+            return;
+        }
 
         $count = $petition->account_glpi +
                 $petition->account_gitlab +
@@ -304,19 +316,40 @@ class PetitionController extends Controller
                 $petition->internet +
                 $petition->vpn +
                 $petition->ip;
+        $cache = $count;
 
-        ($petition->account_glpi == 1 && $petition->a_account_glpi!=null) ? $count-- : 0;
-        ($petition->account_gitlab == 1 && $petition->a_account_gitlab!=null) ? $count-- : 0;
-        ($petition->account_jira == 1 && $petition->a_account_jira!=null) ? $count-- : 0;
-        ($petition->account_da == 1 && $petition->a_account_da!=null) ? $count-- : 0;
+        if($petition->tk_glpi_account_1 == null &&
+            $petition->tk_gitlab_account_1	 == null &&
+            $petition->tk_jira_account_1 == null &&
+            $petition->tk_da_account_1	 == null &&
+            $petition->tk_nodo_1 == null &&
+            $petition->tk_internet_1 == null &&
+            $petition->tk_ip_1 == null &&
+            $petition->tk_vpn_1 == null
+        ){
+            //$petition->status = 0;
+            $petition->status = config('app.constants.PENDIENTE');
 
-        ($petition->nodo == 1 && $petition->a_nodo!=null) ? $count-- : 0;
-        ($petition->internet == 1 && $petition->a_internet!=null) ? $count-- : 0;
-        ($petition->vpn == 1 && $petition->a_vpn!=null) ? $count-- : 0;
-        ($petition->ip == 1 && $petition->a_ip!=null) ? $count-- : 0;
+            return;
+        }
+
+        $count -= $petition->account_glpi == 1 && $petition->a_account_glpi != null ? 1 : 0;
+        $count -= $petition->account_gitlab == 1 && $petition->a_account_gitlab != null ? 1 : 0;
+        $count -= $petition->account_jira == 1 && $petition->a_account_jira != null ? 1 : 0;
+        $count -= $petition->account_da == 1 && $petition->a_account_da != null ? 1 : 0;
+        $count -= $petition->nodo == 1 && $petition->a_nodo != null ? 1 : 0;
+        $count -= $petition->internet == 1 && $petition->a_internet != null ? 1 : 0;
+        $count -= $petition->vpn == 1 && $petition->a_vpn != null ? 1 : 0;
+        $count -= $petition->ip == 1 && $petition->a_ip != null ? 1 : 0;
 
         if($count == 0){
-            $petition->status = 2;
+            //$petition->status = 2;
+            $petition->status = config('app.constants.ATENDIDO');
+
+        }else{
+            //$petition->status = 1;
+            $petition->status = config('app.constants.EN_PROCESO');
+
         }
     }
 
@@ -337,6 +370,14 @@ class PetitionController extends Controller
 
         return back()->withInput()->with('mensaje', 'Ocurrió un error al procesar el formulario');
 
+    }
+    public function validationPetition($petition_id,$collaborator_id){
+        $collaborator = Collaborator::find($collaborator_id);
+        $petition     = Petition::find($petition_id);
+
+        $petition->status = config('app.constants.VALIDADO');
+        $petition->save();
+        return back()->withInput()->with('mensaje', 'Ocurrió un error al procesar el formulario');
     }
 
 

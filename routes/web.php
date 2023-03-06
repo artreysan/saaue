@@ -49,6 +49,7 @@ Route::get('petition/{petition}', [PetitionController::class,'showPetition']); /
 Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF']);
 Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']); //Muestra el det
 Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
+Route::get('petition/{petition}/{FileID}/validation', [PetitionController::class, 'validationPetition']);
 
 Route::put('petition/{petition}', [PetitionController::class,'validatePetition']);
 Route::post('petition/{petition}', [PetitionController::class, 'updateFile'])->name('petition.updateFile');
@@ -64,6 +65,7 @@ Route::resource('databases', DatabaseController::class); // Esta ruta sustituye 
 
 //Rutas para las empresas
 Route::resource('enterprise', EnterpriseController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
+
 
 
 
