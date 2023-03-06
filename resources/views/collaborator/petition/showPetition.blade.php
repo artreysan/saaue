@@ -58,7 +58,7 @@
                                     echo '<div class="fas fa-circle validada"><strong> Validada </strong></div>';
                                     break;
                             }
-
+                            
                             ?>
                         </div>
                     </div>
@@ -782,7 +782,7 @@
                                     <div class="col-sm-3">
                                         <strong>Internet: </strong>
                                     </div>
-                                     <div class="col-sm-3">
+                                    <div class="col-sm-3">
                                         <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                     </div>
                                 </div>
@@ -850,7 +850,7 @@
                                         <strong>Cuenta de Directorio Activo: </strong>
                                     </div>
                                     <div class="col-sm-3">
-                                        <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
+                                        <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                     </div>
                                 </div>
                                 <br>
@@ -868,7 +868,7 @@
                                             <strong>Directorio Activo: </strong>
                                         </div>
                                         <div class="col-sm-3">
-                                            <h6 style="color:darkorange">{{ 'En proceso' }}<h6>
+                                            <h6 style="color:crimson">{{ 'Pendiente' }}<h6>
                                         </div>
                                         <input name="account_da" id="account_da" value="1" type="hidden">
                                     </div>
@@ -1087,7 +1087,8 @@
                     <div class="col-sm-7"></div>
                     @if ($petition->status == 2)
                         <div class="col-sm-2">
-                            <a href="/petition/{{ $petition->id }}/{{ $collaborator->id }}/sendEmail" class="btn btn-secondary"> Enviar Correo </a>
+                            <a href="/petition/{{ $petition->id }}/{{ $collaborator->id }}/sendEmail"
+                                class="btn btn-secondary"> Enviar Correo </a>
                         </div>
                         <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Validar"></div>
                     @endif
@@ -1109,9 +1110,9 @@
             </div>
             <div class="row card-body container table-bordered shadow">
                 <div class="col-md-12">
-                     <form action="{{ route('petition.validatePetition', $petition->id) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
+                    <form action="{{ route('petition.validatePetition', $petition->id) }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-sm-2">
@@ -1349,16 +1350,16 @@
                         <br>
                         <div class="row">
                             <div class="col-sm-5"></div>
-                                <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Guardar">
-                                </div>
+                            <div class="col-sm-2"><input class="btn btn-secondary" type="submit" value="Guardar">
+                            </div>
                         </div>
 
-    </div>
-    </form>
-    <br>
-    </div>
-    </div>
-    </div>
+                </div>
+                </form>
+                <br>
+            </div>
+        </div>
+        </div>
 
     @endif
     @if (auth()->user()->role_id != 3)
