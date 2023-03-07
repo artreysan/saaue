@@ -19,10 +19,7 @@
     <br>
     <div class="row">
         <div class="col-md-6">
-
-        </div>
-        <div class="col-md-5">
-            <div class="pl-3 pr-3">
+             <div class="pl-3 pr-3">
                 <div class="d-flex position-relative table table-bordered p-3">
                     <img width="90px" height="90px" src="{{ URL::asset('img/petition.png') }}" alt="">
                     <div class="p-3">
@@ -47,6 +44,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="pl-3 pr-3">
                 <div class="d-flex position-relative table table-bordered p-3">
                     <img width="90px" height="90px" src="{{ URL::asset('img/collaborator.png') }}" alt="">
@@ -58,6 +57,7 @@
                     </div>
                 </div>
             </div>
+            @if (auth()->user()->role_id != 3)
             <div class="pl-3 pr-3">
                 <div class="d-flex position-relative table table-bordered p-3">
                     <img width="90px" height="90px" src="{{ URL::asset('img/project.png') }}" alt="">
@@ -69,6 +69,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
     <br>
