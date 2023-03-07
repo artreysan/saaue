@@ -31,5 +31,13 @@ Si la funcion concluye correctamente se visualizara la siguiente vista:
 
 ![Vista de lista de colaboradores](./02_04_colaboradores_01.png)
 
+---
+
+<!--Falta dar contexto de de:
+Route::resource('collaborator/petition', PetitionController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
+Route::resource('collaborator/equipment', EquipmentController::class); // Esta ruta sustituye varias lineas haciendo un CRUD, para mayor informacion revisar la documentacion
+//Rutas para las peticiones
+-->
+
 
 
