@@ -18,7 +18,7 @@ Route::resource('collaborator/equipment', EquipmentController::class);
 Route::resource('petition', PetitionController::class);
 Route::get('petition/{petition}', [PetitionController::class,'showPetition']);
 Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF']);
-Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']); //Muestra el det
+Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']);
 Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
 Route::get('petition/{petition}/{FileID}/validation', [PetitionController::class, 'validationPetition']);
 Route::put('petition/{petition}', [PetitionController::class,'validatePetition']);
