@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-1 p-4"></div>
             <div class="col-md-9 p-4">
-                <h5><strong>Todas las solicitudes pendientes:</strong></h5>
+                <h5><strong>Todas las solicitudes:</strong></h5>
                 <h5>Ciudad de México a <?php echo date('j-m-Y'); ?> </h5>
             </div>
             <div class="col-md-2 p-3">
@@ -21,9 +21,50 @@
         </div>
     </div>
     <br>
-    <div class="container">
-        <p> Aqui van a ir cuadros estadisticos de las solicitudes </p>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="pl-5">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="fas fa-circle pendiente"> </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div> Pendientes </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="fas fa-circle en-proceso"></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div> En proceso </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="fas fa-circle atendida"></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div> Atendidas </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="fas fa-circle validada"></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div> Validadas </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
     </div>
+    <br>
     <br>
     <div class="container">
         <table class="table table-striped">
@@ -43,26 +84,29 @@
                     <td>{{ $petition->created_at }}</td>
                     <td>{{ $petition->collaborator->name }} {{ $petition->collaborator->last_name }}</td>
                     <td class="circulo">
-                       @switch($petition->status)
+                        @switch($petition->status)
                             @case(0)
                                 <div class="fas fa-circle pendiente"></div>
-                                @break
+                            @break
+
                             @case(1)
                                 <div class="fas fa-circle en-proceso"></div>
-                                @break
+                            @break
+
                             @case(2)
                                 <div class="fas fa-circle atendida"></div>
-                                @break
+                            @break
+
                             @case(3)
                                 <div class="fas fa-circle validada"></div>
-                                @break
+                            @break
+
                             @default
                         @endswitch
                     </td>
                     <td><a href="/petition/{{ $petition->id }}/{{ $petition->fileID }}" target="_blank">
-                                <img width="30px" height="30px" src="{{ URL::asset('img/pdf.png') }}"
-                                    alt="">
-                            </a></td>
+                            <img width="30px" height="30px" src="{{ URL::asset('img/pdf.png') }}" alt="">
+                        </a></td>
                     <td><a href="/petition/{{ $petition->id }}" alt="ver" class="col-md-1 fas fa-eye"></a></td>
                 </tbody>
             @endforeach
@@ -71,5 +115,4 @@
         <br>
         <br>
         <br>
-@stop
-
+    @stop

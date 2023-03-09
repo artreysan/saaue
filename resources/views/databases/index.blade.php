@@ -39,7 +39,6 @@
                 <th>Ambiente</th>
                 <th>I.P</th>
                 <th>Puerto</th>
-                <th>Editar</th>
             </thead>
             @foreach ($databases as $database)
                 <tbody>
@@ -58,7 +57,6 @@
                     <td>{{ $database->enviroment }}</td>
                     <td>{{ $database->ip }}</td>
                     <td>{{ $database->port }}</td>
-                    <td><a href="databases/{{ $database->id }}" alt="database"><button class="fas fa-database"></button></a></td>
                 </tbody>
             @endforeach
         </table>

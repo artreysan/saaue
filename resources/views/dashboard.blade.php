@@ -23,7 +23,7 @@
                 <div class="d-flex position-relative table table-bordered p-3">
                     <img width="90px" height="90px" src="{{ URL::asset('img/petition.png') }}" alt="">
                     <div class="p-3">
-                        <h5 class="mt-0">Solicitudes pendientes : </h5>
+                        <h5 class="mt-0">Solicitudes : </h5>
                         <p>El solicitante deberá ser el director o subdirector del área donde estará ubicado el usuario, el
                             solicitante es responsable del uso que el usuario realice de los servicios proporcionados, así
                             como, de
@@ -91,26 +91,3 @@
     </div>
 @stop
 
-
-@section('js')
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#petitions').DataTable({
-                "language": {
-                    "search": "Buscar petición",
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "info": "Mostrando página _PAGE_ de _PAGES_ ",
-                    "paginate": {
-                        "previous": "Anterior",
-                        "next": "Siguiente",
-                        "first": "Primero",
-                        "last": "Última"
-                    }
-                }
-            });
-        });
-    </script>
-@endsection
