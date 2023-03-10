@@ -9,6 +9,7 @@ Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF'
 Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']);
 Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
 Route::get('petition/{petition}/{FileID}/validation', [PetitionController::class, 'validationPetition']);
+Route::post('petition/{petition}', [PetitionController::class, 'updateFile'])->name('petition.updateFile');
 ```
 ---
 
@@ -96,7 +97,7 @@ Para que pueda visualizarse en la base de datos ya debe estar registrada esta ca
 
 ![Visualización de la sulicitud](./02_06_petition_04.png)
 
-## Enviar Correo:
+## Ruta para enviar correo: `petition/{petition}/{FileID}/sendEmail`
 
 ```php
 Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']);
@@ -133,6 +134,158 @@ MAIL_FROM_NAME="SICT"
 ```
 Esta configuración corresponde a una herramienta llamada MailHog que se utiliza para la depuración, el desarrollo y la prueba de aplicaciones que envían correos electrónicos. 
 En este mismo proyecto se encuentra un ejecutable `dev\MailHog_windows_amd64.exe` que al presionar dos veces ejecutara dicha herramienta. Si necesitas mas información puedes consultar su repositorio en [MailHog](https://github.com/mailhog/MailHog).
+
+Al ejecutar el archivo `.exe` se desplegara una terminal que indicara los procesos que identifica la herramienta:
+
+![Mailhog ejecutandose](./02_06_petition_05.png)
+
+Y para poder ver las respuestas debes estrar en la ruta `http://localhost:8025/`:
+
+![Mailhog ejecutandose](./02_06_petition_06.png)
+
+En este portal podras ver como se visualizaria el correo que enviarias al colaborador y al usuario externo en sus correos personales:
+
+![Correos en bandeja](./02_06_petition_07.png)
+
+Nota: Esta opcion es solo para hacer pruebas y para poder usarlo en producción es necesario tener un correo electronico SMTP con permisos autorizados para que sea manipulado con la plataforma.
+
+Una vez se cumplan estos requisitos podemos hacer ver que en el función, se envian dos correos, uno para el el usuario que hizo la solicitud y otro para el colaborador requiere los permisos.
+
+```php
+public function sendEmail($petition_id,$collaborator_id){
+    $collaborator = Collaborator::find($collaborator_id);
+    $petition     = Petition::find($petition_id);
+    $equipments   = Equipment::all();
+
+    $maildata = [
+        'title' => 'Solicitud de Servicios SICT',
+    ];
+
+    Mail::to(auth()->user()->email)->send(new PetitionAcceptedMailable($maildata));
+    Mail::to($collaborator->email)->send(new PetitionAcceptedMailable($maildata));
+
+    return back()->withInput()->with('mensaje', 'Enviado');
+
+}
+```
+Para realizar el envio del correo se consulta a un archivo Mailable que se encuentra en la ruta relativa  `app\Mail\PetitionAcceptedMailable.php`. 
+
+---
+
+**Nota:** Para crear un archivo de este tipo, es necesario ejecutar en la terminal el siguiente comando: 
+
+```bash
+php artisan make:mail NombreDelArchivoMailable
+```
+
+---
+En el arvhivo `` es importante analizar los siguientes elementos:
+
+- Para recibir la información enviada
+
+```php
+public $maildata;
+```
+- Metodo constructor con la información que se desea manipular en la vista:
+```php
+public function __construct($maildata)
+{
+    $this->maildata = $maildata;
+}
+```
+- Función que retorna la ruta con la imagen en este caso el vista que se mostrara en el correo se encuentra en `resources\views\petitions\emails\petitionAccepted.blade.php`, con la notación siguiente se puede reducir el tamaño de la ruta:
+```php
+public function content()
+{
+    return new Content(
+        view: 'petitions.emails.petitionAccepted'
+    );
+}
+```
+Si el correo se genera correctamente, podemos verificar en MailHog la siguiente vista o una variaente:
+
+![Vista del correo](./02_06_petition_08.png)
+
+## Ruta para subir petición firmada `petition/{petition}/{FileID}/sign`
+Esta ruta tiene como objetivo visualizar los archivos de tipo pdf, mas especifico las solicitudes con las firmas de los solicitanes externos:
+
+```php
+Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
+```
+
+La llamada a los archivos es con una etiqueta de este tipo:
+```html
+<a href="/petition/{{ $petition->id }}/{{$petition->fileID }}/sign" target="_blank"></a>
+```
+La función que se llama tiene como nombre `showPDFSign($id, $FileID)` al entrar a esta ruta tiene como parametros el id de la solicitud y el identificador que tendria la solicitud:
+```php
+public function showPDFSign($id, $FileID)
+{
+
+    $petition = Petition::find($id);
+    $pdfContent = base64_decode($petition->base64_signedPetition);
+    $pdf_name = $FileID.'.pdf';
+    file_put_contents(storage_path('pdf/'.$pdf_name), $pdfContent);
+    return response()->file(storage_path('pdf/' . $FileID . '.pdf'));
+}
+```
+Esta función toma la cadena de la solicitud firmada y guardada en el sistema previamanete en Base64 dentro de la base de datos. Decodifica la cadena `base64_decode($petition->base64_signedPetition);`y la almacena en esta ruta relativa del proyecto `storage\pdf` parq que posteriormente se pueda visualizar en una nueva pestaña:
+
+![PDF escaneado](./02_06_petition_09.png)
+
+## Ruta para validar una solicitud: `http://127.0.0.1:8000/petition/{petition}/{FileID}/validation`
+
+```php
+Route::get('petition/{petition}/{FileID}/validation', [PetitionController::class, 'validationPetition']);
+```
+
+La llamada a esta función solo tiene el objetivo de modificar el valor de la solicitud a "Validado". La función a la que hace referencia corresponde a la 
+
+```php
+public function validationPetition($petition_id,$collaborator_id){
+    $collaborator = Collaborator::find($collaborator_id);
+    $petition     = Petition::find($petition_id);
+
+    $petition->status = config('app.constants.VALIDADO');
+    $petition->save();
+    return back()->withInput()->with('mensaje', 'Ocurrió un error al procesar el formulario');
+}
+```
+
+En esta función aparece un constante que no se encutra definida en el controlador `config('app.constants.VALIDADO')` esta constante esta definida en: `config\app.php`
+```php
+'constants' => [
+    'PENDIENTE' => 0,
+    'EN_PROCESO' => 1,
+    'ATENDIDO' => 2,
+    'VALIDADO' => 3,
+],
+```
+Estas constantes pueden ser usadas en todo el proyecto.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
