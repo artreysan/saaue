@@ -16,7 +16,6 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Envelope;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Log;
-
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -415,7 +414,6 @@ class PetitionController extends Controller
         file_put_contents(storage_path('pdf/'.$pdf_name), $pdfContent);
         return response()->file(storage_path('pdf/' . $FileID . '.pdf'));
     }
-
 
 
 
