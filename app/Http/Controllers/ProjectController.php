@@ -73,9 +73,17 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
 
+        $collaborators = Collaborator::all();
+        $enterprises = Enterprise::all();
+        $databases = Database::all();
+        $databasesid = Database::where('project_id', $id)->get(['id', 'name', 'dbms', 'so','criticality', 'enviroment','ip','port','project_id']);
+        $users = User::all();
+        $project = Project::find($id);
+
+        return view('projects/edit', compact('collaborators', 'enterprises', 'users', 'databases','project','databasesid'));
     }
 
     /**
