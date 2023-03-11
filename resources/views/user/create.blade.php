@@ -91,7 +91,7 @@
                     <div class="col-md-4"><input type="password" id="password_confirmation" name="password_confirmation"></div>
                 </div>
         </div>
-    </div>
+        </div>
         <br>
         <br>
         <div class="container">

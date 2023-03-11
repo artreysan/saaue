@@ -69,7 +69,7 @@ Esta vista se encuentra en la ruta relativa del proyecto: `resources\views\colla
 ```php
 Route::get('petition/{petition}/{FileID}', [PetitionController::class, 'showPDF']);
 ```
-La ruta anterior correspndende a la visualización del pdf, esta ruta la usaremos para poder hacer una peticion para poder usar un vusualizador por defecto de una dependencia llamada DomPDF, si revisamos el controlador con la función `showPDF($petition,$FileID)`
+La ruta anterior correspndende a la visualización del pdf, esta ruta la usaremos para poder hacer una solicitud para poder usar un vusualizador por defecto de una dependencia llamada DomPDF, si revisamos el controlador con la función `showPDF($petition,$FileID)`
 
 Esta funcion puede ser llamada de la siguiente forma en blade:
 ```html
@@ -102,7 +102,7 @@ Para que pueda visualizarse en la base de datos ya debe estar registrada esta ca
 ```php
 Route::get('petition/{petition}/{FileID}/sendEmail', [PetitionController::class, 'sendEmail']);
 ```
-Para esta de igual se utiliza para poder ejecutar una funcionalida, el controlador hace el llamado a la función `sendEmail($petition,FileID)` y tiene como parametro el identicador de la peticion y la identificación del colaborador:
+Para esta de igual se utiliza para poder ejecutar una funcionalida, el controlador hace el llamado a la función `sendEmail($petition,FileID)` y tiene como parametro el identicador de la solicitud y la identificación del colaborador:
 ```php
 public function sendEmail($petition_id,$collaborator_id){
     $collaborator = Collaborator::find($collaborator_id);
@@ -206,9 +206,27 @@ Si el correo se genera correctamente, podemos verificar en MailHog la siguiente 
 
 ![Vista del correo](./02_06_petition_08.png)
 
+Como extra en la función dentro del controlador de Peticiones/Solicitudes.
+```php
+public function sendEmail($petition_id,$collaborator_id){
+    $collaborator = Collaborator::find($collaborator_id);
+    $petition     = Petition::find($petition_id);
+    $equipments   = Equipment::all();
+
+    $maildata = [
+        'title' => 'Solicitud de Servicios SICT',
+    ];
+
+    Mail::to(auth()->user()->email)->send(new PetitionAcceptedMailable($maildata));
+    Mail::to($collaborator->email)->send(new PetitionAcceptedMailable($maildata));
+
+    return back()->withInput()->with('mensaje', 'Enviado');
+
+}
+```
+Al retornar la respuesta la definicion `back()->withInput()->with('mensaje', 'Enviado')` regresa a la vista que hizo la solitud, sin la necesidad de hacer una busqueda nuevamente de los parametros para poder visualizar alguna vista.
 ## Ruta para subir petición firmada `petition/{petition}/{FileID}/sign`
 Esta ruta tiene como objetivo visualizar los archivos de tipo pdf, mas especifico las solicitudes con las firmas de los solicitanes externos:
-
 ```php
 Route::get('petition/{petition}/{FileID}/sign', [PetitionController::class, 'showPDFSign']);
 ```
@@ -261,7 +279,80 @@ En esta función aparece un constante que no se encutra definida en el controlad
     'VALIDADO' => 3,
 ],
 ```
-Estas constantes pueden ser usadas en todo el proyecto.
+Estas constantes pueden ser usadas en todo el proyecto. Y tambien puedes usar estas definición para poder definir nuevas constantes globales.
+
+## Ruta para actualizar actualizar PDF `'petition/{petition}` con el nombre de la ruta `petition.updateFile`
+```php
+Route::post('petition/{petition}', [PetitionController::class, 'updateFile'])->name('petition.updateFile');
+```
+
+Este tipo de rutas tiene la carectirstica de que hacen referencia una misma ruta que hemos definido anteriormente:
+```php
+Route::get('petition/{petition}', [PetitionController::class,'showPetition']);
+```
+Esta ruta que cumple con ciertas caracteristas extras que cambian totalmente la propiedad de la ruta y hace a ambas totalmente distintas.
+La primera diferencia es que la ruta que estamos analizando es diferente ya que es de tipo POST para enviar datos del formulario. Y la segunda caracteristica es que tiene un identificador con el nombre `petition.updateFile`, por lo que solo puede ser utilizado dentro de un formulario como el siguiente:
+```html
+<form action="{{ route('petition.updateFile', $petition->id) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <!--Etiquetas -->
+</form>
+```
+La definición de @csrf significa "Cross-Site Request Forgery" (falsificación de petición en sitios cruzados). Esto es importante ya que es una medida de seguridad en aplicaciones para generar valores aleatorios generados por el servidor y que se incluyen en los formularios y solicitudes HTTP. 
+
+La ruta hace un llamado a la función de `updateFile(Request $request, $id)`:
+
+```php
+public function updateFile(Request $request, $id)
+{
+    $equipment = Equipment::all();
+    $collaborator = Collaborator::find($id);
+    $petition = Petition::findOrFail($id);
+    $archivo = $request->file('archivo');
+
+    if($archivo != null){
+        $request->validate([
+        'archivo' => 'required|file|mimes:pdf|max:4096',
+            ]);
+        $fileName = $petition->fileID."_sign.pdf";
+
+        $archivo->storeAs('', $fileName,'public');
+
+        $pdfCreated = storage_path('app/public/'.$fileName);
+        $pdfContent = file_get_contents($pdfCreated);
+        $pdfBase64 = base64_encode($pdfContent);
+        $petition->base64_signedPetition = $pdfBase64;
+        $petition->save();
+    }
+
+    return view('collaborator/petition/showPetition', compact('petition', 'collaborator'));
+}
+```
+Esta función recibe un valor de formulario de tipo file:
+```html
+<input type="file" name="archivo">
+```
+y es analizado para que se almacene, estos archivos pueden ser filtrados en esta sección, primero que nada valida si el campo esta vacio, de lo contrario valida que el archivo sea de tipo PDF y tenga un tamaño menor a 4MB, una vez cumplido esto, se almacena el arhcivo en la ruta relativa del proyecto `public\storage`, una vez almacenado posteriormente lo convertimos a una cadena de tipo base64  y es almacenado en el campo `base64_signedPetition` de la base de datos.
+
+![Almacenando cadena en Base64](./02_06_petition_10.png)
+
+Retornando la vista a la visualización del la Peticion/Solcitud. Esto es para que cumpla con cieras alertas si el arhivo no cumple con las caracteristicas:
+```html
+@include('sweetalert::alert')
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+```
+
+
+
 
 
 
