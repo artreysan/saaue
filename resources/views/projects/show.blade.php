@@ -16,12 +16,6 @@
         </div>
     </div>
     <br>
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-1"><a href="/projects" class="btn btn-secondary">Ver todos</a></button></div>
-        <div class="col-md-1"><a href="projects/{project}/edit"><button type="button"
-                    class="btn btn-danger">Editar</button></a></button></div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-9">
@@ -101,60 +95,18 @@
                             </div>
                         </div>
                     </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2"><a href="/projects" class="btn btn-secondary"> Proyectos</a></button></div>
+                        <div class="col-md-1"><a href="{{$project->id}}/edit"><button type="button" class="btn btn-danger">Editar</button></a></button></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    {{-- Prueba Ajax --}}
-    <div class="row container">
-        <div class="col-md-4">
-            <input type="checkbox" id="database"> Acceso a la base de datos
-
-            <select id="selectForm" style="display:none">
-                @foreach ($databases as $database)
-                    <option value="{{ $database->id }}" id="database">{{ $database->name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $('#database').change(function() {
-                if (this.checked) {
-                    $('#selectForm').show();
-                } else {
-                    $('#selectForm').hide();
-                }
-            });
-
-            $('#selectForm').change(function() {
-                $.ajax({
-                    url: '{{ route('route.name') }}',
-                    type: 'POST',
-                    data: {
-                        option: $('#selectForm').val()
-                    },
-                    success: function(data) {
-                        // Acción que se ejecuta en caso de éxito
-                        console.log(data);
-                    }
-                });
-            });
-        </script>
-    </div>
-    {{-- Prueba Ajax --}}
-
-    {{-- <div>
-        <h6> <strong>Equipos</strong></h6>
-        @foreach ($equipments as $equipment)
-            <tbody>
-                <h6>{{ $equipment->tipo }} {{ $equipment->marca }} {{ $equipment->modelo }}
-                    -
-                    {{ $equipment->serie }} <a style="padding-left:9px " href="equipment/{{ $equipment->id }}"
-                        alt="equipment"><button class="	fas fa-laptop"></button></a></h6>
-            </tbody>
-        @endforeach
-    </div> --}}
     <footer class="footer py-3 bg-green-900">
         <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
