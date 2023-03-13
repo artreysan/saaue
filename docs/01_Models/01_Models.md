@@ -1,5 +1,6 @@
 # Modelos 
 Los modelos son las persepcion de los objetos en el proyecto, estos son exclusibamente para modelar  entidades que seran relevantes durante el desarrollo. Entre los ejemplos mas comunes encontramos a modelos como: Usuario, Conlaborador, Petición, etc.
+
 Aqui hay una lista de los objetos utilizados en el proyecto que podras encontrar en la ruta relativa del proyecto: [`app\Models`](app\Models).
 
 ![01. Lista de Modelos utilizados](01_01.png)

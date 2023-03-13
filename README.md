@@ -8,6 +8,10 @@ composer i
 ```
 npm i
 ```
+## Clonar environments
+```bash
+cp .env.example .env
+```
 
 ## Correr base de datos 
 

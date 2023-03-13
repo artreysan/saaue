@@ -29,7 +29,7 @@ public function index(){
 Como vemos esta función restringe que solo los Externos (usuarios que tienen un permisos de tipo 3 en la base de datos), no pueden acceder mas que a los colaboradores que tenga o halla registrado el usuario, los Administradores y Editores (usuarios que tienen un permisos de tipo 1 o 2 respesctivamente en la base de datos), pueden visualizar todos los colaboradores en el sistema.
 Si la funcion concluye correctamente se visualizara la siguiente vista:
 
-![Vista de lista de colaboradores](./02_04_colaboradores_01.png)
+![Vista de lista de colaboradores](./02_05_colaboradores_01.png)
 
 ---
 
