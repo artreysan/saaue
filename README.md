@@ -12,7 +12,31 @@ npm i
 ```bash
 cp .env.example .env
 ```
-
+3. Generamos una key en el .env
+```bash
+php artisan key:generate
+```
+4. Modificamos dos areas:
+- Conexion a la base de datos:
+```js
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=saauedb
+DB_USERNAME=root
+DB_PASSWORD=
+```
+- Configuracion con MailHog:
+```js
+MAIL_MAILER=smtp
+MAIL_HOST=localhost
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=sict@gob.mx
+MAIL_FROM_NAME="SICT"
+```
 ## Correr base de datos 
 
 1. Correr las migraciones desde la terminal
